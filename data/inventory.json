@@ -1,0 +1,1444 @@
+{
+  "meta": {
+    "title": "ECO-lab — Measurement Inventory",
+    "subtitle": "Baseline Measurement Design",
+    "lastUpdated": "2026-10-10",
+    "version": "1.1.0"
+  },
+  "categories": [
+    {
+      "id": "motivation",
+      "label": "Motivation & Needs",
+      "icon": "💡",
+      "instruments": [
+        {
+          "id": "imi",
+          "name": "Intrinsic Motivation Inventory",
+          "abbr": "IMI",
+          "meta": {
+            "dimensions": "4–7",
+            "scale": "7-point Likert"
+          },
+          "description": "Multidimensional measurement device intended to assess participants' subjective experience related to a target activity. Freely available with scoring instructions.",
+          "constructs": ["Interest/Enjoyment", "Perceived Competence", "Effort/Importance", "Pressure/Tension"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://selfdeterminationtheory.org/intrinsic-motivation-inventory/" }
+          ]
+        },
+        {
+          "id": "mmami",
+          "name": "MUSIC Model of Academic Motivation Inventory",
+          "abbr": "MMAMI",
+          "meta": {
+            "items": "19 (recommended)",
+            "dimensions": "5",
+            "scale": "6-point Likert"
+          },
+          "description": "Based on the MUSIC Model of Motivation. Multiple versions available (26-item, 20-item, 19-item College Student forms; Middle/High School; Elementary; Cognitive Training; translations in 20+ languages).",
+          "constructs": ["eMpowerment", "Usefulness", "Success", "Interest", "Caring"],
+          "items": [
+            {
+              "group": "Empowerment (4 items)",
+              "list": [
+                "I have the freedom to complete the coursework my own way.",
+                "I have options in how to achieve the goals of the course.",
+                "I have control over how I learn the course content.",
+                "I have flexibility in what I am allowed to do in this course."
+              ]
+            },
+            {
+              "group": "Usefulness (4 items)",
+              "list": [
+                "In general, the coursework is useful to me.",
+                "The coursework is beneficial to me.",
+                "I find the coursework to be relevant to my future.",
+                "The knowledge I gain in this course is important for my future."
+              ]
+            },
+            {
+              "group": "Success (4 items)",
+              "list": [
+                "I am confident that I can succeed in the coursework.",
+                "I feel that I can be successful in meeting the academic challenges in this course.",
+                "I am capable of getting a high grade in this course.",
+                "Throughout the course, I have felt that I could be successful on the coursework."
+              ]
+            },
+            {
+              "group": "Interest (3 items)",
+              "list": [
+                "The instructional methods used in this course hold my attention.",
+                "I enjoy the instructional methods used in this course.",
+                "The instructional methods engage me in the course."
+              ]
+            },
+            {
+              "group": "Caring (4 items)",
+              "list": [
+                "The instructor is friendly.",
+                "The instructor is respectful of me.",
+                "The instructor is willing to assist me if I need help in the course.",
+                "The instructor cares about how well I do in this course."
+              ]
+            }
+          ],
+          "psychometrics": "α = .82–.96 across subscales and samples | Validated in 53+ countries",
+          "links": [
+            { "label": "🔗 Access Instrument & User Guide", "url": "https://www.theMUSICmodel.com" }
+          ]
+        },
+        {
+          "id": "bpnsfs",
+          "name": "Basic Psychological Need Satisfaction & Frustration Scale",
+          "abbr": "BPNSFS (adapted)",
+          "meta": {
+            "items": "16",
+            "factors": "4",
+            "scale": "5-point Likert"
+          },
+          "description": "Adapted from Chen et al. (2015) and Haerens et al. (2015) to distinguish peer vs. teacher relatedness satisfaction and frustration. Validated with N = 1,043 secondary PE students in Flanders, Belgium.",
+          "constructs": ["Peer Relatedness Satisfaction", "Peer Relatedness Frustration", "Teacher Relatedness Satisfaction", "Teacher Relatedness Frustration"],
+          "items": [
+            {
+              "group": "Peer Relatedness Satisfaction (4 items)",
+              "list": [
+                "... I feel connected with the classmates who I care about and who care about me.",
+                "(Adapted for peer relatedness satisfaction)",
+                "(Adapted for peer relatedness satisfaction)",
+                "(Adapted for peer relatedness satisfaction)"
+              ]
+            },
+            {
+              "group": "Peer Relatedness Frustration (4 items)",
+              "list": [
+                "... I feel that classmates who are important to me are cold and distant towards me.",
+                "(Adapted for peer relatedness frustration)",
+                "(Adapted for peer relatedness frustration)",
+                "(Adapted for peer relatedness frustration)"
+              ]
+            },
+            {
+              "group": "Teacher Relatedness Satisfaction (4 items)",
+              "list": [
+                "Adapted by replacing \"classmates\" with \"PE teacher\" and adjusting wording for the teacher-student relationship.",
+                "(Adapted for teacher relatedness satisfaction)",
+                "(Adapted for teacher relatedness satisfaction)",
+                "(Adapted for teacher relatedness satisfaction)"
+              ]
+            },
+            {
+              "group": "Teacher Relatedness Frustration (4 items)",
+              "list": [
+                "Adapted by replacing \"classmates\" with \"PE teacher\" and adjusting wording for the teacher-student relationship.",
+                "(Adapted for teacher relatedness frustration)",
+                "(Adapted for teacher relatedness frustration)",
+                "(Adapted for teacher relatedness frustration)"
+              ]
+            }
+          ],
+          "psychometrics": "McDonald's ω = .72 (peer satisfaction), .74 (peer frustration) | CFA (4-factor model): CFI = 0.95, TLI = 0.94, RMSEA = 0.06 | N = 1,043",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1007/s11218-025-10071-3" }
+          ]
+        },
+        {
+          "id": "srq-a",
+          "name": "Academic Self-Regulation Questionnaire",
+          "abbr": "SRQ-A",
+          "meta": {
+            "items": "4 per subscale",
+            "subscales": "4",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures different styles of regulation or motivation for academic behavior. Validated in Dutch with distance education students.",
+          "constructs": ["External Regulation", "Introjected Regulation", "Identified Regulation", "Intrinsic Motivation"],
+          "items": [
+            {
+              "group": "Prompt",
+              "list": [
+                "\"I am motivated to study because...\"",
+                "... this study really interests me.",
+                "... this study is enjoyable.",
+                "... I find studying a pleasant activity.",
+                "... I find this study fascinating."
+              ]
+            }
+          ],
+          "psychometrics": "McDonald's ω = .84 (Dutch distance education sample)",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://selfdeterminationtheory.org/self-regulation-questionnaires/" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "srl",
+      "label": "Self-Regulated Learning",
+      "icon": "📚",
+      "instruments": [
+        {
+          "id": "sol-q-r",
+          "name": "Self-Regulated Online Learning Questionnaire – Revised",
+          "abbr": "SOL-Q-R",
+          "meta": {
+            "items": "42",
+            "dimensions": "7",
+            "scale": "7-point Likert"
+          },
+          "description": "Validated SRL questionnaire for online education. Revised from SOL-Q. Validated using three distinct datasets (2 MOOCs + 1 blended university course). Full item set available at SOONER.NU/SOL-Q-R.",
+          "constructs": ["Metacognitive Before Learning", "Metacognitive During Learning", "Metacognitive After Learning", "Time Management", "Environmental Structuring", "Persistence", "Help Seeking"],
+          "items": [
+            {
+              "group": "Metacognitive Activities Before Learning (7 items, α = .87/.84/.77)",
+              "list": [
+                "I think about what I really need to learn before I begin a task in this online course.",
+                "I ask myself questions about what I am to study before I begin to learn for this online course.",
+                "I set short-term (daily or weekly) goals as well as long-term goals (monthly or for the whole online course).",
+                "I set goals to help me manage my studying time for this online course.",
+                "I set specific goals before I begin a task in this online course.",
+                "I think of alternative ways to solve a problem and choose the best one for this online course.",
+                "At the start of a task I think about the study strategies I will use."
+              ]
+            },
+            {
+              "group": "Metacognitive Activities During Learning (7 items, α = .82/.78/.75)",
+              "list": [
+                "I try to use strategies in this online course that have worked in the past.",
+                "I have a specific purpose for each strategy I use in this online course.",
+                "I am aware of what strategies I use when I study for this online course.",
+                "I periodically review to help me understand important relationships in this online course.",
+                "I find myself pausing regularly to check my comprehension of this online course.",
+                "I ask myself questions about how well I am doing while learning something in this online course.",
+                "I change strategies when I do not make progress while learning for this online course."
+              ]
+            },
+            {
+              "group": "Metacognitive Activities After Learning (6 items, α = .86/.86/.81)",
+              "list": [
+                "I think about what I have learned after I finish working on this online course.",
+                "I ask myself how well I accomplished my goals once I'm finished working on this online course.",
+                "I find myself analyzing the usefulness of strategies while I study for this online course.",
+                "I ask myself if there were other ways to do things after I finish learning for this online.",
+                "After studying for this online course I reflect on what I have learned.",
+                "After learning for this online course, I think about the study strategies I used."
+              ]
+            },
+            {
+              "group": "Time Management (5 items, α = .68/.72/.80)",
+              "list": [
+                "I find it hard to stick to a study schedule for this online course. (REVERSED)",
+                "I make sure I keep up with the weekly readings and assignments for this online course.",
+                "I often find that I don't spend very much time on this online course because of other activities. (REVERSED)",
+                "I make good use of my study time for this online course.",
+                "(Additional item to be confirmed from SOONER.NU/SOL-Q-R)"
+              ]
+            },
+            {
+              "group": "Environmental Structuring (4 items, α = .82/.77/.69)",
+              "list": [
+                "I choose the location where I study for this online course to avoid too much distraction.",
+                "I find a comfortable place to study for this online course.",
+                "I know where I can study most efficiently for this online course.",
+                "I have a regular place set aside for studying for this online course."
+              ]
+            },
+            {
+              "group": "Persistence (7 items, α = .82/.76/.88)",
+              "list": [
+                "When I am feeling bored studying for this online course, I force myself to pay attention.",
+                "When my mind begins to wander during a learning session for this online course, I make a special effort to keep concentrating.",
+                "When I begin to lose interest for this online course, I push myself even further.",
+                "I work hard to do well in this online course even if I don't like what I have to do.",
+                "Even when materials in this online course are dull and uninteresting, I manage to keep working until I finish.",
+                "(Two additional polar-positive items to be confirmed from SOONER.NU/SOL-Q-R)"
+              ]
+            },
+            {
+              "group": "Help Seeking (6 items, α = .88/.90/.84)",
+              "list": [
+                "When I do not fully understand something, I ask other course members in this online course for ideas.",
+                "I share my problems with any classmates in this course online so we know what we are struggling with and how to solve our problems.",
+                "I am persistent in getting help from the instructor of this online course.",
+                "When I am not sure about some material in this online course, I check with other people.",
+                "I communicate with my classmates to find out how I am doing in this online course.",
+                "(One additional item to be confirmed from SOONER.NU/SOL-Q-R)"
+              ]
+            }
+          ],
+          "psychometrics": "All subscale α ≥ .67 | NC < 2.0 across three datasets | Full questionnaire at SOONER.NU/SOL-Q-R",
+          "links": [
+            { "label": "🔗 Access Full Preprint", "url": "https://research.ou.nl/ws/portalfiles/portal/7658165/ECTEL_SOLQrevised_preprint.pdf" }
+          ]
+        },
+        {
+          "id": "mslq",
+          "name": "Motivated Strategies for Learning Questionnaire",
+          "abbr": "MSLQ",
+          "meta": {
+            "items": "81",
+            "subscales": "15",
+            "scale": "7-point Likert"
+          },
+          "description": "Evaluates students' motivational orientations and learning strategies in college courses. Adapted and tested for Dutch pre-vocational students.",
+          "constructs": ["Intrinsic Goal Orientation", "Extrinsic Goal Orientation", "Task Value", "Control of Learning Beliefs", "Self-Efficacy", "Test Anxiety", "Rehearsal", "Elaboration", "Organization", "Critical Thinking", "Metacognitive Self-Regulation", "Time & Study Environment", "Effort Regulation", "Peer Learning", "Help Seeking"],
+          "items": [
+            {
+              "group": "Intrinsic Goal Orientation (4 items, α = .74)",
+              "list": [
+                "In a class like this, I prefer course material that really challenges me so I can learn new things.",
+                "In a class like this, I prefer course material that arouses my curiosity, even if it is difficult to learn.",
+                "The most satisfying thing for me in this course is trying to understand the content as thoroughly as possible.",
+                "When I have the opportunity in this class, I choose course assignments that I can learn from even if they don't guarantee a good grade."
+              ]
+            },
+            {
+              "group": "Extrinsic Goal Orientation (4 items, α = .62)",
+              "list": [
+                "Getting a good grade in this class is the most satisfying thing for me right now.",
+                "The most important thing for me right now is improving my overall grade point average, so my main concern in this class is getting a good grade.",
+                "If I can, I want to get better grades in this class than most of the other students.",
+                "I want to do well in this class because it is important to show my ability to my family, friends, employer, or others."
+              ]
+            },
+            {
+              "group": "Task Value (6 items, α = .90)",
+              "list": [
+                "I think I will be able to use what I learn in this course in other courses.",
+                "It is important for me to learn the course material in this class.",
+                "I am very interested in the content area of this course.",
+                "I think the course material in this class is useful for me to learn.",
+                "I like the subject matter of this course.",
+                "Understanding the subject matter of this course is very important to me."
+              ]
+            },
+            {
+              "group": "Control Beliefs about Learning (4 items, α = .68)",
+              "list": [
+                "If I study in appropriate ways, then I will be able to learn the material in this course.",
+                "It is my own fault if I don't learn the material in this course.",
+                "If I try hard enough, then I will understand the course material.",
+                "If I don't understand the course material, it is because I didn't try hard enough."
+              ]
+            },
+            {
+              "group": "Self-Efficacy for Learning and Performance (8 items, α = .93)",
+              "list": [
+                "I believe I will receive an excellent grade in this class.",
+                "I'm certain I can understand the most difficult material presented in the readings for this course.",
+                "I'm confident I can understand the basic concepts taught in this course.",
+                "I'm confident I can understand the most complex material presented by the instructor in this course.",
+                "I'm confident I can do an excellent job on the assignments and tests in this course.",
+                "I expect to do well in this class.",
+                "I'm certain I can master the skills being taught in this class.",
+                "Considering the difficulty of this course, the teacher, and my skills, I think I will do well in this class."
+              ]
+            },
+            {
+              "group": "Test Anxiety (5 items, α = .80)",
+              "list": [
+                "When I take a test I think about how poorly I am doing compared with other students.",
+                "When I take a test I think about items on other parts of the test I can't answer.",
+                "When I take tests I think of the consequences of failing.",
+                "I have an uneasy, upset feeling when I take an exam.",
+                "I feel my heart beating fast when I take an exam."
+              ]
+            },
+            {
+              "group": "Rehearsal (4 items, α = .69)",
+              "list": [
+                "When I study for this class, I practice saying the material to myself over and over.",
+                "When studying for this course, I read my class notes and the course readings over and over again.",
+                "I memorize key words to remind me of important concepts in this class.",
+                "I make lists of important terms for this course and memorize the lists."
+              ]
+            },
+            {
+              "group": "Elaboration (6 items, α = .76)",
+              "list": [
+                "When I study for this class, I pull together information from different sources, such as lectures, readings, and discussions.",
+                "I try to relate ideas in this subject to those in other courses whenever possible.",
+                "When reading for this class, I try to relate the material to what I already know.",
+                "When I study for this course, I write brief summaries of the main ideas from the readings and the concepts from the lectures.",
+                "I try to understand the material in this class by making connections between the readings and the concepts from the lectures.",
+                "I try to apply ideas from course readings in other class activities such as lecture and discussion."
+              ]
+            },
+            {
+              "group": "Organization (4 items, α = .64)",
+              "list": [
+                "When I study the readings for this course, I outline the material to help me organize my thoughts.",
+                "When I study for this course, I go through the readings and my class notes and try to find the most important ideas.",
+                "I make simple charts, diagrams, or tables to help me organize course material.",
+                "When I study for this course, I go over my class notes and make an outline of important concepts."
+              ]
+            },
+            {
+              "group": "Critical Thinking (5 items, α = .80)",
+              "list": [
+                "I often find myself questioning things I hear or read in this course to decide if I find them convincing.",
+                "When a theory, interpretation, or conclusion is presented in class or in the readings, I try to decide if there is good supporting evidence.",
+                "I treat the course material as a starting point and try to develop my own ideas about it.",
+                "I try to play around with ideas of my own related to what I am learning in this course.",
+                "Whenever I read or hear an assertion or conclusion in this class, I think about possible alternatives."
+              ]
+            },
+            {
+              "group": "Metacognitive Self-Regulation (12 items, α = .79)",
+              "list": [
+                "During class time I often miss important points because I'm thinking of other things. (REVERSED)",
+                "When reading for this course, I make up questions to help focus my reading.",
+                "When I become confused about something I'm reading for this class, I go back and try to figure it out.",
+                "If course materials are difficult to understand, I change the way I read the material.",
+                "Before I study new course material thoroughly, I often skim it to see how it is organized.",
+                "I ask myself questions to make sure I understand the material I have been studying in this class.",
+                "I try to change the way I study in order to fit the course requirements and instructor's teaching style.",
+                "I often find that I have been reading for class but don't know what it was all about. (REVERSED)",
+                "I try to think through a topic and decide what I am supposed to learn from it rather than just reading it over when studying.",
+                "When studying for this course I try to determine which concepts I don't understand well.",
+                "When I study for this class, I set goals for myself in order to direct my activities in each study period.",
+                "If I get confused taking notes in class, I make sure I sort it out afterwards."
+              ]
+            },
+            {
+              "group": "Time and Study Environment (8 items, α = .76)",
+              "list": [
+                "I usually study in a place where I can concentrate on my course work.",
+                "I make good use of my study time for this course.",
+                "I find it hard to stick to a study schedule. (REVERSED)",
+                "I have a regular place set aside for studying.",
+                "I make sure I keep up with the weekly readings and assignments for this course.",
+                "I attend class regularly.",
+                "I often find that I don't spend very much time on this course because of other activities. (REVERSED)",
+                "I rarely find time to review my notes or readings before an exam. (REVERSED)"
+              ]
+            },
+            {
+              "group": "Effort Regulation (4 items, α = .69)",
+              "list": [
+                "I often feel so lazy or bored when I study for this class that I quit before I finish what I planned to do. (REVERSED)",
+                "I work hard to do well in this class even if I don't like what we are doing.",
+                "When course work is difficult, I give up or only study the easy parts. (REVERSED)",
+                "Even when course materials are dull and uninteresting, I manage to keep working until I finish."
+              ]
+            },
+            {
+              "group": "Peer Learning (3 items, α = .76)",
+              "list": [
+                "When studying for this course, I often try to explain the material to a classmate or a friend.",
+                "I try to work with other students from this class to complete the course assignments.",
+                "When studying for this course, I often set aside time to discuss the course material with a group of students from the class."
+              ]
+            },
+            {
+              "group": "Help Seeking (4 items, α = .52)",
+              "list": [
+                "Even if I have trouble learning the material in this class, I try to do the work on my own, without help from anyone. (REVERSED)",
+                "I ask the instructor to clarify concepts I don't understand well.",
+                "When I can't understand the material in this course, I ask another student in this class for help.",
+                "I try to identify students in this class whom I can ask for help if necessary."
+              ]
+            }
+          ],
+          "psychometrics": "Subscale α = 0.52–0.93 | Scale correlations with final grade significant and moderate",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1177/0013164493053003024" }
+          ]
+        },
+        {
+          "id": "assist",
+          "name": "Approaches and Study Skills Inventory for Students",
+          "abbr": "ASSIST (short version)",
+          "meta": {
+            "items": "18 (short version)",
+            "dimensions": "3",
+            "scale": "5-point Likert"
+          },
+          "description": "Identifies a student's characteristic orientation or 'style' of studying. The short version (18 items) has been validated in Vietnamese nursing students.",
+          "constructs": ["Deep Approach", "Strategic Approach", "Surface Approach"],
+          "items": [
+            {
+              "group": "Deep Approach (6 items, α = .82)",
+              "list": [
+                "When I'm reading an article or book, I try to find out for myself exactly what the author means.",
+                "Before tackling a problem or assignment, I first try to work out what lies behind it.",
+                "When I'm working on a new topic, I try to see in my own mind how all the ideas fit together.",
+                "Often I find myself questioning things I hear in lectures or read in books.",
+                "Ideas in course books or articles often set me off on long chains of thought of my own.",
+                "When I read, I examine the details carefully to see how they fit in with what's being said."
+              ]
+            },
+            {
+              "group": "Strategic Approach (6 items, α = .89)",
+              "list": [
+                "I organize my study time carefully to make the best use of it.",
+                "I work steadily through the term or semester, rather than leave it all until the last minute.",
+                "I'm pretty good at getting down to work whenever I need to.",
+                "I put a lot of effort into studying because I'm determined to do well.",
+                "I don't find it at all difficult to motivate myself.",
+                "I think I'm quite systematic and organized when it comes to revising for exams."
+              ]
+            },
+            {
+              "group": "Surface Approach (6 items, α = .70)",
+              "list": [
+                "I often have trouble in making sense of the things I have to remember.",
+                "There's not much of the work here that I find interesting or relevant.",
+                "Much of what I'm studying makes little sense: it's like unrelated bits and pieces.",
+                "Often I feel I'm drowning in the sheer amount of material we're having to cope with.",
+                "I'm not really sure what's important in lectures, so I try to get down all I can.",
+                "I often worry about whether I'll ever be able to cope with the work properly."
+              ]
+            }
+          ],
+          "psychometrics": "Total α = 0.89 | Deep α = 0.82 | Strategic α = 0.89 | Surface α = 0.70 | CFA (three-factor model): χ²/df = 7.097, CFI = 0.903, TLI = 0.886, RMSEA = 0.067 | N = 1,340 (Vietnamese short version)",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1155/2024/4260431" }
+          ]
+        },
+        {
+          "id": "oslq",
+          "name": "Online Self-Regulated Learning Questionnaire",
+          "abbr": "OSLQ",
+          "meta": {
+            "items": "24",
+            "dimensions": "6",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures student self-regulation specifically within online and blended learning contexts.",
+          "constructs": ["Goal Setting", "Environment Structuring", "Task Strategies", "Time Management", "Help Seeking", "Self-Evaluation"],
+          "items": [
+            {
+              "group": "Goal Setting (5 items)",
+              "list": [
+                "I set standards for my assignments in online courses.",
+                "I set short-term (daily or weekly) goals as well as long-term goals (monthly or for the semester).",
+                "I keep a high standard for my learning in my online courses.",
+                "I set goals to help me manage studying time for my online courses.",
+                "I don't compromise the quality of my work because it is online."
+              ]
+            },
+            {
+              "group": "Environment Structuring (4 items)",
+              "list": [
+                "I choose the location where I study to avoid too much distraction.",
+                "I find a comfortable place to study.",
+                "I know where I can study most efficiently for online courses.",
+                "I choose a time with few distractions for studying for my online courses."
+              ]
+            },
+            {
+              "group": "Task Strategies (4 items)",
+              "list": [
+                "I try to take more thorough notes for my online courses because notes are even more important for learning online than in a regular classroom.",
+                "I read aloud instructional materials posted online to fight against distractions.",
+                "I prepare my questions before joining in the chat room and discussion.",
+                "I work extra problems in my online courses in addition to the assigned ones to master the course content."
+              ]
+            },
+            {
+              "group": "Time Management (3 items)",
+              "list": [
+                "I allocate extra studying time for my online courses because I know it is time-demanding.",
+                "I try to schedule the same time everyday or every week to study for my online courses, and I observe the schedule.",
+                "Although we don't have to attend daily classes, I still try to distribute my studying time evenly across days."
+              ]
+            },
+            {
+              "group": "Help Seeking (4 items)",
+              "list": [
+                "I find someone who is knowledgeable in course content so that I can consult with him or her when I need help.",
+                "I share my problems with my classmates online so we know what we are struggling with and how to solve our problems.",
+                "If needed, I try to meet my classmates face-to-face.",
+                "I am persistent in getting help from the instructor through e-mail."
+              ]
+            },
+            {
+              "group": "Self-Evaluation (4 items)",
+              "list": [
+                "I summarize my learning in online courses to examine my understanding of what I have learned.",
+                "I ask myself a lot of questions about the course material when studying for an online course.",
+                "I communicate with my classmates to find out how I am doing in my online classes.",
+                "I communicate with my classmates to find out what I am learning that is different from what they are learning."
+              ]
+            }
+          ],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/j.iheduc.2008.10.005" }
+          ]
+        },
+        {
+          "id": "mai",
+          "name": "Metacognitive Awareness Inventory",
+          "abbr": "MAI",
+          "meta": {
+            "items": "52",
+            "categories": "2",
+            "scale": "100-point"
+          },
+          "description": "Measures adults' metacognitive awareness. Coefficient alpha for the entire instrument reaches .95.",
+          "constructs": ["Knowledge of Cognition", "Regulation of Cognition"],
+          "items": [
+            {
+              "group": "Knowledge of Cognition (sample)",
+              "list": [
+                "I understand my intellectual strengths and weaknesses.",
+                "I know what kind of information is most important to learn.",
+                "I am good at organizing information.",
+                "I have control over how well I learn.",
+                "I am a good judge of how well I understand something."
+              ]
+            },
+            {
+              "group": "Regulation of Cognition (sample)",
+              "list": [
+                "I ask myself periodically if I am meeting my goals.",
+                "I consider several alternatives to a problem before I answer.",
+                "I pace myself while learning in order to have enough time.",
+                "I think about what I really need to learn before I begin a task.",
+                "I set specific goals before I begin a task."
+              ]
+            }
+          ],
+          "psychometrics": "Full instrument α = .95 | Two-factor structure confirmed",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/S0361-476X(84)71033-2" }
+          ]
+        },
+        {
+          "id": "lassi",
+          "name": "Learning and Study Strategies Inventory",
+          "abbr": "LASSI",
+          "meta": {
+            "items": "60 (revised: 47)",
+            "scale": "Likert"
+          },
+          "description": "Instrument that measures self-regulated learning. Revised 47-item version (LASSI-DPT) demonstrated improved construct validity and excellent reliability (α = 0.92).",
+          "constructs": ["Skill", "Will", "Self-Regulation"],
+          "items": [],
+          "psychometrics": "α = 0.92 (LASSI-DPT revised version)",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1093/ptj/pzaf108" }
+          ]
+        },
+        {
+          "id": "rtq",
+          "name": "Kember et al. Reflective Thinking Scale",
+          "abbr": "RTQ",
+          "meta": {
+            "items": "16",
+            "dimensions": "4",
+            "scale": "5-point Likert"
+          },
+          "description": "One of the most widely known scales of reflective thinking. Measures four types of reflective thinking.",
+          "constructs": ["Habitual Action", "Understanding", "Reflection", "Critical Reflection"],
+          "items": [
+            {
+              "group": "Habitual Action",
+              "list": [
+                "When I am working on some activities, I can do them without thinking about what I am doing.",
+                "In this course we do things so many times that I started doing them without thinking about it.",
+                "As long as I can remember handout material for examinations, I do not have to think too much.",
+                "If I follow what the lecturer says, I do not have to think too much on this course."
+              ]
+            },
+            {
+              "group": "Understanding",
+              "list": [
+                "This course requires us to understand concepts taught by the lecturer.",
+                "To pass this course you need to understand the content.",
+                "I need to understand the material taught by the teacher in order to perform practical tasks.",
+                "In this course you have to continually think about the material you are being taught."
+              ]
+            },
+            {
+              "group": "Reflection",
+              "list": [
+                "I sometimes question the way others do something and try to think of a better way.",
+                "I like to think over what I have been doing and consider alternative ways of doing it.",
+                "I often reflect on my actions to see whether I could have improved on what I did.",
+                "I often re-appraise my experience so I can learn from it and improve for my next performance."
+              ]
+            },
+            {
+              "group": "Critical Reflection",
+              "list": [
+                "As a result of this course I have changed the way I look at myself.",
+                "This course has challenged some of my firmly held ideas.",
+                "As a result of this course I have changed my normal way of doing things.",
+                "During this course I discovered faults in what I had previously believed to be right."
+              ]
+            }
+          ],
+          "psychometrics": "α = 0.62–0.76 across subscales | CFA: 4-factor model fit (CFI = 0.903)",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1080/713611442" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "engagement",
+      "label": "Engagement",
+      "icon": "🔥",
+      "instruments": [
+        {
+          "id": "usei",
+          "name": "University Student Engagement Inventory",
+          "abbr": "USEI",
+          "meta": {
+            "items": "15",
+            "dimensions": "3",
+            "scale": "5-point Likert"
+          },
+          "description": "Validated tri-factorial scale measuring multidimensional student engagement in higher education. Can predict academic achievement and dropout intentions.",
+          "constructs": ["Behavioral Engagement", "Emotional Engagement", "Cognitive Engagement"],
+          "items": [
+            {
+              "group": "Behavioral Engagement (5 items)",
+              "list": [
+                "I pay attention in class.",
+                "I follow the school's rules.",
+                "I usually do my homework on time.",
+                "When I have doubts I ask questions and participate in debates in the classroom.",
+                "I usually participate actively in group assignments."
+              ]
+            },
+            {
+              "group": "Emotional Engagement (5 items)",
+              "list": [
+                "I don't feel very accomplished at this school. (reversed)",
+                "I feel excited about the school work.",
+                "I like being at school.",
+                "I am interested in the school work.",
+                "My classroom is an interesting place to be."
+              ]
+            },
+            {
+              "group": "Cognitive Engagement (5 items)",
+              "list": [
+                "When I read a book, I question myself to make sure I understand the subject I'm reading about.",
+                "I talk to people outside the school on matters that I learned in class.",
+                "If I do not understand the meaning of a word, I try to solve the problem, for example by consulting a dictionary or asking someone else.",
+                "I try to integrate the acquired knowledge in solving new problems.",
+                "I try to integrate subjects from different disciplines into my general knowledge."
+              ]
+            }
+          ],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1186/s41155-016-0042-8" }
+          ]
+        },
+        {
+          "id": "ose",
+          "name": "Online Student Engagement Scale",
+          "abbr": "OSE",
+          "meta": {
+            "dimensions": "4",
+            "scale": "Likert"
+          },
+          "description": "Measures active student involvement and participation behaviors specifically in online courses. Validated against tracking data from course management systems.",
+          "constructs": ["Skills", "Emotional Engagement", "Participation", "Performance"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://olj.onlinelearningconsortium.org/index.php/olj/article/view/561" }
+          ]
+        },
+        {
+          "id": "disengagement",
+          "name": "Scale of Disengagement in Online Courses",
+          "abbr": "Disengagement",
+          "meta": {
+            "items": "9",
+            "factor": "Unidimensional",
+            "scale": "5-point Likert"
+          },
+          "description": "Validated tool designed to directly measure student disengagement specifically within online learning environments. Captures passivity, lack of interest, and withdrawal. Validated with N = 772.",
+          "constructs": ["Online Disengagement"],
+          "items": [
+            {
+              "group": "9 Items (final scale)",
+              "list": [
+                "I get distracted by other things when I take the online course.",
+                "I have difficulty concentrating on the online course.",
+                "I get bored after a while and deal with other things because the instructor gives only presentations during the class.",
+                "I do other things while the online course is in progress.",
+                "I lose my motivation during the online course.",
+                "I feel lonely because I can't interact with anyone in the class.",
+                "I find the online course boring.",
+                "I have difficulty following the online course.",
+                "When I'm taking the online course on my phone, I get distracted by instant incoming calls or messages."
+              ]
+            }
+          ],
+          "psychometrics": "α = 0.87 | CR = 0.909 | AVE = 0.53 | KMO = 0.909 | One-factor model explained 51.2% variance | N = 772",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://eric.ed.gov/?id=EJ1457225" }
+          ]
+        },
+        {
+          "id": "uwes-ss",
+          "name": "Utrecht Work Engagement Scale – Student Survey",
+          "abbr": "UWES-SS",
+          "meta": {
+            "items": "15 (short: 9)",
+            "dimensions": "3",
+            "scale": "7-point Likert"
+          },
+          "description": "Adaptation of an instrument originally developed for professional workplace settings. Measures student engagement within the university context.",
+          "constructs": ["Vigour", "Dedication", "Absorption"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://www.wilmarschaufeli.nl/publications/Schaufeli/Test%20Manuals/Test_manual_UWES_English.pdf" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emotion",
+      "label": "Emotion & Affect",
+      "icon": "❤️",
+      "instruments": [
+        {
+          "id": "aeq-s",
+          "name": "Achievement Emotions Questionnaire – Short Form",
+          "abbr": "AEQ-S",
+          "meta": {
+            "emotions": "8",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures domain- and class-specific achievement emotions experienced in academic settings. Based on Pekrun's control-value theory.",
+          "constructs": ["Enjoyment", "Hope", "Pride", "Anxiety", "Anger", "Shame", "Hopelessness", "Boredom"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/j.cedpsych.2010.10.002" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social Connection & Community",
+      "icon": "🤝",
+      "instruments": [
+        {
+          "id": "forces",
+          "name": "FORCES Framework Instrument",
+          "abbr": "FORCES",
+          "meta": {
+            "items": "30 + 5 outcomes",
+            "dimensions": "6",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures student-perceived instructor social presence and facilitation strategies that cultivate social connection in distance education. Validated with N = 164 online undergraduate and graduate students.",
+          "constructs": ["Feedback", "Organization", "Response Time", "Communication", "Empathy", "Sociability"],
+          "items": [
+            {
+              "group": "Feedback (4 items)",
+              "list": [
+                "Provided feedback using a detailed rubric.",
+                "Provided feedback with a grade to help me improve my work.",
+                "Provided personalized/individualized feedback.",
+                "Provided constructive feedback with a balance of positive and areas for improvement comments."
+              ]
+            },
+            {
+              "group": "Organization (4 items)",
+              "list": [
+                "Created an online environment where materials were easy to find.",
+                "The online environment had a consistent and organized navigation.",
+                "Divided materials into manageable modules or units.",
+                "The modules clearly presented the learning objectives, content, and due dates."
+              ]
+            },
+            {
+              "group": "Response Time (4 items)",
+              "list": [
+                "Responded to me in a timely manner.",
+                "Provided feedback on assignments in a timely manner.",
+                "Responded to me according to the posted response times in the online environment.",
+                "Adhere to the response time for student communication channels and feedback."
+              ]
+            },
+            {
+              "group": "Communication (4 items)",
+              "list": [
+                "Used various communication channels.",
+                "Communicated with me individually or in small groups.",
+                "Kept me informed about my progress.",
+                "Sent out regular communication."
+              ]
+            },
+            {
+              "group": "Empathy (5 items)",
+              "list": [
+                "Valued my perspective in the class.",
+                "Fostered positive relationships with me and/or other students in the class.",
+                "Demonstrated respect by trying to understand my point of view.",
+                "Demonstrated flexibility when an unforeseen circumstance occurred.",
+                "Used encouraging language when communicating."
+              ]
+            },
+            {
+              "group": "Sociability (4 items)",
+              "list": [
+                "Appropriate and used conversational language when communicating with me.",
+                "Incorporated a positive tone in the learning environment.",
+                "Used expressions of emotions, warmth, etc.",
+                "Made my online interactions with the instructor feel sincere."
+              ]
+            },
+            {
+              "group": "Outcome Items (5 items)",
+              "list": [
+                "The instructor motivated me to learn the content.",
+                "Overall, I am satisfied with the instructor.",
+                "Overall, I was satisfied with the design of the learning environment.",
+                "Overall, I feel I have achieved the learning objectives.",
+                "Overall, I feel connected to the instructor."
+              ]
+            }
+          ],
+          "psychometrics": "α = .92–.96 (subscales) | α = .98 (full scale) | CFA: six-factor model with satisfactory fit | N = 164",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1108/QRDE-12-2025-0002" }
+          ]
+        },
+        {
+          "id": "coi",
+          "name": "Community of Inquiry Survey",
+          "abbr": "CoI",
+          "meta": {
+            "items": "34",
+            "presences": "3",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures the structural presences necessary for establishing an effective computer-mediated educational community. Open resource under Creative Commons.",
+          "constructs": ["Social Presence", "Teaching Presence", "Cognitive Presence"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://www.thecommunityofinquiry.org/coisurvey" }
+          ]
+        },
+        {
+          "id": "oscs",
+          "name": "Online Student Connectedness Survey",
+          "abbr": "OSCS",
+          "meta": {
+            "items": "25",
+            "dimensions": "4",
+            "scale": "5-point Likert"
+          },
+          "description": "Assesses online learners' psychological feelings of community and peer/instructor connectedness.",
+          "constructs": ["Community", "Comfort", "Facilitation", "Interaction & Collaboration"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Instrument", "url": "https://doi.org/10.19173/irrodl.v13i3.1171" }
+          ]
+        },
+        {
+          "id": "oips",
+          "name": "Online Instructor Presence Scale",
+          "abbr": "OIPS",
+          "meta": {
+            "items": "37",
+            "factors": "4",
+            "scale": "4-point Likert"
+          },
+          "description": "Validated instrument to assess instructor presence in online learning. Four factors: Teaching Presence (10 items, α = 0.92), Cognitive Presence (8 items, α = 0.91), Social Presence (9 items, α = 0.91), Emotional Presence (10 items, α = 0.93). Gender measurement invariance confirmed.",
+          "constructs": ["Teaching Presence", "Cognitive Presence", "Social Presence", "Emotional Presence"],
+          "items": [
+            {
+              "group": "Teaching Presence (10 items, α = 0.92)",
+              "list": [
+                "My instructor clearly communicated expectations for coursework.",
+                "My instructor discussed the course outline/syllabus with the class at the beginning of the course.",
+                "My instructor provided prompt feedback on assignments, quizzes, and tests.",
+                "My instructor encouraged students to explore new concepts in this course.",
+                "My instructor created assignments that focused on real-world situations.",
+                "My instructor encouraged students to play an important role in their own learning.",
+                "My instructor designed activities that helped students to achieve the desired learning outcomes.",
+                "My instructor responded to students' questions in a timely manner.",
+                "My instructor utilised a variety of technological tools during the teaching and learning process.",
+                "My instructor uploaded audio and videos on course content to facilitate understanding of the course."
+              ]
+            },
+            {
+              "group": "Cognitive Presence (8 items, α = 0.91)",
+              "list": [
+                "My instructor encouraged analysis of course content through class discussions and assignments.",
+                "My instructor created class activities that sparked thoughtful discussions.",
+                "My instructor provided constructive and timely feedback on assignments.",
+                "My instructor encouraged student questions through multiple venues such as email, WhatsApp, and LMS.",
+                "My instructor solicited student feedback about the course and used that feedback to enhance the course.",
+                "My instructor provided detailed instructions for assignments and projects.",
+                "My instructor provided office hours to discuss students' academic problems.",
+                "(One additional item to be confirmed from source paper)"
+              ]
+            },
+            {
+              "group": "Social Presence (9 items, α = 0.91)",
+              "list": [
+                "My instructor provided opportunities for students to contact him/her via phone and/or online means.",
+                "My instructor created the opportunity for students to discuss their ideas with other students.",
+                "My instructor connected to students individually to get to know them well.",
+                "My instructor provided opportunities for class members to work together.",
+                "My instructor provided a space for students to introduce themselves to the class through text and/or videos.",
+                "My instructor posted news about current events via the LMS that are relevant to the course content.",
+                "My instructor provided opportunities for seminar discussions.",
+                "My instructor participated in online class discussions.",
+                "My instructor organised live class sessions through video conferencing software such as Zoom."
+              ]
+            },
+            {
+              "group": "Emotional Presence (10 items, α = 0.93)",
+              "list": [
+                "My instructor provided the same amount of help to all students.",
+                "My instructor praised my work as much as he/she praised other students' work.",
+                "My instructor treated me the same as other students in the class.",
+                "My instructor was humorous.",
+                "My instructor provided a forum for students to voice out their frustrations about their learning.",
+                "My instructor demonstrated interest in my learning.",
+                "My instructor organised live class sessions to discuss the emotional needs of students.",
+                "My instructor encouraged students to support peer-to-peer connections.",
+                "My instructor provided constructive feedback on assignments and quizzes.",
+                "My instructor demonstrated interest in my career aspiration."
+              ]
+            }
+          ],
+          "psychometrics": "α = 0.91–0.93 (subscales) | Four-factor first-order model: CFI = 0.970, GFI = 0.980, RMSEA = 0.042, SRMR = 0.025 | Gender measurement invariance confirmed | N = 404",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1111/bjet.70003" }
+          ]
+        },
+        {
+          "id": "ccs",
+          "name": "Classroom Community Scale",
+          "abbr": "CCS",
+          "meta": {
+            "items": "20",
+            "factors": "2",
+            "scale": "5-point Likert"
+          },
+          "description": "Evaluates learners' overall sense of classroom community, spirit, and mutual trust. Two latent factors: Connectedness and Learning.",
+          "constructs": ["Connectedness (10 items)", "Learning (10 items)"],
+          "items": [
+            {
+              "group": "Connectedness (odd-numbered items: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19)",
+              "list": [
+                "I feel that students in this course care about each other.",
+                "I feel connected to others in this course.",
+                "I do not feel a spirit of community. (reversed)",
+                "I feel that this course is like a family.",
+                "I feel isolated in this course. (reversed)",
+                "I trust others in this course.",
+                "I feel that I can rely on others in this course.",
+                "I feel that members of this course depend on me.",
+                "I feel uncertain about others in this course. (reversed)",
+                "I feel confident that others will support me."
+              ]
+            },
+            {
+              "group": "Learning (even-numbered items: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20)",
+              "list": [
+                "I feel that I am encouraged to ask questions.",
+                "I feel that it is hard to get help when I have a question. (reversed)",
+                "I feel that I receive timely feedback.",
+                "I feel uneasy exposing gaps in my understanding. (reversed)",
+                "I feel reluctant to speak openly. (reversed)",
+                "I feel that this course results in only modest learning. (reversed)",
+                "I feel that other students do not help me learn. (reversed)",
+                "I feel that I am given ample opportunities to learn.",
+                "I feel that my educational needs are not being met. (reversed)",
+                "I feel that this course does not promote a desire to learn. (reversed)"
+              ]
+            }
+          ],
+          "psychometrics": "α = .93 (full scale) | α = .92 (Connectedness) | α = .87 (Learning) | Two-factor solution: Connectedness 42.81%, Learning 11.24% variance | N = 375",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1016/S1096-7516(02)00102-1" }
+          ]
+        },
+        {
+          "id": "sirs",
+          "name": "Student-Instructor Relationship Scale",
+          "abbr": "SIRS",
+          "meta": {
+            "items": "36",
+            "factors": "2",
+            "scale": "7-point Likert"
+          },
+          "description": "Assesses student-instructor relationship connectedness and anxiety. Two factors: Instructor Connectedness (11 items) and Instructor Anxiety (8 items).",
+          "constructs": ["Instructor Connectedness (11 items)", "Instructor Anxiety (8 items)"],
+          "items": [
+            {
+              "group": "Full 36-item scale",
+              "list": [
+                "I wish this instructor were more concerned with the welfare of students.",
+                "I find it difficult to allow myself to depend on this instructor.",
+                "The instructor is concerned with the needs of his or her students.",
+                "I'm afraid that I will lose this instructor's respect.",
+                "I worry a lot about my interactions with this instructor.",
+                "It's not difficult for me to feel connected to this instructor.",
+                "This instructor makes me doubt myself.",
+                "I am nervous around this instructor.",
+                "I find that the instructor does not connect well with students.",
+                "The instructor seems to only appreciate certain students.",
+                "I feel comfortable sharing my thoughts with this instructor.",
+                "I find it relatively easy to get close to this instructor.",
+                "Sometimes this instructor's mood is unpredictable.",
+                "This instructor shows favoritism to some students.",
+                "This instructor seems uncomfortable interacting with students.",
+                "I prefer not to show this instructor how I truly think or feel.",
+                "It's easy for me to connect with this instructor.",
+                "I get uncomfortable when instructors try to get too friendly with students.",
+                "I rarely worry about losing this instructor's respect.",
+                "It makes me mad that this instructor does not seem to pay attention to the needs of his or her students.",
+                "I am very comfortable feeling connected to a class or instructor.",
+                "I'm scared to show my thoughts around this instructor; I think he or she will think less of me.",
+                "I usually discuss my problems and concerns with this instructor.",
+                "I don't feel comfortable opening up to this instructor.",
+                "I'm afraid that if I shared my thoughts with this instructor that he or she would not think very highly of me.",
+                "I do not often worry about losing the respect of this instructor.",
+                "I find it easy to depend on this instructor for help.",
+                "If I were to get into trouble in this class, I do not think this instructor would be very motivated to help me.",
+                "I could tell this instructor just about anything.",
+                "I feel comfortable depending on this instructor.",
+                "I worry that I won't measure up to this instructor's standards.",
+                "I worry that this instructor does not really care for his or her students.",
+                "I prefer not to get too close to instructors.",
+                "I often worry that my instructor doesn't really like me.",
+                "If I had a problem in this class, I know I could talk to the instructor.",
+                "I know this instructor could make me feel better if I had a problem."
+              ]
+            }
+          ],
+          "psychometrics": "α = .89 (both subscales) | Test-retest: r = .69 (Connectedness), .66 (Anxiety) | N = 139 (Study 1), N = 263 (Study 2)",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.20429/ijsotl.2009.030214" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI-Specific Perceptions",
+      "icon": "🤖",
+      "instruments": [
+        {
+          "id": "aitaqs",
+          "name": "AI Tutoring Acceptance Quality Scale",
+          "abbr": "AITAQS",
+          "meta": {
+            "items": "12",
+            "dimensions": "4",
+            "scale": "5-point Likert"
+          },
+          "description": "Multidimensional scale evaluating students' perceived acceptance quality of AI tutoring systems. Grounded in TAM, SDT, Media Richness Theory, and the Model of Organizational Trust.",
+          "constructs": ["Feedback Quality", "Instructional Effectiveness", "Interaction Experience", "User Trust"],
+          "items": [
+            {
+              "group": "Feedback Quality (Q1–Q3)",
+              "list": [
+                "The AI tutor provides clear and detailed feedback on my singing performance, such as pitch, stress, and intonation.",
+                "The AI tutor is usually able to provide clear enough feedback to help me understand the issues in my singing.",
+                "The feedback from the AI tutor is quite rigorous, so there is no inconsistency or fluctuation in the evaluations."
+              ]
+            },
+            {
+              "group": "Instructional Effectiveness (Q4–Q6)",
+              "list": [
+                "The AI tutor can provide targeted, personalized feedback on my pronunciation issues.",
+                "With the help of the AI tutor, I'm picking up the material much faster.",
+                "The AI tutor has improved my learning process."
+              ]
+            },
+            {
+              "group": "Interaction Experience (Q7–Q9)",
+              "list": [
+                "It is easy to interact with the AI tutor while practicing singing.",
+                "The AI tutor can maintain the continuity of the conversation.",
+                "The interactive style of the AI tutor has enhanced my learning experience."
+              ]
+            },
+            {
+              "group": "User Trust (Q10–Q12)",
+              "list": [
+                "An AI tutor can provide the information I need.",
+                "The guidance provided by the AI tutor is reasonable and reliable.",
+                "I believe the AI tutor usually gives reasonable suggestions for vocal practice."
+              ]
+            }
+          ],
+          "psychometrics": "α = 0.721–0.745 | CR = 0.723–0.748 | AVE = 0.466–0.499 | HTMT = 0.501–0.633 | Best model: Bifactor-ESEM (CFI = 0.998, RMSEA = 0.020) | N = 252",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1038/s41539-026-00431-9" }
+          ]
+        },
+        {
+          "id": "srail",
+          "name": "Self-Regulated AI Learning Student Attitudes Scale",
+          "abbr": "SRAIL",
+          "meta": {
+            "items": "17",
+            "dimensions": "2",
+            "scale": "5-point Likert"
+          },
+          "description": "Validated instrument measuring students' attitudes toward the integration of AI within self-regulated learning contexts. Aligned with Zimmerman's SRL model.",
+          "constructs": ["Academic Success (9 items)", "Study Style (8 items)"],
+          "items": [
+            {
+              "group": "Academic Success (9 items)",
+              "list": [
+                "I think that using AI programmes increases my success in the lessons.",
+                "I consider that I benefit from the individualised learning experience offered by AI programmes.",
+                "I think AI programmes make my work more efficient.",
+                "I feel less stress while studying thanks to AI tools.",
+                "I encourage me to take responsibility for my learning process through the use of AI.",
+                "I think AI applications motivate me to focus on my learning goals.",
+                "I analyse topics that interest me in depth with AI tools.",
+                "I think that AI-based feedback improves my learning experience.",
+                "I use AI tools to set and monitor my academic goals."
+              ]
+            },
+            {
+              "group": "Study Style (8 items)",
+              "list": [
+                "I learn at my own pace with AI programmes.",
+                "AI offers specialised resources for my learning needs.",
+                "I integrate AI tools into my work as part of my regular work routine.",
+                "I think that AI applications increase cooperation during group work.",
+                "I think AI applications will improve the quality of my assignments and projects.",
+                "AI applications help me to organise my work schedule.",
+                "I think the use of AI programmes makes my learning processes interesting.",
+                "I evaluate my progress towards achieving my goals using AI."
+              ]
+            }
+          ],
+          "psychometrics": "α = 0.86 | CRI = 0.86 | KMO = 0.85 | Variance explained = 41.65% | CFA: χ²/df = 1.87, CFI = 0.91, TLI = 0.90 | N = 250",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1016/j.actpsy.2025.105227" }
+          ]
+        },
+        {
+          "id": "cail",
+          "name": "Collaborative AI Literacy Scale",
+          "abbr": "CAIL",
+          "meta": {
+            "finalItems": "13",
+            "dimensions": "3",
+            "scale": "Likert"
+          },
+          "description": "Assesses human–AI collaborative competencies: knowledge and skills required to direct, coordinate with, and utilize generative AI tools. Initially 16 items; 3 removed after psychometric validation.",
+          "constructs": ["Evaluating AI Tools", "Use AI Tools", "Ethical Implications of AI"],
+          "items": [
+            {
+              "group": "Evaluating AI Tools",
+              "list": [
+                "Evaluate the capabilities and limitations of an AI application or product after using it for a while.",
+                "Describe risks that may arise when using AI systems.",
+                "Identify errors made by AI.",
+                "Identify when the AI can add value and when it will not."
+              ]
+            },
+            {
+              "group": "Use AI Tools",
+              "list": [
+                "Use AI to improve your productivity.",
+                "Direct the AI so that you obtain the output that you seek.",
+                "Build upon and complement the AI's output.",
+                "Determine what information the AI needs to perform the task appropriately.",
+                "Identify new applications for using the AI's capability.",
+                "Use AI to improve the quality of your decisions or work."
+              ]
+            },
+            {
+              "group": "Ethical Implications of AI",
+              "list": [
+                "Understand the ethical considerations involved in developing and using AI technology.",
+                "Evaluate the transparency of an AI system and its decision-making processes.",
+                "Identify biases in AI systems and their potential impact."
+              ]
+            }
+          ],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1080/10447318.2025.2543997" }
+          ]
+        },
+        {
+          "id": "cam",
+          "name": "Collaborative AI Metacognition Scale",
+          "abbr": "CAM",
+          "meta": {
+            "items": "13",
+            "dimensions": "3",
+            "scale": "Likert"
+          },
+          "description": "Evaluates students' active metacognitive awareness and self-regulation over their thought processes while collaborating with generative AI.",
+          "constructs": ["Metacognitive Planning", "Monitoring", "Reflection"],
+          "items": [
+            {
+              "group": "Metacognitive Planning",
+              "list": [
+                "I plan how I will use AI before starting a task.",
+                "I set goals for what I want to achieve with AI assistance.",
+                "I think about which AI functions are best suited for the task at hand.",
+                "I decide in advance what information I need from the AI."
+              ]
+            },
+            {
+              "group": "Monitoring",
+              "list": [
+                "I check whether the AI's responses make sense while working.",
+                "I monitor whether I am relying too much on the AI.",
+                "I notice when the AI misunderstands my request.",
+                "I adjust my prompts when the AI's output is not useful.",
+                "I keep track of how the AI is contributing to my learning."
+              ]
+            },
+            {
+              "group": "Reflection",
+              "list": [
+                "I reflect on whether using AI helped me learn the material.",
+                "I consider what I could have done differently when working with AI.",
+                "I evaluate whether the AI's suggestions improved my work.",
+                "I think about how I can use AI more effectively in the future."
+              ]
+            }
+          ],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1080/10447318.2025.2543997" }
+          ]
+        },
+        {
+          "id": "tam-adapted",
+          "name": "Technology Acceptance Model",
+          "abbr": "TAM (adapted – PL context)",
+          "meta": {
+            "items": "15",
+            "constructs": "6",
+            "scale": "Likert"
+          },
+          "description": "Assesses foundational technology adoption beliefs, usability, communication clarity, and overall satisfaction with AI tools. Adapted from Teo (2009) for a programming learning context.",
+          "constructs": ["Perceived Usefulness", "Perceived Ease of Use", "Attitude / Interest", "Technological Complexity", "Self-Efficacy", "Behavioural Intention"],
+          "items": [
+            {
+              "group": "Original → Adapted",
+              "list": [
+                "Perceived Usefulness 1 — Original: Using computers will improve my work → Adapted: I learnt while using [PL]",
+                "Perceived Usefulness 2 — Original: Using computers will enhance my effectiveness → Adapted: Using [PL] will improve my efficiency",
+                "Perceived Ease of Use 1 — Original: My interaction with computers is clear and understandable → Adapted: My interaction with [PL] is clear and understandable",
+                "Perceived Ease of Use 2 — Original: I find it easy to get computers to do what I want them to do → Adapted: I find it easy to do what I want with [PL]",
+                "Perceived Ease of Use 3 — Original: I find computers easy to use → Adapted: I find [PL] easy to use",
+                "Attitude/Interest 1 — Original: Computers make work more interesting → Adapted: I found the courses in which we used [PL] interesting",
+                "Attitude/Interest 2 — Original: Working with computers is fun → Adapted: Using [PL] is fun",
+                "Attitude/Interest 3 — Original: I look forward to those aspects of my job that require me to use computers → Adapted: I enjoyed the courses in which we used [PL]",
+                "Technological Complexity 1 — Original: Learning to use the computer takes up too much of my time → Adapted: Learning to use [PL] is taking me too long",
+                "Technological Complexity 2 — Original: Using the computer takes too much time → Adapted: Working with [PL] is difficult",
+                "Technological Complexity 3 — Original: It takes too long to learn how to use the computer → Adapted: It takes too long to learn how to use [PL]",
+                "Self-Efficacy 1 — I could complete a task using [PL] if I can call someone for help if I get stuck",
+                "Self-Efficacy 2 — I could do a task using [PL] if someone showed me how to do it first",
+                "Behavioural Intention 1 — I would like to use [PL] in the future",
+                "Behavioural Intention 2 — I want to continue learning \"programming\" with [PL]"
+              ]
+            }
+          ],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Source", "url": "https://link.springer.com/article/10.1007/s11423-025-10503-z" }
+          ]
+        },
+        {
+          "id": "tam-extended",
+          "name": "Extended TAM for AI-Powered ChatGPT",
+          "abbr": "TAM (extended)",
+          "meta": {
+            "items": "41",
+            "constructs": "9",
+            "scale": "Likert"
+          },
+          "description": "Extended TAM for AI-powered ChatGPT supporting metacognitive self-regulated learning (MSRL). 9 constructs including Perceived AI Trust, AI Intelligence, and MSRL.",
+          "constructs": ["Personal Competence", "Social Influence", "Perceived AI Trust", "Perceived AI Usefulness", "Perceived AI Enjoyment", "Perceived AI Intelligence", "Attitude Toward ChatGPT", "MSRL", "Intention to Use"],
+          "items": [],
+          "psychometrics": "α = 0.81–0.89 | AVE = 0.82–0.89 | CR = 0.86–0.89 | N = 300 | Mixed-methods study",
+          "links": [
+            { "label": "🔗 Access Full Article", "url": "https://doi.org/10.1016/j.heliyon.2024.e29317" }
+          ]
+        },
+        {
+          "id": "tam-original",
+          "name": "Technology Acceptance Model (original)",
+          "abbr": "TAM (original)",
+          "meta": {
+            "constructs": "4",
+            "scale": "7-point Likert"
+          },
+          "description": "Original TAM (Davis, 1986, 1989). Posits that Perceived Usefulness (PU) and Perceived Ease of Use (PEOU) are the two primary determinants of technology acceptance.",
+          "constructs": ["Perceived Usefulness", "Perceived Ease of Use", "Attitude Toward Using", "Behavioral Intention"],
+          "items": [],
+          "psychometrics": "",
+          "links": [
+            { "label": "🔗 Access Original Dissertation (PDF)", "url": "https://quod.lib.umich.edu/b/busadwp/images/b/1/4/b1409190.0001.001.pdf" },
+            { "label": "🔗 Access Davis (1989) MIS Quarterly", "url": "https://doi.org/10.2307/249008" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wellbeing",
+      "label": "Well-being",
+      "icon": "🌿",
+      "instruments": [
+        {
+          "id": "who-5",
+          "name": "WHO-5 Wellbeing Index",
+          "abbr": "WHO-5",
+          "meta": {
+            "items": "5",
+            "scale": "6-point Likert",
+            "languages": "30+"
+          },
+          "description": "World Health Organization Well-being Index. A short, validated instrument measuring subjective psychological well-being over the past two weeks.",
+          "constructs": ["Psychological Well-being"],
+          "items": [
+            {
+              "group": "English",
+              "list": [
+                "I have felt cheerful and in good spirits.",
+                "I have felt calm and relaxed.",
+                "I have felt active and vigorous.",
+                "I woke up feeling fresh and rested.",
+                "My daily life has been filled with things that interest me."
+              ]
+            },
+            {
+              "group": "Dutch",
+              "list": [
+                "Ik voelde me vrolijk en in een opperbeste stemming.",
+                "Ik voelde me rustig en ontspannen.",
+                "Ik voelde me actief en doelbewust.",
+                "Ik voelde me fris en uitgerust wanneer ik wakker werd.",
+                "Mijn dagelijkse leven was gevuld met dingen die me interesseren."
+              ]
+            }
+          ],
+          "psychometrics": "α = 0.82–0.95 | Test-retest: r = 0.77–0.83 over 2 weeks | Sensitivity/specificity: 0.83/0.81 for detecting depression (cut-off ≤ 50) | Scoring: sum items × 4 = 0–100. Higher = better well-being.",
+          "links": [
+            { "label": "🔗 Access English Version", "url": "https://www.who.int/publications/i/item/WHO-UCN-MSD-MHE-2024.01" },
+            { "label": "🔗 Access Dutch Version", "url": "https://cdn.who.int/media/docs/default-source/mental-health/five-well-being-index-(who-5)/who-5_dutch.pdf" }
+          ]
+        }
+      ]
+    }
+  ]
+}

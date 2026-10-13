@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECO-lab — Measurement Inventory</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.6; }
+
+  header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  header h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: 0.5px; }
+  header p { font-size: 0.85rem; opacity: 0.7; margin-top: 0.25rem; }
+
+  .container { display: flex; max-width: 1400px; margin: 0 auto; min-height: calc(100vh - 80px); }
+
+  nav { width: 300px; background: white; border-right: 1px solid #e0e0e0; padding: 1.5rem 0; flex-shrink: 0; overflow-y: auto; height: calc(100vh - 80px); position: sticky; top: 80px; }
+  nav h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #888; padding: 0 1.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem; }
+  nav h2:first-child { margin-top: 0; }
+  nav a { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.5rem; color: #444; text-decoration: none; font-size: 0.85rem; transition: all 0.15s; border-left: 3px solid transparent; }
+  nav a:hover { background: #f0f4ff; color: #2563eb; }
+  nav a.active { background: #eff6ff; color: #2563eb; border-left-color: #2563eb; font-weight: 500; }
+  nav .badge { font-size: 0.65rem; background: #e5e7eb; color: #666; padding: 0.1rem 0.4rem; border-radius: 10px; margin-left: auto; }
+
+  main { flex: 1; padding: 2rem; max-width: 920px; }
+
+  .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; transition: box-shadow 0.2s; }
+  .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+  .instrument-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .instrument-header h3 { font-size: 1.15rem; color: #1a1a2e; }
+  .instrument-header h3 .abbr { color: #6b7280; font-weight: 400; font-size: 0.95rem; }
+
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+  .meta-item { background: #f8fafc; padding: 0.6rem 0.8rem; border-radius: 8px; }
+  .meta-item .label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; margin-bottom: 0.15rem; }
+  .meta-item .value { font-size: 0.85rem; font-weight: 500; color: #334155; }
+
+  .description { font-size: 0.9rem; color: #475569; margin-bottom: 0.5rem; }
+
+  .construct-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+  .construct-tag { font-size: 0.75rem; background: #f1f5f9; color: #475569; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid #e2e8f0; }
+
+  details { margin-top: 0.75rem; }
+  details summary { cursor: pointer; font-size: 0.85rem; font-weight: 500; color: #2563eb; padding: 0.5rem 0; user-select: none; list-style: none; display: flex; align-items: center; gap: 0.4rem; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: '▶'; font-size: 0.6rem; transition: transform 0.2s; display: inline-block; }
+  details[open] summary::before { transform: rotate(90deg); }
+  details .items-content { padding: 0.75rem 0 0.5rem 1rem; border-left: 2px solid #e5e7eb; }
+  .item-group { margin-bottom: 0.9rem; }
+  .item-group h4 { font-size: 0.8rem; color: #64748b; margin-bottom: 0.3rem; font-weight: 600; }
+  .item-group ol { padding-left: 1.2rem; }
+  .item-group li { font-size: 0.82rem; color: #475569; margin-bottom: 0.25rem; }
+
+  .link-btn { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; color: #2563eb; text-decoration: none; padding: 0.35rem 0.75rem; border: 1px solid #bfdbfe; border-radius: 6px; transition: all 0.15s; margin-top: 0.5rem; margin-right: 0.4rem; }
+  .link-btn:hover { background: #eff6ff; border-color: #2563eb; }
+
+  .psych-note { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 0.6rem 0.9rem; border-radius: 6px; font-size: 0.8rem; color: #166534; margin-top: 0.75rem; }
+
+  .metrics-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 0.5rem; }
+  .metrics-table th { text-align: left; padding: 0.5rem 0.75rem; background: #f8fafc; color: #64748b; font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; }
+  .metrics-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: top; }
+  .metrics-table tr:hover td { background: #f8fafc; }
+  .metric-name { font-weight: 500; color: #1a1a2e; }
+  .metric-desc { color: #64748b; font-size: 0.78rem; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .loading { text-align: center; padding: 3rem; color: #94a3b8; font-size: 0.9rem; }
+
+  @media (max-width: 768px) {
+    .container { flex-direction: column; }
+    nav { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e0e0e0; padding: 0.5rem 0; }
+    nav a { padding: 0.4rem 1rem; font-size: 0.8rem; }
+    main { padding: 1rem; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="site-title">Loading…</h1>
+  <p id="site-subtitle"></p>
+</header>
+
+<div class="container">
+
+<nav id="nav">
+  <h2>Theoretical Constructs</h2>
+  <div id="nav-constructs"></div>
+  <h2>Objective Data</h2>
+  <a href="#" data-section="academic">🎓 Academic Profile</a>
+  <a href="#" data-section="lms">💻 LMS / Brightspace</a>
+  <a href="#" data-section="ai-metrics">💬 AI Tutor Metrics</a>
+</nav>
+
+<main id="main">
+  <div id="categories-container">
+    <div class="loading">Loading inventory…</div>
+  </div>
+
+  <!-- ACADEMIC PROFILE (static) -->
+  <div id="academic" class="section">
+    <h2 style="margin-bottom:1rem;">Academic Profile &amp; Performance</h2>
+    <div class="card">
+      <table class="metrics-table">
+        <thead><tr><th>Metric</th><th>Source</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="metric-name">Incoming GPA</td><td>Student Info</td><td class="metric-desc">Prior academic achievement for baseline equivalence</td></tr>
+          <tr><td class="metric-name">Number of Credits</td><td>Student Info</td><td class="metric-desc">Academic load indicator</td></tr>
+          <tr><td class="metric-name">Socio-Demographic Info</td><td>Student Info</td><td class="metric-desc">Background variables for controlled comparisons</td></tr>
+          <tr><td class="metric-name">Prior Knowledge / Goal Test</td><td>Self-report / Test</td><td class="metric-desc">Baseline knowledge assessment</td></tr>
+          <tr><td class="metric-name">Course Grades / Assessments</td><td>Course</td><td class="metric-desc">Outcome comparison between conditions</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LMS (static) -->
+  <div id="lms" class="section">
+    <h2 style="margin-bottom:1rem;">LMS / Brightspace Data</h2>
+    <div class="card">
+      <table class="metrics-table">
+        <thead><tr><th>Metric</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="metric-name">Log Data</td><td>Continuous</td><td class="metric-desc">Keystrokes, activity time, navigation patterns</td></tr>
+          <tr><td class="metric-name">Total Chat Events</td><td>Count</td><td class="metric-desc">Message count in discussion forums / chats</td></tr>
+          <tr><td class="metric-name">Experience Sampling</td><td>Self-report</td><td class="metric-desc">In-the-moment perceived pressure, workload, satisfaction</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- AI METRICS (static) -->
+  <div id="ai-metrics" class="section">
+    <h2 style="margin-bottom:1rem;">AI Tutor Interaction Metrics</h2>
+    <div class="card">
+      <p class="description" style="margin-bottom:1rem;">Objective metrics extracted from AI Tutor conversations to quantify learning orientation, scaffolding quality, and engagement patterns.</p>
+      <table class="metrics-table">
+        <thead><tr><th>Metric</th><th>Abbr.</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="metric-name">Conversational Engagement Score</td><td>CES</td><td class="metric-desc">Measuring turn counts and callbacks to distinguish dialogue from transactional queries</td></tr>
+          <tr><td class="metric-name">Learning Orientation Index</td><td>LOI</td><td class="metric-desc">Detects exploratory learning (why/how questions) vs. answer-seeking</td></tr>
+          <tr><td class="metric-name">Scaffolding Resistance Score</td><td>SRS</td><td class="metric-desc">Measures the extent to which students treat scaffolding as a barrier</td></tr>
+          <tr><td class="metric-name">Assignment Dependency Ratio</td><td>ADR</td><td class="metric-desc">Detects when students use AI primarily to obtain solutions rather than engaging in exploratory learning</td></tr>
+          <tr><td class="metric-name">Crisis Mode Indicator</td><td>CMI</td><td class="metric-desc">Flags late-stage, high-pressure solution-seeking behavior</td></tr>
+          <tr><td class="metric-name">Bloom's Taxonomy Distribution</td><td>—</td><td class="metric-desc">Categorizes and monitors cognitive level of student-AI interactions</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+
+<script>
+// ============================================================
+// RENDER ENGINE — loads data/inventory.json and builds the page
+// ============================================================
+
+async function loadInventory() {
+  const res = await fetch('data/inventory.json');
+  if (!res.ok) throw new Error('Failed to load data/inventory.json');
+  return await res.json();
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderMeta(meta) {
+  document.getElementById('site-title').textContent = meta.title;
+  document.getElementById('site-subtitle').textContent = meta.subtitle;
+  document.title = meta.title;
+}
+
+function renderNav(categories) {
+  const container = document.getElementById('nav-constructs');
+  container.innerHTML = categories.map((cat, idx) => `
+    <a href="#" data-section="${cat.id}" class="${idx === 0 ? 'active' : ''}">
+      ${cat.icon || ''} ${escapeHtml(cat.label)}
+      <span class="badge">${cat.instruments.length}</span>
+    </a>
+  `).join('');
+}
+
+function renderInstruments(instruments) {
+  return instruments.map(inst => {
+    const metaHtml = Object.entries(inst.meta || {}).map(([k, v]) => `
+      <div class="meta-item">
+        <div class="label">${escapeHtml(k)}</div>
+        <div class="value">${escapeHtml(v)}</div>
+      </div>
+    `).join('');
+
+    const constructsHtml = (inst.constructs || []).map(c =>
+      `<span class="construct-tag">${escapeHtml(c)}</span>`
+    ).join('');
+
+    const itemsHtml = (inst.items && inst.items.length) ? `
+      <details>
+        <summary>📋 View Items</summary>
+        <div class="items-content">
+          ${inst.items.map(group => `
+            <div class="item-group">
+              <h4>${escapeHtml(group.group)}</h4>
+              <ol>${group.list.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ol>
+            </div>
+          `).join('')}
+        </div>
+      </details>
+    ` : '';
+
+    const psychHtml = inst.psychometrics
+      ? `<div class="psych-note">${escapeHtml(inst.psychometrics)}</div>`
+      : '';
+
+    const linksHtml = (inst.links || []).map(l =>
+      `<a class="link-btn" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`
+    ).join('');
+
+    return `
+      <div class="card">
+        <div class="instrument-header">
+          <h3>${escapeHtml(inst.name)} <span class="abbr">(${escapeHtml(inst.abbr)})</span></h3>
+        </div>
+        <div class="meta-grid">${metaHtml}</div>
+        <p class="description">${escapeHtml(inst.description)}</p>
+        <div class="construct-list">${constructsHtml}</div>
+        ${itemsHtml}
+        ${/* psychHtml */ ''}
+        ${linksHtml}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderCategories(categories) {
+  const container = document.getElementById('categories-container');
+  container.innerHTML = categories.map((cat, idx) => `
+    <div id="${cat.id}" class="section ${idx === 0 ? 'active' : ''}">
+      <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
+      ${renderInstruments(cat.instruments)}
+    </div>
+  `).join('');
+}
+
+function attachNavHandlers() {
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.dataset.section;
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      const section = document.getElementById(target);
+      if (section) section.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+}
+
+async function init() {
+  try {
+    const data = await loadInventory();
+    renderMeta(data.meta);
+    renderNav(data.categories);
+    renderCategories(data.categories);
+    attachNavHandlers();
+  } catch (err) {
+    document.getElementById('categories-container').innerHTML =
+      `<div class="card"><p class="description">⚠️ Could not load inventory.json: ${escapeHtml(err.message)}<br><br>
+      If you are opening this file directly (<code>file://</code>), please serve it via a local web server or GitHub Pages.
+      For example, run <code>python3 -m http.server</code> in the project folder.</p></div>`;
+  }
+}
+
+init();
+</script>
+
+</body>
+</html>
