@@ -2,8 +2,8 @@
   "meta": {
     "title": "ECO-lab — Measurement Inventory",
     "subtitle": "Baseline Measurement Design",
-    "lastUpdated": "2026-10-10",
-    "version": "1.1.0"
+    "lastUpdated": "2026-10-14",
+    "version": "1.2.0"
   },
   "categories": [
     {
@@ -148,27 +148,39 @@
           "name": "Academic Self-Regulation Questionnaire",
           "abbr": "SRQ-A",
           "meta": {
-            "items": "4 per subscale",
+            "items": "16 (4 per subscale)",
             "subscales": "4",
             "scale": "5-point Likert"
           },
-          "description": "Measures different styles of regulation or motivation for academic behavior. Validated in Dutch with distance education students.",
+          "description": "Measures different styles of regulation or motivation for academic behavior. Based on Self-Determination Theory (Ryan & Connell, 1989). Adapted for Dutch-speaking populations by Vansteenkiste et al. (2009). Validated with distance education students (Vos et al., 2025).",
           "constructs": ["External Regulation", "Introjected Regulation", "Identified Regulation", "Intrinsic Motivation"],
           "items": [
             {
-              "group": "Prompt",
+              "group": "Stem: \"I am motivated to study because...\"",
               "list": [
-                "\"I am motivated to study because...\"",
-                "... this study really interests me.",
-                "... this study is enjoyable.",
-                "... I find studying a pleasant activity.",
-                "... I find this study fascinating."
+                "1. Because I'm supposed to do so. (External Regulation)",
+                "2. Because that's something others (parents, friends, etc.) force me to do. (External Regulation)",
+                "3. Because others (parents, friends, etc.) oblige me to do so. (External Regulation)",
+                "4. Because that's what others (e.g., parents, friends) expect me to do. (External Regulation)",
+                "5. Because I want others to think I'm smart. (Introjected Regulation)",
+                "6. Because I would feel guilty if I didn't study. (Introjected Regulation)",
+                "7. Because I would feel ashamed if I didn't study. (Introjected Regulation)",
+                "8. Because I want others to think I'm a good student. (Introjected Regulation)",
+                "9. Because I want to learn new things. (Intrinsic Motivation)",
+                "10. Because it is personally important to me. (Identified Regulation)",
+                "11. Because this represents a meaningful choice to me. (Identified Regulation)",
+                "12. Because this is an important life goal to me. (Identified Regulation)",
+                "13. Because I am highly interested in doing this. (Intrinsic Motivation)",
+                "14. Because I enjoy doing it. (Intrinsic Motivation)",
+                "15. Because it's fun. (Intrinsic Motivation)",
+                "16. Because it's an exciting thing to do. (Intrinsic Motivation)"
               ]
             }
           ],
-          "psychometrics": "McDonald's ω = .84 (Dutch distance education sample)",
+          "psychometrics": "Autonomous α = .87/.88 | Controlled α = .72/.84 | McDonald's ω = .85 (autonomous), .81 (controlled) | N = 887 (Study 1), N = 484 (Study 2), N = 1,151 (Vos et al., 2025)",
           "links": [
-            { "label": "🔗 Access Instrument", "url": "https://selfdeterminationtheory.org/self-regulation-questionnaires/" }
+            { "label": "🔗 Access Instrument (SDT)", "url": "https://selfdeterminationtheory.org/self-regulation-questionnaires/" },
+            { "label": "🔗 Access Vansteenkiste et al. (2009)", "url": "https://doi.org/10.1037/a0015083" }
           ]
         }
       ]
@@ -270,6 +282,61 @@
           "psychometrics": "All subscale α ≥ .67 | NC < 2.0 across three datasets | Full questionnaire at SOONER.NU/SOL-Q-R",
           "links": [
             { "label": "🔗 Access Full Preprint", "url": "https://research.ou.nl/ws/portalfiles/portal/7658165/ECTEL_SOLQrevised_preprint.pdf" }
+          ]
+        },
+        {
+          "id": "srl-p",
+          "name": "SRL-Practices Scale",
+          "abbr": "SRL-P",
+          "meta": {
+            "items": "31",
+            "dimensions": "8",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures students' perception of engagement in self-regulated learning strategies in online and distance learning contexts. Part of the SRL Profile and Self-Diagnostic Instrument (SRL-PSD; Hadwin et al., 2022). Validated with N = 1,151 distance learners (Vos et al., 2025).",
+          "constructs": ["Task Understanding", "Task Value", "Goal Management", "Motivation Appraisal", "Time Management", "Metacognitive Monitoring", "Metacognitive Adaptation", "Social Engagement"],
+          "items": [
+            {
+              "group": "Stem: \"Over the last two weeks, when I did academic work, I...\"",
+              "list": [
+                "Task Understanding (5 items) — e.g., \"thought about relevant information and resources\"",
+                "Task Value (3 items) — e.g., \"reflected on why this work is important\"",
+                "Goal Management (5 items) — e.g., \"made goals to learn, understand or remember\"",
+                "Motivation Appraisal (3 items) — e.g., \"assessed if I think I can do it\"",
+                "Time Management (3 items) — e.g., \"created a timeline or a schedule\"",
+                "Metacognitive Monitoring (3 items) — e.g., \"asked myself if I understand the material\"",
+                "Metacognitive Adaptation (6 items) — e.g., \"switched to a different strategy or approach\"",
+                "Social Engagement (3 items) — e.g., \"helped fellow students\""
+              ]
+            }
+          ],
+          "psychometrics": "McDonald's ω = 0.65–0.82 | N = 1,151 distance learners | BESEM measurement model | Factor scores used for Latent Profile Analysis",
+          "links": [
+            { "label": "🔗 Access Source (Vos et al., 2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }
+          ]
+        },
+        {
+          "id": "srl-se",
+          "name": "SRL Self-Efficacy Scale",
+          "abbr": "SRL-SE",
+          "meta": {
+            "items": "12",
+            "scale": "5-point Likert"
+          },
+          "description": "Measures students' confidence in their ability to engage in self-regulated learning activities. Part of the SRL Profile and Self-Diagnostic Instrument (SRL-PSD; Hadwin et al., 2021). Validated with N = 1,151 distance learners (Vos et al., 2025).",
+          "constructs": ["SRL Self-Efficacy"],
+          "items": [
+            {
+              "group": "Stem: \"In the next two weeks, I can...\"",
+              "list": [
+                "e.g., \"manage my goals\"",
+                "(Additional items cover planning, monitoring, adapting, time management, help-seeking — 12 items total)"
+              ]
+            }
+          ],
+          "psychometrics": "McDonald's ω = 0.90 | N = 1,151 distance learners",
+          "links": [
+            { "label": "🔗 Access Source (Vos et al., 2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }
           ]
         },
         {
@@ -1134,6 +1201,112 @@
       "icon": "🤖",
       "instruments": [
         {
+          "id": "sus",
+          "name": "System Usability Scale",
+          "abbr": "SUS",
+          "meta": {
+            "items": "10",
+            "scale": "5-point Likert"
+          },
+          "description": "The most widely used questionnaire for assessing perceived usability of a system. Developed by Brooke (1996). Measures effectiveness, efficiency, and satisfaction. Industry average score is ~68 (not a percentage). Widely used for evaluating AI tutoring systems, eHealth apps, and digital learning tools.",
+          "constructs": ["Perceived Usability"],
+          "items": [
+            {
+              "group": "10 Items (items 2, 4, 6, 8, 10 are reverse-scored)",
+              "list": [
+                "1. I think that I would like to use this system frequently.",
+                "2. I found the system unnecessarily complex. (REVERSE)",
+                "3. I thought the system was easy to use.",
+                "4. I think that I would need the support of a technical person to be able to use this system. (REVERSE)",
+                "5. I found the various functions in this system were well integrated.",
+                "6. I thought there was too much inconsistency in this system. (REVERSE)",
+                "7. I would imagine that most people would learn to use this system very quickly.",
+                "8. I found the system very cumbersome to use. (REVERSE)",
+                "9. I felt very confident using the system.",
+                "10. I needed to learn a lot of things before I could get going with this system. (REVERSE)"
+              ]
+            }
+          ],
+          "psychometrics": "Scoring: (odd items: response − 1; even items: 5 − response) summed × 2.5 = 0–100 scale | Average ≈ 68 | Dutch D-SUS validated: α = 0.74, test-retest r = 0.75",
+          "links": [
+            { "label": "🔗 Access Instrument (Brooke, 1996)", "url": "https://www.tbistafftraining.info/smartphones/documents/b5_during_the_trial_usability_scale_v1_09aug11.pdf" },
+            { "label": "🔗 Access Dutch D-SUS Validation", "url": "https://doi.org/10.1080/09638288.2022.2160837" }
+          ]
+        },
+        {
+          "id": "utaut",
+          "name": "Unified Theory of Acceptance and Use of Technology",
+          "abbr": "UTAUT",
+          "meta": {
+            "items": "16 core items",
+            "constructs": "4 core + BI",
+            "scale": "7-point Likert"
+          },
+          "description": "Unified model integrating eight technology acceptance theories (TRA, TAM, TPB, etc.). Developed by Venkatesh et al. (2003). Four core determinants of intention and use: Performance Expectancy, Effort Expectancy, Social Influence, and Facilitating Conditions. Extended in UTAUT2 (2012) with Hedonic Motivation, Price Value, and Habit.",
+          "constructs": ["Performance Expectancy", "Effort Expectancy", "Attitude Toward Using Technology", "Social Influence", "Facilitating Conditions", "Behavioral Intention"],
+          "items": [
+            {
+              "group": "Performance Expectancy (4 items)",
+              "list": [
+                "U6: I would find the system useful in my job.",
+                "RA1: Using the system enables me to accomplish tasks more quickly.",
+                "RA5: Using the system increases my productivity.",
+                "OE7: If I use the system, I will increase my chances of getting a raise."
+              ]
+            },
+            {
+              "group": "Effort Expectancy (4 items)",
+              "list": [
+                "EOU3: My interaction with the system would be clear and understandable.",
+                "EOU5: It would be easy for me to become skillful at using the system.",
+                "EOU6: I would find the system easy to use.",
+                "EU4: Learning to operate the system is easy for me."
+              ]
+            },
+            {
+              "group": "Attitude Toward Using Technology (4 items)",
+              "list": [
+                "AI: Using the system is a bad/good idea.",
+                "AF1: The system makes work more interesting.",
+                "AF2: Working with the system is fun.",
+                "Affect1: I like working with the system."
+              ]
+            },
+            {
+              "group": "Social Influence (4 items)",
+              "list": [
+                "SN1: People who influence my behavior think that I should use the system.",
+                "SN2: People who are important to me think that I should use the system.",
+                "SF2: The senior management of this business has been helpful in the use of the system.",
+                "SF4: In general, the organization has supported the use of the system."
+              ]
+            },
+            {
+              "group": "Facilitating Conditions (4 items)",
+              "list": [
+                "PBC2: I have the resources necessary to use the system.",
+                "PBC3: I have the knowledge necessary to use the system.",
+                "PBC5: The system is not compatible with other systems I use. (REVERSE)",
+                "PBC6: A specific person (or group) is available for assistance with system difficulties."
+              ]
+            },
+            {
+              "group": "Behavioral Intention (3 items)",
+              "list": [
+                "BI1: I intend to use the system in my daily life.",
+                "BI2: I intend to use the system in various situations.",
+                "BI3: I intend to use the system regularly."
+              ]
+            }
+          ],
+          "psychometrics": "7-point Likert scale | UTAUT2 (2012) adds: Hedonic Motivation, Price Value, Habit | Validated across many contexts and cultures",
+          "links": [
+            { "label": "🔗 Access Original Article (Venkatesh et al., 2003)", "url": "https://doi.org/10.2307/30036540" },
+            { "label": "🔗 Access UTAUT2 (Venkatesh et al., 2012)", "url": "https://doi.org/10.2307/41410412" }
+          ]
+        },
+
+        {
           "id": "aitaqs",
           "name": "AI Tutoring Acceptance Quality Scale",
           "abbr": "AITAQS",
@@ -1436,6 +1609,33 @@
           "links": [
             { "label": "🔗 Access English Version", "url": "https://www.who.int/publications/i/item/WHO-UCN-MSD-MHE-2024.01" },
             { "label": "🔗 Access Dutch Version", "url": "https://cdn.who.int/media/docs/default-source/mental-health/five-well-being-index-(who-5)/who-5_dutch.pdf" }
+          ]
+        },
+        {
+          "id": "wemwbs",
+          "name": "Warwick-Edinburgh Mental Well-Being Scale",
+          "abbr": "WEMWBS",
+          "meta": {
+            "items": "14",
+            "scale": "5-point Likert"
+          },
+          "description": "Short scale capturing a general picture of mental well-being, focusing on positive human functioning. Includes eudaimonic and hedonic aspects of well-being: positive affect, interpersonal relationships, and positive functioning. Validated with N = 1,151 distance learners (Vos et al., 2025).",
+          "constructs": ["Mental Well-being"],
+          "items": [
+            {
+              "group": "14 Items",
+              "list": [
+                "I feel positive about the future.",
+                "I am interested in others.",
+                "I can think clearly.",
+                "(11 additional items covering positive affect, interpersonal relationships, and positive functioning)"
+              ]
+            }
+          ],
+          "psychometrics": "McDonald's ω = 0.91 | Items rated 1 (never) to 5 (always) | One-factor CFA confirmed | N = 1,151 distance learners",
+          "links": [
+            { "label": "🔗 Access Instrument (Tennant et al., 2007)", "url": "https://doi.org/10.1186/1477-7525-5-63" },
+            { "label": "🔗 Access Vos et al. (2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }
           ]
         }
       ]
