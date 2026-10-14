@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECO-lab — Measurement Inventory</title>
+<title>ECO-lab Measurement Inventory</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.6; }
@@ -11,6 +11,20 @@
   header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
   header h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: 0.5px; }
   header p { font-size: 0.85rem; opacity: 0.7; margin-top: 0.25rem; }
+
+  #active-filter-badge {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: #2563eb;
+    color: white;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.4);
+  }
 
   .container { display: flex; max-width: 1400px; margin: 0 auto; min-height: calc(100vh - 80px); }
 
@@ -41,7 +55,6 @@
   .construct-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
   .construct-tag { font-size: 0.75rem; background: #f1f5f9; color: #475569; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid #e2e8f0; }
 
-  /* TAG PILLS */
   .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
   .tag-pill { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; }
   .tag-administration { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
@@ -64,8 +77,6 @@
   .link-btn { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; color: #2563eb; text-decoration: none; padding: 0.35rem 0.75rem; border: 1px solid #bfdbfe; border-radius: 6px; transition: all 0.15s; margin-top: 0.5rem; margin-right: 0.4rem; }
   .link-btn:hover { background: #eff6ff; border-color: #2563eb; }
 
-  .psych-note { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 0.6rem 0.9rem; border-radius: 6px; font-size: 0.8rem; color: #166534; margin-top: 0.75rem; }
-
   .metrics-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 0.5rem; }
   .metrics-table th { text-align: left; padding: 0.5rem 0.75rem; background: #f8fafc; color: #64748b; font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e2e8f0; }
   .metrics-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: top; }
@@ -73,7 +84,6 @@
   .metric-name { font-weight: 500; color: #1a1a2e; }
   .metric-desc { color: #64748b; font-size: 0.78rem; }
 
-  /* COLLECTION CARD */
   .collection-card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; }
   .collection-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
   .collection-icon { font-size: 1.75rem; }
@@ -88,9 +98,27 @@
   .collection-datasource-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: #f0f4ff; border-radius: 6px; font-size: 0.83rem; color: #1e40af; }
 
   /* FILTER BAR */
-  .filter-bar { background: white; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+  .filter-bar { background: white; border-radius: 12px; padding: 0; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; overflow: hidden; }
+  .filter-bar summary {
+    cursor: pointer;
+    padding: 1rem 1.25rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    font-weight: 700;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .filter-bar summary::-webkit-details-marker { display: none; }
+  .filter-bar summary::after { content: '▼'; font-size: 0.6rem; color: #94a3b8; transition: transform 0.2s; }
+  .filter-bar[open] summary::after { transform: rotate(180deg); }
+  .filter-bar-body { padding: 1rem 1.25rem; }
   .filter-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
-  .filter-bar-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; }
   .filter-clear { font-size: 0.75rem; color: #2563eb; background: none; border: none; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.15s; }
   .filter-clear:hover { background: #eff6ff; }
   .filter-clear:disabled { color: #cbd5e1; cursor: default; }
@@ -119,6 +147,7 @@
     main { padding: 1rem; }
     .meta-grid { grid-template-columns: 1fr 1fr; }
     .filter-groups { flex-direction: column; gap: 1rem; }
+    #active-filter-badge { top: 0.75rem; right: 0.75rem; font-size: 0.7rem; }
   }
 </style>
 </head>
@@ -127,6 +156,7 @@
 <header>
   <h1 id="site-title">Loading…</h1>
   <p id="site-subtitle"></p>
+  <span id="active-filter-badge"></span>
 </header>
 
 <div class="container">
@@ -150,28 +180,31 @@
 
 <main id="main">
 
-  <!-- FILTER BAR -->
-  <div class="filter-bar" id="filter-bar">
-    <div class="filter-bar-header">
-      <span class="filter-bar-title">🔍 Filter Instruments</span>
-      <button class="filter-clear" id="filter-clear" disabled>Clear all</button>
+  <!-- FILTER BAR (collapsible) -->
+  <details class="filter-bar" id="filter-bar" open>
+    <summary>🔍 Filter Instruments</summary>
+    <div class="filter-bar-body">
+      <div class="filter-bar-header">
+        <span></span>
+        <button class="filter-clear" id="filter-clear" disabled>Clear all</button>
+      </div>
+      <div class="filter-groups">
+        <div class="filter-group">
+          <span class="filter-group-label">Administration</span>
+          <div class="filter-chips" id="filter-administration"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Target</span>
+          <div class="filter-chips" id="filter-target"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Condition</span>
+          <div class="filter-chips" id="filter-condition"></div>
+        </div>
+      </div>
+      <div class="filter-results" id="filter-results"></div>
     </div>
-    <div class="filter-groups">
-      <div class="filter-group">
-        <span class="filter-group-label">Administration</span>
-        <div class="filter-chips" id="filter-administration"></div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-group-label">Target</span>
-        <div class="filter-chips" id="filter-target"></div>
-      </div>
-      <div class="filter-group">
-        <span class="filter-group-label">Condition</span>
-        <div class="filter-chips" id="filter-condition"></div>
-      </div>
-    </div>
-    <div class="filter-results" id="filter-results"></div>
-  </div>
+  </details>
 
   <div id="categories-container">
     <div class="loading">Loading inventory…</div>
@@ -324,16 +357,13 @@ function instrumentMatchesFilters(inst) {
   const target = tags.target;
   const condition = tags.condition;
 
-  // Administration: any selected value must be in the instrument's list
   if (activeFilters.administration.size > 0) {
     const hasMatch = admin.some(a => activeFilters.administration.has(a));
     if (!hasMatch) return false;
   }
-  // Target: instrument's target must be one of selected
   if (activeFilters.target.size > 0) {
     if (!activeFilters.target.has(target)) return false;
   }
-  // Condition: instrument's condition must be one of selected
   if (activeFilters.condition.size > 0) {
     if (!activeFilters.condition.has(condition)) return false;
   }
@@ -347,20 +377,22 @@ function applyFilters() {
 
   document.getElementById('filter-clear').disabled = !hasAnyFilter;
 
-  // Count matches across all instruments
+  // Preserve currently active section
+  const currentActive = document.querySelector('#categories-container .section.active');
+  const currentActiveId = currentActive ? currentActive.id : null;
+
   let totalMatches = 0;
   let totalInstruments = 0;
 
-  // Re-render each category with filtered instruments
   const container = document.getElementById('categories-container');
-  container.innerHTML = GLOBAL_DATA.categories.map((cat, idx) => {
+  container.innerHTML = GLOBAL_DATA.categories.map(cat => {
     const filtered = cat.instruments.filter(instrumentMatchesFilters);
     totalInstruments += cat.instruments.length;
     totalMatches += filtered.length;
 
     if (filtered.length === 0) {
       return `
-        <div id="${cat.id}" class="section ${idx === 0 ? 'active' : ''}">
+        <div id="${cat.id}" class="section">
           <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
           <div class="no-results">No instruments match the current filters.</div>
         </div>
@@ -368,12 +400,22 @@ function applyFilters() {
     }
 
     return `
-      <div id="${cat.id}" class="section ${idx === 0 ? 'active' : ''}">
+      <div id="${cat.id}" class="section">
         <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
         ${renderInstruments(filtered)}
       </div>
     `;
   }).join('');
+
+  // Restore active section
+  const restoreId = currentActiveId || GLOBAL_DATA.categories[0]?.id;
+  const toActivate = document.getElementById(restoreId);
+  if (toActivate) {
+    toActivate.classList.add('active');
+  } else {
+    const first = document.querySelector('#categories-container .section');
+    if (first) first.classList.add('active');
+  }
 
   // Update results counter
   const resultsEl = document.getElementById('filter-results');
@@ -383,8 +425,15 @@ function applyFilters() {
     resultsEl.innerHTML = `Showing all <strong>${totalInstruments}</strong> instruments`;
   }
 
-  // Re-attach nav handlers after re-render
-  attachNavHandlers();
+  // Update header badge
+  const badge = document.getElementById('active-filter-badge');
+  if (hasAnyFilter) {
+    const total = activeFilters.administration.size + activeFilters.target.size + activeFilters.condition.size;
+    badge.textContent = `${total} filter${total > 1 ? 's' : ''} active`;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
 }
 
 // ---------------- INSTRUMENT CARD ----------------
@@ -575,25 +624,21 @@ function renderStudyDesign(studyDesign) {
   `;
 }
 
-// ---------------- NAV HANDLERS ----------------
+// ---------------- NAV HANDLERS (event delegation) ----------------
 
 function attachNavHandlers() {
-  document.querySelectorAll('nav a').forEach(link => {
-    // Remove previous listener by cloning (simplest safe approach)
-    const newLink = link.cloneNode(true);
-    link.parentNode.replaceChild(newLink, link);
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = link.dataset.section;
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      link.classList.add('active');
-      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-      const section = document.getElementById(target);
-      if (section) section.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  const nav = document.getElementById('nav');
+  nav.addEventListener('click', e => {
+    const link = e.target.closest('a[data-section]');
+    if (!link) return;
+    e.preventDefault();
+    const target = link.dataset.section;
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    link.classList.add('active');
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const section = document.getElementById(target);
+    if (section) section.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
