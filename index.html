@@ -14,15 +14,15 @@
 
   .container { display: flex; max-width: 1400px; margin: 0 auto; min-height: calc(100vh - 80px); }
 
-  nav { width: 300px; background: white; border-right: 1px solid #e0e0e0; padding: 1.5rem 0; flex-shrink: 0; overflow-y: auto; height: calc(100vh - 80px); position: sticky; top: 80px; }
-  nav h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #888; padding: 0 1.5rem; margin-bottom: 0.5rem; margin-top: 1.5rem; }
+  nav { width: 320px; background: white; border-right: 1px solid #e0e0e0; padding: 1.5rem 0; flex-shrink: 0; overflow-y: auto; height: calc(100vh - 80px); position: sticky; top: 80px; }
+  nav h2 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #888; padding: 0 1.5rem; margin-bottom: 0.5rem; margin-top: 1.75rem; font-weight: 700; }
   nav h2:first-child { margin-top: 0; }
   nav a { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1.5rem; color: #444; text-decoration: none; font-size: 0.85rem; transition: all 0.15s; border-left: 3px solid transparent; }
   nav a:hover { background: #f0f4ff; color: #2563eb; }
   nav a.active { background: #eff6ff; color: #2563eb; border-left-color: #2563eb; font-weight: 500; }
   nav .badge { font-size: 0.65rem; background: #e5e7eb; color: #666; padding: 0.1rem 0.4rem; border-radius: 10px; margin-left: auto; }
 
-  main { flex: 1; padding: 2rem; max-width: 920px; }
+  main { flex: 1; padding: 2rem; max-width: 960px; }
 
   .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; transition: box-shadow 0.2s; }
   .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
@@ -40,6 +40,15 @@
 
   .construct-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
   .construct-tag { font-size: 0.75rem; background: #f1f5f9; color: #475569; padding: 0.25rem 0.6rem; border-radius: 6px; border: 1px solid #e2e8f0; }
+
+  /* TAG PILLS */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
+  .tag-pill { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; }
+  .tag-administration { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+  .tag-target { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+  .tag-condition { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+  .tag-condition.condition-both { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+  .tag-condition.condition-with-ai-only { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; }
 
   details { margin-top: 0.75rem; }
   details summary { cursor: pointer; font-size: 0.85rem; font-weight: 500; color: #2563eb; padding: 0.5rem 0; user-select: none; list-style: none; display: flex; align-items: center; gap: 0.4rem; }
@@ -64,17 +73,52 @@
   .metric-name { font-weight: 500; color: #1a1a2e; }
   .metric-desc { color: #64748b; font-size: 0.78rem; }
 
+  /* COLLECTION CARD */
+  .collection-card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; }
+  .collection-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .collection-icon { font-size: 1.75rem; }
+  .collection-header h3 { font-size: 1.15rem; color: #1a1a2e; }
+  .collection-header .timing { font-size: 0.75rem; color: #6b7280; margin-top: 0.15rem; }
+  .collection-description { font-size: 0.88rem; color: #475569; margin-bottom: 1rem; }
+  .collection-section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; font-weight: 700; margin: 1rem 0 0.5rem; }
+  .collection-instrument-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .collection-instrument-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; background: #f8fafc; border-radius: 6px; font-size: 0.83rem; }
+  .collection-instrument-item .name { font-weight: 500; color: #1a1a2e; }
+  .collection-instrument-item .timing-badge { font-size: 0.7rem; color: #6b7280; }
+  .collection-datasource-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: #f0f4ff; border-radius: 6px; font-size: 0.83rem; color: #1e40af; }
+
+  /* FILTER BAR */
+  .filter-bar { background: white; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; }
+  .filter-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+  .filter-bar-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; }
+  .filter-clear { font-size: 0.75rem; color: #2563eb; background: none; border: none; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.15s; }
+  .filter-clear:hover { background: #eff6ff; }
+  .filter-clear:disabled { color: #cbd5e1; cursor: default; }
+  .filter-clear:disabled:hover { background: none; }
+  .filter-groups { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .filter-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .filter-group-label { font-size: 0.7rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .filter-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .filter-chip { font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid #e2e8f0; background: #f8fafc; color: #475569; cursor: pointer; transition: all 0.15s; user-select: none; }
+  .filter-chip:hover { border-color: #93c5fd; background: #eff6ff; }
+  .filter-chip.active { background: #2563eb; color: white; border-color: #2563eb; font-weight: 500; }
+  .filter-results { font-size: 0.75rem; color: #64748b; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9; }
+  .filter-results strong { color: #1a1a2e; }
+
+  .no-results { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.9rem; background: #f8fafc; border-radius: 8px; border: 1px dashed #e2e8f0; }
+
   .section { display: none; }
   .section.active { display: block; }
 
   .loading { text-align: center; padding: 3rem; color: #94a3b8; font-size: 0.9rem; }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .container { flex-direction: column; }
     nav { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid #e0e0e0; padding: 0.5rem 0; }
     nav a { padding: 0.4rem 1rem; font-size: 0.8rem; }
     main { padding: 1rem; }
     .meta-grid { grid-template-columns: 1fr 1fr; }
+    .filter-groups { flex-direction: column; gap: 1rem; }
   }
 </style>
 </head>
@@ -88,69 +132,54 @@
 <div class="container">
 
 <nav id="nav">
-  <h2>Theoretical Constructs</h2>
+  <h2>Instruments &amp; Questionnaires</h2>
   <div id="nav-constructs"></div>
-  <h2>Objective Data</h2>
-  <a href="#" data-section="academic">🎓 Academic Profile</a>
-  <a href="#" data-section="lms">💻 LMS / Brightspace</a>
-  <a href="#" data-section="ai-metrics">💬 AI Tutor Metrics</a>
+
+  <h2>Student Characteristics</h2>
+  <div id="nav-student"></div>
+
+  <h2>Interaction &amp; Log Data</h2>
+  <div id="nav-data"></div>
+
+  <h2>Collections</h2>
+  <div id="nav-collections"></div>
+
+  <h2>Study Design &amp; Protocols</h2>
+  <div id="nav-study"></div>
 </nav>
 
 <main id="main">
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar" id="filter-bar">
+    <div class="filter-bar-header">
+      <span class="filter-bar-title">🔍 Filter Instruments</span>
+      <button class="filter-clear" id="filter-clear" disabled>Clear all</button>
+    </div>
+    <div class="filter-groups">
+      <div class="filter-group">
+        <span class="filter-group-label">Administration</span>
+        <div class="filter-chips" id="filter-administration"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group-label">Target</span>
+        <div class="filter-chips" id="filter-target"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-group-label">Condition</span>
+        <div class="filter-chips" id="filter-condition"></div>
+      </div>
+    </div>
+    <div class="filter-results" id="filter-results"></div>
+  </div>
+
   <div id="categories-container">
     <div class="loading">Loading inventory…</div>
   </div>
 
-  <!-- ACADEMIC PROFILE (static) -->
-  <div id="academic" class="section">
-    <h2 style="margin-bottom:1rem;">Academic Profile &amp; Performance</h2>
-    <div class="card">
-      <table class="metrics-table">
-        <thead><tr><th>Metric</th><th>Source</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td class="metric-name">Incoming GPA</td><td>Student Info</td><td class="metric-desc">Prior academic achievement for baseline equivalence</td></tr>
-          <tr><td class="metric-name">Number of Credits</td><td>Student Info</td><td class="metric-desc">Academic load indicator</td></tr>
-          <tr><td class="metric-name">Socio-Demographic Info</td><td>Student Info</td><td class="metric-desc">Background variables for controlled comparisons</td></tr>
-          <tr><td class="metric-name">Prior Knowledge / Goal Test</td><td>Self-report / Test</td><td class="metric-desc">Baseline knowledge assessment</td></tr>
-          <tr><td class="metric-name">Course Grades / Assessments</td><td>Course</td><td class="metric-desc">Outcome comparison between conditions</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- LMS (static) -->
-  <div id="lms" class="section">
-    <h2 style="margin-bottom:1rem;">LMS / Brightspace Data</h2>
-    <div class="card">
-      <table class="metrics-table">
-        <thead><tr><th>Metric</th><th>Type</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td class="metric-name">Log Data</td><td>Continuous</td><td class="metric-desc">Keystrokes, activity time, navigation patterns</td></tr>
-          <tr><td class="metric-name">Total Chat Events</td><td>Count</td><td class="metric-desc">Message count in discussion forums / chats</td></tr>
-          <tr><td class="metric-name">Experience Sampling</td><td>Self-report</td><td class="metric-desc">In-the-moment perceived pressure, workload, satisfaction</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- AI METRICS (static) -->
-  <div id="ai-metrics" class="section">
-    <h2 style="margin-bottom:1rem;">AI Tutor Interaction Metrics</h2>
-    <div class="card">
-      <p class="description" style="margin-bottom:1rem;">Objective metrics extracted from AI Tutor conversations to quantify learning orientation, scaffolding quality, and engagement patterns.</p>
-      <table class="metrics-table">
-        <thead><tr><th>Metric</th><th>Abbr.</th><th>Description</th></tr></thead>
-        <tbody>
-          <tr><td class="metric-name">Conversational Engagement Score</td><td>CES</td><td class="metric-desc">Measuring turn counts and callbacks to distinguish dialogue from transactional queries</td></tr>
-          <tr><td class="metric-name">Learning Orientation Index</td><td>LOI</td><td class="metric-desc">Detects exploratory learning (why/how questions) vs. answer-seeking</td></tr>
-          <tr><td class="metric-name">Scaffolding Resistance Score</td><td>SRS</td><td class="metric-desc">Measures the extent to which students treat scaffolding as a barrier</td></tr>
-          <tr><td class="metric-name">Assignment Dependency Ratio</td><td>ADR</td><td class="metric-desc">Detects when students use AI primarily to obtain solutions rather than engaging in exploratory learning</td></tr>
-          <tr><td class="metric-name">Crisis Mode Indicator</td><td>CMI</td><td class="metric-desc">Flags late-stage, high-pressure solution-seeking behavior</td></tr>
-          <tr><td class="metric-name">Bloom's Taxonomy Distribution</td><td>—</td><td class="metric-desc">Categorizes and monitors cognitive level of student-AI interactions</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <div id="data-sources-container"></div>
+  <div id="collections-container"></div>
+  <div id="study-design-container"></div>
 </main>
 </div>
 
@@ -160,7 +189,7 @@
 // ============================================================
 
 async function loadInventory() {
-  const res = await fetch('data/inventory.json');
+  const res = await fetch('data/inventory.json?v=' + Date.now());
   if (!res.ok) throw new Error('Failed to load data/inventory.json');
   return await res.json();
 }
@@ -173,20 +202,207 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+// Human-readable labels
+const ADMIN_LABELS = {
+  'university-intake': '🎓 University intake',
+  'course-registration': '📖 Course registration',
+  'during-course': '⏳ During course',
+  'course-completion': '📝 Course completion',
+  'course-independent': '🌐 Course-independent'
+};
+
+const TARGET_LABELS = {
+  'student-level': '👤 Student-level',
+  'course-level': '📚 Course-level',
+  'instructor-level': '🧑‍🏫 Instructor-level',
+  'ai-tutor-level': '🤖 AI Tutor-level'
+};
+
+const CONDITION_LABELS = {
+  'both': '⚪ Both conditions',
+  'with-ai-only': '🎯 With-AI only'
+};
+
+// Global state
+let GLOBAL_DATA = null;
+let activeFilters = { administration: new Set(), target: new Set(), condition: new Set() };
+
+// ---------------- META ----------------
+
 function renderMeta(meta) {
   document.getElementById('site-title').textContent = meta.title;
   document.getElementById('site-subtitle').textContent = meta.subtitle;
   document.title = meta.title;
 }
 
-function renderNav(categories) {
-  const container = document.getElementById('nav-constructs');
-  container.innerHTML = categories.map((cat, idx) => `
+// ---------------- NAVIGATION ----------------
+
+function renderNav(categories, dataSources, collections) {
+  const studentCat = categories.find(c => c.id === 'student-characteristics');
+  const constructCats = categories.filter(c => c.id !== 'student-characteristics');
+
+  document.getElementById('nav-constructs').innerHTML = constructCats.map((cat, idx) => `
     <a href="#" data-section="${cat.id}" class="${idx === 0 ? 'active' : ''}">
       ${cat.icon || ''} ${escapeHtml(cat.label)}
       <span class="badge">${cat.instruments.length}</span>
     </a>
   `).join('');
+
+  if (studentCat) {
+    document.getElementById('nav-student').innerHTML = `
+      <a href="#" data-section="student-characteristics">
+        ${studentCat.icon || '👤'} ${escapeHtml(studentCat.label)}
+        <span class="badge">${studentCat.instruments.length}</span>
+      </a>
+    `;
+  }
+
+  document.getElementById('nav-data').innerHTML = (dataSources || []).map(ds => `
+    <a href="#" data-section="data-${ds.id}">
+      ${ds.icon || '📊'} ${escapeHtml(ds.label)}
+    </a>
+  `).join('');
+
+  document.getElementById('nav-collections').innerHTML = (collections || []).map(c => `
+    <a href="#" data-section="collection-${c.id}">
+      ${c.icon || '🗃️'} ${escapeHtml(c.label)}
+    </a>
+  `).join('');
+
+  document.getElementById('nav-study').innerHTML = `
+    <a href="#" data-section="study-protocols">🧪 Design Protocols</a>
+    <a href="#" data-section="study-rq">🎯 Research Questions</a>
+  `;
+}
+
+// ---------------- FILTER BAR ----------------
+
+function renderFilterBar() {
+  const adminContainer = document.getElementById('filter-administration');
+  const targetContainer = document.getElementById('filter-target');
+  const conditionContainer = document.getElementById('filter-condition');
+
+  adminContainer.innerHTML = Object.entries(ADMIN_LABELS).map(([val, label]) =>
+    `<span class="filter-chip" data-filter-type="administration" data-filter-val="${val}">${label}</span>`
+  ).join('');
+
+  targetContainer.innerHTML = Object.entries(TARGET_LABELS).map(([val, label]) =>
+    `<span class="filter-chip" data-filter-type="target" data-filter-val="${val}">${label}</span>`
+  ).join('');
+
+  conditionContainer.innerHTML = Object.entries(CONDITION_LABELS).map(([val, label]) =>
+    `<span class="filter-chip" data-filter-type="condition" data-filter-val="${val}">${label}</span>`
+  ).join('');
+
+  // Attach handlers
+  document.querySelectorAll('.filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const type = chip.dataset.filterType;
+      const val = chip.dataset.filterVal;
+      const set = activeFilters[type];
+      if (set.has(val)) {
+        set.delete(val);
+        chip.classList.remove('active');
+      } else {
+        set.add(val);
+        chip.classList.add('active');
+      }
+      applyFilters();
+    });
+  });
+
+  document.getElementById('filter-clear').addEventListener('click', () => {
+    activeFilters = { administration: new Set(), target: new Set(), condition: new Set() };
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    applyFilters();
+  });
+}
+
+function instrumentMatchesFilters(inst) {
+  const tags = inst.tags || {};
+  const admin = tags.administration || [];
+  const target = tags.target;
+  const condition = tags.condition;
+
+  // Administration: any selected value must be in the instrument's list
+  if (activeFilters.administration.size > 0) {
+    const hasMatch = admin.some(a => activeFilters.administration.has(a));
+    if (!hasMatch) return false;
+  }
+  // Target: instrument's target must be one of selected
+  if (activeFilters.target.size > 0) {
+    if (!activeFilters.target.has(target)) return false;
+  }
+  // Condition: instrument's condition must be one of selected
+  if (activeFilters.condition.size > 0) {
+    if (!activeFilters.condition.has(condition)) return false;
+  }
+  return true;
+}
+
+function applyFilters() {
+  const hasAnyFilter = activeFilters.administration.size > 0
+                    || activeFilters.target.size > 0
+                    || activeFilters.condition.size > 0;
+
+  document.getElementById('filter-clear').disabled = !hasAnyFilter;
+
+  // Count matches across all instruments
+  let totalMatches = 0;
+  let totalInstruments = 0;
+
+  // Re-render each category with filtered instruments
+  const container = document.getElementById('categories-container');
+  container.innerHTML = GLOBAL_DATA.categories.map((cat, idx) => {
+    const filtered = cat.instruments.filter(instrumentMatchesFilters);
+    totalInstruments += cat.instruments.length;
+    totalMatches += filtered.length;
+
+    if (filtered.length === 0) {
+      return `
+        <div id="${cat.id}" class="section ${idx === 0 ? 'active' : ''}">
+          <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
+          <div class="no-results">No instruments match the current filters.</div>
+        </div>
+      `;
+    }
+
+    return `
+      <div id="${cat.id}" class="section ${idx === 0 ? 'active' : ''}">
+        <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
+        ${renderInstruments(filtered)}
+      </div>
+    `;
+  }).join('');
+
+  // Update results counter
+  const resultsEl = document.getElementById('filter-results');
+  if (hasAnyFilter) {
+    resultsEl.innerHTML = `Showing <strong>${totalMatches}</strong> of <strong>${totalInstruments}</strong> instruments`;
+  } else {
+    resultsEl.innerHTML = `Showing all <strong>${totalInstruments}</strong> instruments`;
+  }
+
+  // Re-attach nav handlers after re-render
+  attachNavHandlers();
+}
+
+// ---------------- INSTRUMENT CARD ----------------
+
+function renderTagPills(tags) {
+  if (!tags) return '';
+  const pills = [];
+  (tags.administration || []).forEach(a => {
+    pills.push(`<span class="tag-pill tag-administration">${escapeHtml(ADMIN_LABELS[a] || a)}</span>`);
+  });
+  if (tags.target) {
+    pills.push(`<span class="tag-pill tag-target">${escapeHtml(TARGET_LABELS[tags.target] || tags.target)}</span>`);
+  }
+  if (tags.condition) {
+    const cls = tags.condition === 'both' ? 'tag-condition condition-both' : 'tag-condition condition-with-ai-only';
+    pills.push(`<span class="tag-pill ${cls}">${escapeHtml(CONDITION_LABELS[tags.condition] || tags.condition)}</span>`);
+  }
+  return pills.length ? `<div class="tag-list">${pills.join('')}</div>` : '';
 }
 
 function renderInstruments(instruments) {
@@ -216,10 +432,6 @@ function renderInstruments(instruments) {
       </details>
     ` : '';
 
-    const psychHtml = inst.psychometrics
-      ? `<div class="psych-note">${escapeHtml(inst.psychometrics)}</div>`
-      : '';
-
     const linksHtml = (inst.links || []).map(l =>
       `<a class="link-btn" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`
     ).join('');
@@ -229,28 +441,148 @@ function renderInstruments(instruments) {
         <div class="instrument-header">
           <h3>${escapeHtml(inst.name)} <span class="abbr">(${escapeHtml(inst.abbr)})</span></h3>
         </div>
+        ${renderTagPills(inst.tags)}
         <div class="meta-grid">${metaHtml}</div>
         <p class="description">${escapeHtml(inst.description)}</p>
         <div class="construct-list">${constructsHtml}</div>
         ${itemsHtml}
-        ${/* psychHtml */ ''}
         ${linksHtml}
       </div>
     `;
   }).join('');
 }
 
-function renderCategories(categories) {
-  const container = document.getElementById('categories-container');
-  container.innerHTML = categories.map((cat, idx) => `
-    <div id="${cat.id}" class="section ${idx === 0 ? 'active' : ''}">
-      <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
-      ${renderInstruments(cat.instruments)}
+// ---------------- DATA SOURCES ----------------
+
+function renderDataSources(dataSources) {
+  const container = document.getElementById('data-sources-container');
+  container.innerHTML = (dataSources || []).map(ds => `
+    <div id="data-${ds.id}" class="section">
+      <h2 style="margin-bottom:1rem;">${ds.icon || ''} ${escapeHtml(ds.label)}</h2>
+      <div class="card">
+        <p class="description">${escapeHtml(ds.description)}</p>
+        <table class="metrics-table">
+          <thead><tr><th>Metric</th><th>Source / Type</th><th>Description</th></tr></thead>
+          <tbody>
+            ${ds.metrics.map(m => `
+              <tr>
+                <td class="metric-name">${escapeHtml(m.name)}${m.abbr ? ` (${escapeHtml(m.abbr)})` : ''}</td>
+                <td>${escapeHtml(m.source || m.type || '—')}</td>
+                <td class="metric-desc">${escapeHtml(m.description)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
     </div>
   `).join('');
 }
 
+// ---------------- COLLECTIONS ----------------
+
+function findInstrument(categories, instrumentId) {
+  for (const cat of categories) {
+    const found = cat.instruments.find(i => i.id === instrumentId);
+    if (found) return found;
+  }
+  return null;
+}
+
+function renderCollections(collections, categories, dataSources) {
+  const container = document.getElementById('collections-container');
+  container.innerHTML = (collections || []).map(col => {
+    const instruments = (col.instrumentIds || []).map(id => findInstrument(categories, id)).filter(Boolean);
+    const datasources = (col.dataSourceIds || []).map(id => (dataSources || []).find(d => d.id === id)).filter(Boolean);
+
+    return `
+      <div id="collection-${col.id}" class="section">
+        <h2 style="margin-bottom:1rem;">${col.icon || ''} ${escapeHtml(col.label)}</h2>
+        <div class="collection-card">
+          <div class="collection-header">
+            <div class="collection-icon">${col.icon || '🗃️'}</div>
+            <div>
+              <h3>${escapeHtml(col.label)}</h3>
+              <div class="timing">⏱ ${escapeHtml(col.timing)} · 🎯 ${escapeHtml(col.target)}</div>
+            </div>
+          </div>
+          <p class="collection-description">${escapeHtml(col.description)}</p>
+
+          <div class="collection-section-title">Instruments (${instruments.length})</div>
+          <div class="collection-instrument-list">
+            ${instruments.map(i => `
+              <div class="collection-instrument-item">
+                <span class="name">${escapeHtml(i.name)} <span style="color:#6b7280;font-weight:400;">(${escapeHtml(i.abbr)})</span></span>
+                <span class="timing-badge">${(i.tags?.administration || []).map(a => ADMIN_LABELS[a] || a).join(' · ')}</span>
+              </div>
+            `).join('')}
+          </div>
+
+          ${datasources.length ? `
+            <div class="collection-section-title">Data Sources (${datasources.length})</div>
+            <div class="collection-instrument-list">
+              ${datasources.map(d => `
+                <div class="collection-datasource-item">
+                  <span>${d.icon || '📊'}</span>
+                  <span>${escapeHtml(d.label)}</span>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ---------------- STUDY DESIGN ----------------
+
+function renderStudyDesign(studyDesign) {
+  const container = document.getElementById('study-design-container');
+
+  const protocolsHtml = (studyDesign.protocols || []).map(p => `
+    <tr>
+      <td class="metric-name">${escapeHtml(p.label)}</td>
+      <td>${escapeHtml(p.description)}</td>
+      <td class="metric-desc">${escapeHtml(p.bestFor)}</td>
+    </tr>
+  `).join('');
+
+  const rqHtml = (studyDesign.researchQuestions || []).map(rq => `
+    <div style="margin-bottom:1.5rem;">
+      <h3 style="margin-bottom:0.5rem;">${escapeHtml(rq.label)}</h3>
+      <p class="description">${escapeHtml(rq.question)}</p>
+      <ul style="margin-left:1.2rem; margin-top:0.5rem;">
+        ${(rq.subQuestions || []).map(sq => `<li style="font-size:0.85rem;color:#475569;">${escapeHtml(sq)}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  container.innerHTML = `
+    <div id="study-protocols" class="section">
+      <h2 style="margin-bottom:1rem;">🧪 Design Protocols</h2>
+      <div class="card">
+        <table class="metrics-table">
+          <thead><tr><th>Design</th><th>Description</th><th>Best for</th></tr></thead>
+          <tbody>${protocolsHtml}</tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="study-rq" class="section">
+      <h2 style="margin-bottom:1rem;">🎯 Research Questions</h2>
+      <div class="card">${rqHtml}</div>
+    </div>
+  `;
+}
+
+// ---------------- NAV HANDLERS ----------------
+
 function attachNavHandlers() {
+  document.querySelectorAll('nav a').forEach(link => {
+    // Remove previous listener by cloning (simplest safe approach)
+    const newLink = link.cloneNode(true);
+    link.parentNode.replaceChild(newLink, link);
+  });
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -265,12 +597,19 @@ function attachNavHandlers() {
   });
 }
 
+// ---------------- INIT ----------------
+
 async function init() {
   try {
     const data = await loadInventory();
+    GLOBAL_DATA = data;
     renderMeta(data.meta);
-    renderNav(data.categories);
-    renderCategories(data.categories);
+    renderNav(data.categories, data.dataSources, data.collections);
+    renderDataSources(data.dataSources);
+    renderCollections(data.collections, data.categories, data.dataSources);
+    renderStudyDesign(data.studyDesign);
+    renderFilterBar();
+    applyFilters();
     attachNavHandlers();
   } catch (err) {
     document.getElementById('categories-container').innerHTML =

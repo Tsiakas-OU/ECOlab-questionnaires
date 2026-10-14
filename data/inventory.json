@@ -1,11 +1,149 @@
 {
   "meta": {
     "title": "ECO-lab — Measurement Inventory",
-    "subtitle": "Baseline Measurement Design",
+    "subtitle": "Inventory for Baseline Measurements Design",
     "lastUpdated": "2026-10-14",
-    "version": "1.2.0"
+    "version": "2.0.0"
   },
   "categories": [
+    {
+      "id": "student-characteristics",
+      "label": "Student Characteristics & Background",
+      "icon": "👤",
+      "instruments": [
+        {
+          "id": "aloud-demographics",
+          "name": "ALOUD Baseline Demographics & Background Questionnaire",
+          "abbr": "ALOUD-Demographics",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
+          "meta": {
+            "items": "Variable (custom instrument)",
+            "scale": "Mixed (categorical, numeric, Likert)"
+          },
+          "description": "Custom baseline questionnaire derived from the ALOUD study (Adult Learning Open University Determinants Study) at the Open University of the Netherlands. Captures demographic, employment, home status, and educational background variables used as covariates and predictors of study success in adult distance education.",
+          "constructs": ["Demographics", "Employment", "Home Status", "Educational Background"],
+          "items": [
+            {
+              "group": "Demographic Variables",
+              "list": [
+                "Age (year of birth)",
+                "Sex (Male / Female)",
+                "Nationality",
+                "Native language"
+              ]
+            },
+            {
+              "group": "Employment Variables",
+              "list": [
+                "Current working hours per week",
+                "Employment status (employed / unemployed / retired / student)",
+                "Occupation (optional, privacy-sensitive)"
+              ]
+            },
+            {
+              "group": "Home Status Variables",
+              "list": [
+                "Living situation (alone / with partner / with partner and children / single parent / other)",
+                "Marital status (single / married or cohabiting / divorced / widowed / other)",
+                "Number of children in household",
+                "Family responsibilities"
+              ]
+            },
+            {
+              "group": "Educational Background Variables",
+              "list": [
+                "Level of education (self) — from primary education to university level",
+                "Level of education (partner, if applicable)",
+                "Previous GPA / grades",
+                "Computer skills / abilities (self-assessed)",
+                "Study motive (why are you taking this course?)",
+                "Study goal (what do you want to achieve?)"
+              ]
+            }
+          ],
+          "psychometrics": "Used as covariates and independent variables in ALOUD study. N = 4,945 approached; 2,040 fully participated at baseline.",
+          "links": [
+            { "label": "🔗 Access ALOUD Study Overview", "url": "https://research.ou.nl/ws/portalfiles/portal/42301941/Meeting_KU_Leuven_Presentation_ALOUD.pdf" },
+            { "label": "🔗 Access ALOUD Biological Dataset", "url": "https://datacatalogue.cessda.eu/detail/7cc21b5495fcf5e82c5c32b4d3d14ed1f23253a851475d96fddd422717109e13?lang=en" }
+          ]
+        },
+        {
+          "id": "aloud-interrole-conflict",
+          "name": "Inter-role Conflict Scale",
+          "abbr": "IRC",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
+          "meta": {
+            "items": "Variable (measures inter-role conflict between study, work, and home)",
+            "scale": "Likert"
+          },
+          "description": "Psychological construct measured within the ALOUD study that captures the tension between study, work, and home life. Particularly relevant for adult distance learners who often combine studies with work and family responsibilities.",
+          "constructs": ["Inter-role Conflict"],
+          "items": [
+            {
+              "group": "Inter-role Conflict Items",
+              "list": [
+                "Difficulty reconciling study with work responsibilities",
+                "Difficulty reconciling study with family/home responsibilities",
+                "Tension between study demands and personal life",
+                "Feeling of being pulled in multiple directions by study, work, and home"
+              ]
+            }
+          ],
+          "psychometrics": "Measured within the ALOUD study as a psychological determinant. Validated through the ALOUD battery.",
+          "links": [
+            { "label": "🔗 Access ALOUD Psychological Study", "url": "https://research.ou.nl/ws/portalfiles/portal/23628794/L_C_plenair_12_04_2012_ALOUD_study_psychological_part.pdf" }
+          ]
+        },
+        {
+          "id": "aloud-grit-s",
+          "name": "Short Grit Scale",
+          "abbr": "Grit-S",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
+          "meta": {
+            "items": "8",
+            "scale": "5-point Likert"
+          },
+          "description": "Validated within the ALOUD study to measure perseverance and passion for long-term goals. The instrument captures two factors: Consistency of Interests and Perseverance of Effort. Especially relevant for predicting learning performance in distance education.",
+          "constructs": ["Consistency of Interests", "Perseverance of Effort"],
+          "items": [
+            {
+              "group": "Consistency of Interests (4 items — reverse-scored)",
+              "list": [
+                "I often set a goal but later choose to pursue a different one. (REVERSE)",
+                "I have been obsessed with a certain idea or project for a short time but later lost interest. (REVERSE)",
+                "New ideas and projects sometimes distract me from previous ones. (REVERSE)",
+                "I have difficulty maintaining focus on projects that take more than a few months to complete. (REVERSE)"
+              ]
+            },
+            {
+              "group": "Perseverance of Effort (4 items)",
+              "list": [
+                "I finish whatever I begin.",
+                "Setbacks don't discourage me. I don't give up easily.",
+                "I am a hard worker.",
+                "I am diligent. I never give up."
+              ]
+            }
+          ],
+          "psychometrics": "α = .73–.83 across validation studies. Two factors intercorrelated at r = .59, p < .001. Validated in ALOUD study as predictor of study success (Consistency of Interests showed positive effect).",
+          "links": [
+            { "label": "🔗 Access Grit-S (Duckworth & Quinn, 2009)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/10038311/bin/pone.0282949.s003.docx" }
+          ]
+        }
+      ]
+    },
     {
       "id": "motivation",
       "label": "Motivation & Needs",
@@ -15,6 +153,11 @@
           "id": "imi",
           "name": "Intrinsic Motivation Inventory",
           "abbr": "IMI",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "dimensions": "4–7",
             "scale": "7-point Likert"
@@ -31,6 +174,11 @@
           "id": "mmami",
           "name": "MUSIC Model of Academic Motivation Inventory",
           "abbr": "MMAMI",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "19 (recommended)",
             "dimensions": "5",
@@ -93,6 +241,11 @@
           "id": "bpnsfs",
           "name": "Basic Psychological Need Satisfaction & Frustration Scale",
           "abbr": "BPNSFS (adapted)",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "16",
             "factors": "4",
@@ -147,6 +300,11 @@
           "id": "srq-a",
           "name": "Academic Self-Regulation Questionnaire",
           "abbr": "SRQ-A",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "16 (4 per subscale)",
             "subscales": "4",
@@ -194,6 +352,11 @@
           "id": "sol-q-r",
           "name": "Self-Regulated Online Learning Questionnaire – Revised",
           "abbr": "SOL-Q-R",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "42",
             "dimensions": "7",
@@ -288,6 +451,11 @@
           "id": "srl-p",
           "name": "SRL-Practices Scale",
           "abbr": "SRL-P",
+          "tags": {
+            "administration": ["course-registration", "during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "31",
             "dimensions": "8",
@@ -319,6 +487,11 @@
           "id": "srl-se",
           "name": "SRL Self-Efficacy Scale",
           "abbr": "SRL-SE",
+          "tags": {
+            "administration": ["course-registration", "during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "12",
             "scale": "5-point Likert"
@@ -343,6 +516,11 @@
           "id": "mslq",
           "name": "Motivated Strategies for Learning Questionnaire",
           "abbr": "MSLQ",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "81",
             "subscales": "15",
@@ -517,6 +695,11 @@
           "id": "assist",
           "name": "Approaches and Study Skills Inventory for Students",
           "abbr": "ASSIST (short version)",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "18 (short version)",
             "dimensions": "3",
@@ -568,6 +751,11 @@
           "id": "oslq",
           "name": "Online Self-Regulated Learning Questionnaire",
           "abbr": "OSLQ",
+          "tags": {
+            "administration": ["course-registration", "during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "24",
             "dimensions": "6",
@@ -640,6 +828,11 @@
           "id": "mai",
           "name": "Metacognitive Awareness Inventory",
           "abbr": "MAI",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "52",
             "categories": "2",
@@ -678,6 +871,11 @@
           "id": "lassi",
           "name": "Learning and Study Strategies Inventory",
           "abbr": "LASSI",
+          "tags": {
+            "administration": ["university-intake", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "60 (revised: 47)",
             "scale": "Likert"
@@ -694,6 +892,11 @@
           "id": "rtq",
           "name": "Kember et al. Reflective Thinking Scale",
           "abbr": "RTQ",
+          "tags": {
+            "administration": ["course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "16",
             "dimensions": "4",
@@ -755,6 +958,11 @@
           "id": "usei",
           "name": "University Student Engagement Inventory",
           "abbr": "USEI",
+          "tags": {
+            "administration": ["during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "15",
             "dimensions": "3",
@@ -803,6 +1011,11 @@
           "id": "ose",
           "name": "Online Student Engagement Scale",
           "abbr": "OSE",
+          "tags": {
+            "administration": ["during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "dimensions": "4",
             "scale": "Likert"
@@ -819,6 +1032,11 @@
           "id": "disengagement",
           "name": "Scale of Disengagement in Online Courses",
           "abbr": "Disengagement",
+          "tags": {
+            "administration": ["during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "9",
             "factor": "Unidimensional",
@@ -851,6 +1069,11 @@
           "id": "uwes-ss",
           "name": "Utrecht Work Engagement Scale – Student Survey",
           "abbr": "UWES-SS",
+          "tags": {
+            "administration": ["university-intake", "course-completion"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "15 (short: 9)",
             "dimensions": "3",
@@ -875,6 +1098,11 @@
           "id": "aeq-s",
           "name": "Achievement Emotions Questionnaire – Short Form",
           "abbr": "AEQ-S",
+          "tags": {
+            "administration": ["course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "emotions": "8",
             "scale": "5-point Likert"
@@ -898,6 +1126,11 @@
           "id": "forces",
           "name": "FORCES Framework Instrument",
           "abbr": "FORCES",
+          "tags": {
+            "administration": ["during-course", "course-completion"],
+            "target": "instructor-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "30 + 5 outcomes",
             "dimensions": "6",
@@ -981,6 +1214,11 @@
           "id": "coi",
           "name": "Community of Inquiry Survey",
           "abbr": "CoI",
+          "tags": {
+            "administration": ["course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "34",
             "presences": "3",
@@ -998,6 +1236,11 @@
           "id": "oscs",
           "name": "Online Student Connectedness Survey",
           "abbr": "OSCS",
+          "tags": {
+            "administration": ["during-course", "course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "25",
             "dimensions": "4",
@@ -1015,6 +1258,11 @@
           "id": "oips",
           "name": "Online Instructor Presence Scale",
           "abbr": "OIPS",
+          "tags": {
+            "administration": ["during-course", "course-completion"],
+            "target": "instructor-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "37",
             "factors": "4",
@@ -1090,6 +1338,11 @@
           "id": "ccs",
           "name": "Classroom Community Scale",
           "abbr": "CCS",
+          "tags": {
+            "administration": ["course-completion"],
+            "target": "course-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "20",
             "factors": "2",
@@ -1138,6 +1391,11 @@
           "id": "sirs",
           "name": "Student-Instructor Relationship Scale",
           "abbr": "SIRS",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "instructor-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "36",
             "factors": "2",
@@ -1204,6 +1462,11 @@
           "id": "sus",
           "name": "System Usability Scale",
           "abbr": "SUS",
+          "tags": {
+            "administration": ["course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "10",
             "scale": "5-point Likert"
@@ -1237,6 +1500,11 @@
           "id": "utaut",
           "name": "Unified Theory of Acceptance and Use of Technology",
           "abbr": "UTAUT",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "16 core items",
             "constructs": "4 core + BI",
@@ -1305,11 +1573,15 @@
             { "label": "🔗 Access UTAUT2 (Venkatesh et al., 2012)", "url": "https://doi.org/10.2307/41410412" }
           ]
         },
-
         {
           "id": "aitaqs",
           "name": "AI Tutoring Acceptance Quality Scale",
           "abbr": "AITAQS",
+          "tags": {
+            "administration": ["course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "12",
             "dimensions": "4",
@@ -1360,6 +1632,11 @@
           "id": "srail",
           "name": "Self-Regulated AI Learning Student Attitudes Scale",
           "abbr": "SRAIL",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "17",
             "dimensions": "2",
@@ -1405,6 +1682,11 @@
           "id": "cail",
           "name": "Collaborative AI Literacy Scale",
           "abbr": "CAIL",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "finalItems": "13",
             "dimensions": "3",
@@ -1451,6 +1733,11 @@
           "id": "cam",
           "name": "Collaborative AI Metacognition Scale",
           "abbr": "CAM",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "13",
             "dimensions": "3",
@@ -1497,6 +1784,11 @@
           "id": "tam-adapted",
           "name": "Technology Acceptance Model",
           "abbr": "TAM (adapted – PL context)",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "15",
             "constructs": "6",
@@ -1535,6 +1827,11 @@
           "id": "tam-extended",
           "name": "Extended TAM for AI-Powered ChatGPT",
           "abbr": "TAM (extended)",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "items": "41",
             "constructs": "9",
@@ -1552,6 +1849,11 @@
           "id": "tam-original",
           "name": "Technology Acceptance Model (original)",
           "abbr": "TAM (original)",
+          "tags": {
+            "administration": ["course-registration", "course-completion"],
+            "target": "ai-tutor-level",
+            "condition": "with-ai-only"
+          },
           "meta": {
             "constructs": "4",
             "scale": "7-point Likert"
@@ -1576,6 +1878,11 @@
           "id": "who-5",
           "name": "WHO-5 Wellbeing Index",
           "abbr": "WHO-5",
+          "tags": {
+            "administration": ["university-intake", "course-completion", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "5",
             "scale": "6-point Likert",
@@ -1615,6 +1922,11 @@
           "id": "wemwbs",
           "name": "Warwick-Edinburgh Mental Well-Being Scale",
           "abbr": "WEMWBS",
+          "tags": {
+            "administration": ["university-intake", "course-completion", "course-independent"],
+            "target": "student-level",
+            "condition": "both"
+          },
           "meta": {
             "items": "14",
             "scale": "5-point Likert"
@@ -1640,5 +1952,222 @@
         }
       ]
     }
-  ]
+  ],
+  "dataSources": [
+    {
+      "id": "academic-records",
+      "label": "Academic Records",
+      "icon": "🎓",
+      "description": "Institutional data on student academic history and performance.",
+      "metrics": [
+        { "name": "Incoming GPA", "source": "Student Info", "description": "Prior academic achievement for baseline equivalence" },
+        { "name": "Number of Credits", "source": "Student Info", "description": "Academic load indicator" },
+        { "name": "Socio-Demographic Info", "source": "Student Info", "description": "Background variables for controlled comparisons" },
+        { "name": "Prior Knowledge / Goal Test", "source": "Self-report / Test", "description": "Baseline knowledge assessment" },
+        { "name": "Course Grades / Assessments", "source": "Course", "description": "Outcome comparison between conditions" }
+      ]
+    },
+    {
+      "id": "lms-analytics",
+      "label": "LMS / Learning Analytics",
+      "icon": "💻",
+      "description": "Behavioral data from the learning management system.",
+      "metrics": [
+        { "name": "Log Data", "type": "Continuous", "description": "Keystrokes, activity time, navigation patterns" },
+        { "name": "Total Chat Events", "type": "Count", "description": "Message count in discussion forums / chats" },
+        { "name": "Experience Sampling", "type": "Self-report", "description": "In-the-moment perceived pressure, workload, satisfaction" }
+      ]
+    },
+    {
+      "id": "ai-tutor-metrics",
+      "label": "AI Tutor Interaction Metrics",
+      "icon": "💬",
+      "description": "Objective metrics extracted from AI Tutor conversations to quantify learning orientation, scaffolding quality, and engagement patterns.",
+      "metrics": [
+        { "name": "Conversational Engagement Score", "abbr": "CES", "description": "Measuring turn counts and callbacks to distinguish dialogue from transactional queries" },
+        { "name": "Learning Orientation Index", "abbr": "LOI", "description": "Detects exploratory learning (why/how questions) vs. answer-seeking" },
+        { "name": "Scaffolding Resistance Score", "abbr": "SRS", "description": "Measures the extent to which students treat scaffolding as a barrier" },
+        { "name": "Assignment Dependency Ratio", "abbr": "ADR", "description": "Detects when students use AI primarily to obtain solutions rather than engaging in exploratory learning" },
+        { "name": "Crisis Mode Indicator", "abbr": "CMI", "description": "Flags late-stage, high-pressure solution-seeking behavior" },
+        { "name": "Bloom's Taxonomy Distribution", "abbr": "—", "description": "Categorizes and monitors cognitive level of student-AI interactions" }
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "id": "university-intake",
+      "label": "University Intake Battery",
+      "icon": "🎓",
+      "description": "Administered once when the student registers at the university. Independent of any specific course.",
+      "timing": "university-intake",
+      "target": "student-level",
+      "instrumentIds": [
+        "aloud-demographics",
+        "aloud-interrole-conflict",
+        "aloud-grit-s",
+        "srq-a",
+        "assist",
+        "mai",
+        "lassi",
+        "who-5",
+        "wemwbs"
+      ],
+      "dataSourceIds": ["academic-records"]
+    },
+    {
+      "id": "course-baseline",
+      "label": "Course Baseline Battery",
+      "icon": "📖",
+      "description": "Administered at the registration of a specific course. Captures student-level and course-level pre-measures.",
+      "timing": "course-registration",
+      "target": "course-level",
+      "instrumentIds": [
+        "sol-q-r",
+        "srl-p",
+        "srl-se",
+        "mslq",
+        "oslq",
+        "mmami",
+        "bpnsfs",
+        "sirs"
+      ],
+      "dataSourceIds": ["lms-analytics"]
+    },
+    {
+      "id": "ai-tutor-course",
+      "label": "AI Tutor Course Battery",
+      "icon": "🤖",
+      "description": "Administered for a specific course where the AI Tutor is used. Combines course-level measures with AI-specific perceptions.",
+      "timing": "course-registration",
+      "target": "ai-tutor-level",
+      "instrumentIds": [
+        "srl-p",
+        "srl-se",
+        "utaut",
+        "srail",
+        "cail",
+        "cam",
+        "tam-adapted",
+        "tam-extended",
+        "tam-original"
+      ],
+      "dataSourceIds": ["lms-analytics", "ai-tutor-metrics"]
+    },
+    {
+      "id": "course-completion",
+      "label": "Post-Course Battery",
+      "icon": "📝",
+      "description": "Administered at the end of a specific course. Captures outcomes, reflections, and post-course perceptions.",
+      "timing": "course-completion",
+      "target": "course-level",
+      "instrumentIds": [
+        "sol-q-r",
+        "srl-p",
+        "srl-se",
+        "oslq",
+        "usei",
+        "ose",
+        "disengagement",
+        "uwes-ss",
+        "aeq-s",
+        "rtq",
+        "coi",
+        "ccs",
+        "forces",
+        "oips",
+        "oscs",
+        "who-5",
+        "wemwbs"
+      ],
+      "dataSourceIds": ["academic-records", "lms-analytics"]
+    },
+    {
+      "id": "ai-tutor-completion",
+      "label": "AI Tutor Post-Course Battery",
+      "icon": "📊",
+      "description": "Administered at the end of a specific course where the AI Tutor was used. Captures AI-specific acceptance, usability, and post-course perceptions.",
+      "timing": "course-completion",
+      "target": "ai-tutor-level",
+      "instrumentIds": [
+        "aitaqs",
+        "srail",
+        "cail",
+        "cam",
+        "sus",
+        "utaut",
+        "tam-adapted",
+        "tam-extended"
+      ],
+      "dataSourceIds": ["ai-tutor-metrics"]
+    },
+    {
+      "id": "study-success-prediction",
+      "label": "Study Success Prediction Battery",
+      "icon": "📈",
+      "description": "Designed to predict study success across multiple courses. Combines baseline student characteristics with course-level engagement and outcome data.",
+      "timing": "multi-course",
+      "target": "student-level",
+      "instrumentIds": [
+        "aloud-demographics",
+        "aloud-grit-s",
+        "srq-a",
+        "sol-q-r",
+        "mslq",
+        "assist",
+        "usei",
+        "uwes-ss",
+        "who-5"
+      ],
+      "dataSourceIds": ["academic-records", "lms-analytics"]
+    }
+  ],
+  "studyDesign": {
+    "protocols": [
+      {
+        "id": "between-cohorts",
+        "label": "Between-Cohorts",
+        "description": "Same course — different cohorts",
+        "bestFor": "Comparing with-AI vs. without-AI across semesters"
+      },
+      {
+        "id": "within-cohort",
+        "label": "Within-Cohort",
+        "description": "Same cohort — different modules/courses/semesters",
+        "bestFor": "Comparing conditions within same students"
+      },
+      {
+        "id": "within-course-crossover",
+        "label": "Within-Course Crossover (AB-BA)",
+        "description": "Same course/cohort — switching groups within",
+        "bestFor": "Balancing order effects within a single course"
+      },
+      {
+        "id": "pre-during-post",
+        "label": "Pre-During-Post (A/B/A)",
+        "description": "Same course/cohort — switch conditions for all",
+        "bestFor": "Examining transition effects within one cohort"
+      }
+    ],
+    "researchQuestions": [
+      {
+        "id": "rq1",
+        "label": "RQ1: Comparative Evaluation",
+        "question": "How does the interaction with the AI Tutor affect students' learning processes and outcomes, behavioral engagement, and psychological experience compared to a baseline (non-AI) condition?",
+        "subQuestions": [
+          "1.1 Learning outcomes and behaviors",
+          "1.2 Motivation and engagement",
+          "1.3 Sense of belonging & social connectedness"
+        ]
+      },
+      {
+        "id": "rq2",
+        "label": "RQ2: Functional Evaluation",
+        "question": "How to assess the effectiveness of the AI Tutor functionalities with respect to its pedagogical design principles?",
+        "subQuestions": [
+          "2.1 Trust and attitude towards using AI Tutor",
+          "2.2 Learning behaviors with AI Tutor – guided scaffolding, personalization"
+        ]
+      }
+    ]
+  }
 }
