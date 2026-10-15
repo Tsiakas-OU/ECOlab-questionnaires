@@ -57,12 +57,7 @@
 
   .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
   .tag-pill { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; }
-  .tag-scope { background: #fef9c3; color: #854d0e; border-color: #fde68a; }
-  .tag-when { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
-  .tag-who { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
-  .tag-condition { background: #fef3c7; color: #92400e; border-color: #fde68a; }
-  .tag-condition.condition-both { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
-  .tag-condition.condition-with-ai-only { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; }
+  .tag-timing { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
 
   details { margin-top: 0.75rem; }
   details summary { cursor: pointer; font-size: 0.85rem; font-weight: 500; color: #2563eb; padding: 0.5rem 0; user-select: none; list-style: none; display: flex; align-items: center; gap: 0.4rem; }
@@ -95,6 +90,19 @@
   .battery-measurement-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; background: #f8fafc; border-radius: 6px; font-size: 0.83rem; }
   .battery-measurement-item .name { font-weight: 500; color: #1a1a2e; }
   .battery-measurement-item .type-badge { font-size: 0.7rem; color: #6b7280; font-style: italic; }
+
+  .project-card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; }
+  .project-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .project-icon { font-size: 1.75rem; }
+  .project-header h3 { font-size: 1.25rem; color: #1a1a2e; }
+  .project-description { font-size: 0.88rem; color: #475569; margin-bottom: 1.5rem; }
+  .project-section-title { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #2563eb; font-weight: 700; margin: 1.5rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e2e8f0; }
+
+  .rq-item { margin-bottom: 1.25rem; padding: 1rem; background: #f8fafc; border-radius: 8px; }
+  .rq-item h4 { font-size: 0.95rem; margin-bottom: 0.4rem; color: #1a1a2e; }
+  .rq-item p { font-size: 0.85rem; color: #475569; margin-bottom: 0.5rem; }
+  .rq-item ul { margin-left: 1.2rem; }
+  .rq-item li { font-size: 0.82rem; color: #64748b; margin-bottom: 0.2rem; }
 
   .filter-bar { background: white; border-radius: 12px; padding: 0; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; overflow: hidden; }
   .filter-bar summary { cursor: pointer; padding: 1rem 1.25rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; border-bottom: 1px solid #f1f5f9; }
@@ -147,14 +155,14 @@
   <h2>Instruments &amp; Questionnaires</h2>
   <div id="nav-domains"></div>
 
-  <h2>Objective Data</h2>
-  <div id="nav-objective"></div>
+  <h2>System Data</h2>
+  <div id="nav-system"></div>
 
   <h2>Batteries</h2>
   <div id="nav-batteries"></div>
 
-  <h2>Study Design</h2>
-  <div id="nav-study"></div>
+  <h2>Projects</h2>
+  <div id="nav-projects"></div>
 </nav>
 
 <main id="main">
@@ -168,20 +176,8 @@
       </div>
       <div class="filter-groups">
         <div class="filter-group">
-          <span class="filter-group-label">Scope</span>
-          <div class="filter-chips" id="filter-scope"></div>
-        </div>
-        <div class="filter-group">
-          <span class="filter-group-label">When</span>
-          <div class="filter-chips" id="filter-when"></div>
-        </div>
-        <div class="filter-group">
-          <span class="filter-group-label">Who</span>
-          <div class="filter-chips" id="filter-who"></div>
-        </div>
-        <div class="filter-group">
-          <span class="filter-group-label">Condition</span>
-          <div class="filter-chips" id="filter-condition"></div>
+          <span class="filter-group-label">Timing</span>
+          <div class="filter-chips" id="filter-timing"></div>
         </div>
         <div class="filter-group">
           <span class="filter-group-label">Type</span>
@@ -197,13 +193,13 @@
   </div>
 
   <div id="batteries-container"></div>
-  <div id="study-design-container"></div>
+  <div id="projects-container"></div>
 </main>
 </div>
 
 <script>
 // ============================================================
-// RENDER ENGINE — three-axis model (scope · when · who) + domain
+// RENDER ENGINE — v6.0.0 (projects replace study design)
 // ============================================================
 
 async function loadInventory() {
@@ -218,19 +214,13 @@ function escapeHtml(str) {
 }
 
 let GLOBAL_DATA = null;
-let VOCAB = { domains: {}, when: {}, who: {}, condition: {}, type: {}, scope: {} };
-let activeFilters = {
-  scope: new Set(),
-  when: new Set(),
-  who: new Set(),
-  condition: new Set(),
-  type: new Set()
-};
+let VOCAB = { domains: {}, type: {}, timing: {} };
+let activeFilters = { timing: new Set(), type: new Set() };
 
 // ---------------- VOCABULARY ----------------
 
 function buildVocabIndex(data) {
-  ['domains', 'when', 'who', 'condition', 'type', 'scope'].forEach(key => {
+  ['domains', 'type', 'timing'].forEach(key => {
     const arr = data.vocabularies[key] || [];
     arr.forEach(v => { VOCAB[key][v.id] = v; });
   });
@@ -249,10 +239,10 @@ function renderMeta(meta) {
 function renderNav(data) {
   const measurements = data.measurements || [];
   const domainGroups = {};
-  const objectiveMeasures = [];
+  const systemMeasures = [];
 
   measurements.forEach(m => {
-    if (m.domain === 'objective-data') objectiveMeasures.push(m);
+    if (m.domain === 'academic-records-interaction') systemMeasures.push(m);
     else {
       domainGroups[m.domain] = domainGroups[m.domain] || [];
       domainGroups[m.domain].push(m);
@@ -271,8 +261,8 @@ function renderNav(data) {
       </a>`;
     }).join('');
 
-  document.getElementById('nav-objective').innerHTML = objectiveMeasures
-    .map(m => `<a href="#" data-section="domain-objective-data" data-scroll-to="measurement-${m.id}">
+  document.getElementById('nav-system').innerHTML = systemMeasures
+    .map(m => `<a href="#" data-section="domain-academic-records-interaction" data-scroll-to="measurement-${m.id}">
       📊 ${escapeHtml(m.name)}
     </a>`).join('');
 
@@ -281,16 +271,16 @@ function renderNav(data) {
       ${b.icon || '🗃️'} ${escapeHtml(b.label)}
     </a>`).join('');
 
-  document.getElementById('nav-study').innerHTML = `
-    <a href="#" data-section="study-protocols">🧪 Design Protocols</a>
-    <a href="#" data-section="study-rq">🎯 Research Questions</a>
-  `;
+  document.getElementById('nav-projects').innerHTML = (data.projects || [])
+    .map(p => `<a href="#" data-section="project-${p.id}">
+      ${p.icon || '📁'} ${escapeHtml(p.label)}
+    </a>`).join('');
 }
 
 // ---------------- FILTER BAR ----------------
 
 function renderFilterBar() {
-  ['scope', 'when', 'who', 'condition', 'type'].forEach(key => {
+  ['timing', 'type'].forEach(key => {
     const container = document.getElementById('filter-' + key);
     const items = Object.values(VOCAB[key] || {});
     container.innerHTML = items.map(v =>
@@ -317,12 +307,9 @@ function renderFilterBar() {
 }
 
 function measurementMatchesFilters(m) {
-  if (activeFilters.scope.size > 0 && !activeFilters.scope.has(m.scope)) return false;
-  if (activeFilters.who.size > 0 && !activeFilters.who.has(m.who)) return false;
-  if (activeFilters.condition.size > 0 && !activeFilters.condition.has(m.condition)) return false;
   if (activeFilters.type.size > 0 && !activeFilters.type.has(m.type)) return false;
-  if (activeFilters.when.size > 0) {
-    const ok = (m.when || []).some(w => activeFilters.when.has(w));
+  if (activeFilters.timing.size > 0) {
+    const ok = (m.timing || []).some(t => activeFilters.timing.has(t));
     if (!ok) return false;
   }
   return true;
@@ -338,7 +325,7 @@ function applyFilters() {
   const container = document.getElementById('measurements-container');
   const measurements = GLOBAL_DATA.measurements || [];
 
-  const domainOrder = ['student-characteristics', 'biological-lifestyle', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing', 'cognitive', 'objective-data'];
+  const domainOrder = ['student-characteristics', 'biological-lifestyle', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing', 'cognitive', 'academic-records-interaction'];
 
   let total = 0, shown = 0;
 
@@ -392,28 +379,10 @@ function applyFilters() {
 
 function renderTagPills(m) {
   const pills = [];
-
-  // Scope
-  if (m.scope && VOCAB.scope[m.scope]) {
-    const v = VOCAB.scope[m.scope];
-    pills.push(`<span class="tag-pill tag-scope">${v.icon} ${escapeHtml(v.label)}</span>`);
-  }
-  // When
-  (m.when || []).forEach(w => {
-    const v = VOCAB.when[w];
-    if (v) pills.push(`<span class="tag-pill tag-when">${v.icon} ${escapeHtml(v.label)}</span>`);
+  (m.timing || []).forEach(t => {
+    const v = VOCAB.timing[t];
+    if (v) pills.push(`<span class="tag-pill tag-timing">${v.icon} ${escapeHtml(v.label)}</span>`);
   });
-  // Who
-  if (m.who && VOCAB.who[m.who]) {
-    const v = VOCAB.who[m.who];
-    pills.push(`<span class="tag-pill tag-who">${v.icon} ${escapeHtml(v.label)}</span>`);
-  }
-  // Condition
-  if (m.condition && VOCAB.condition[m.condition]) {
-    const v = VOCAB.condition[m.condition];
-    const cls = m.condition === 'both' ? 'tag-condition condition-both' : 'tag-condition condition-with-ai-only';
-    pills.push(`<span class="tag-pill ${cls}">${v.icon} ${escapeHtml(v.label)}</span>`);
-  }
   return pills.length ? `<div class="tag-list">${pills.join('')}</div>` : '';
 }
 
@@ -497,44 +466,53 @@ function renderBatteries(batteries, measurements) {
   }).join('');
 }
 
-// ---------------- STUDY DESIGN ----------------
+// ---------------- PROJECTS ----------------
 
-function renderStudyDesign(studyDesign) {
-  const container = document.getElementById('study-design-container');
-
-  const protocolsHtml = (studyDesign.protocols || []).map(p => `
-    <tr>
-      <td class="metric-name">${escapeHtml(p.label)}</td>
-      <td>${escapeHtml(p.description)}</td>
-      <td class="metric-desc">${escapeHtml(p.bestFor)}</td>
-    </tr>
-  `).join('');
-
-  const rqHtml = (studyDesign.researchQuestions || []).map(rq => `
-    <div style="margin-bottom:1.5rem;">
-      <h3 style="margin-bottom:0.5rem;">${escapeHtml(rq.label)}</h3>
-      <p class="description">${escapeHtml(rq.question)}</p>
-      <ul style="margin-left:1.2rem; margin-top:0.5rem;">
-        ${(rq.subQuestions || []).map(sq => `<li style="font-size:0.85rem;color:#475569;">${escapeHtml(sq)}</li>`).join('')}
-      </ul>
-    </div>
-  `).join('');
-
-  container.innerHTML = `
-    <div id="study-protocols" class="section">
-      <h2 style="margin-bottom:1rem;">🧪 Design Protocols</h2>
-      <div class="card">
-        <table class="metrics-table">
-          <thead><tr><th>Design</th><th>Description</th><th>Best for</th></tr></thead>
-          <tbody>${protocolsHtml}</tbody>
-        </table>
+function renderProjects(projects) {
+  const container = document.getElementById('projects-container');
+  container.innerHTML = (projects || []).map(p => {
+    const rqHtml = (p.researchQuestions || []).map(rq => `
+      <div class="rq-item">
+        <h4>${escapeHtml(rq.label)}</h4>
+        <p>${escapeHtml(rq.question)}</p>
+        ${(rq.subQuestions || []).length ? `<ul>${rq.subQuestions.map(sq => `<li>${escapeHtml(sq)}</li>`).join('')}</ul>` : ''}
       </div>
-    </div>
-    <div id="study-rq" class="section">
-      <h2 style="margin-bottom:1rem;">🎯 Research Questions</h2>
-      <div class="card">${rqHtml}</div>
-    </div>
-  `;
+    `).join('');
+
+    const protocolsHtml = (p.protocols || []).length ? `
+      <table class="metrics-table">
+        <thead><tr><th>Protocol</th><th>Description</th><th>Best for</th></tr></thead>
+        <tbody>
+          ${p.protocols.map(pr => `
+            <tr>
+              <td class="metric-name">${escapeHtml(pr.label)}</td>
+              <td>${escapeHtml(pr.description)}</td>
+              <td class="metric-desc">${escapeHtml(pr.bestFor)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    ` : '<p class="description">No protocols defined.</p>';
+
+    return `
+      <div id="project-${p.id}" class="section">
+        <h2 style="margin-bottom:1rem;">${p.icon || '📁'} ${escapeHtml(p.label)}</h2>
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">${p.icon || '📁'}</div>
+            <div><h3>${escapeHtml(p.label)}</h3></div>
+          </div>
+          <p class="project-description">${escapeHtml(p.description || '')}</p>
+
+          <div class="project-section-title">🎯 Research Questions</div>
+          ${rqHtml}
+
+          <div class="project-section-title">🧪 Study Protocols</div>
+          ${protocolsHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 // ---------------- NAV HANDLERS ----------------
@@ -577,7 +555,7 @@ async function init() {
     renderFilterBar();
     applyFilters();
     renderBatteries(data.batteries, data.measurements);
-    renderStudyDesign(data.studyDesign);
+    renderProjects(data.projects);
     attachNavHandlers();
   } catch (err) {
     document.getElementById('measurements-container').innerHTML =

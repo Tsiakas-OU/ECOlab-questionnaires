@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "ECO-lab Measurement Inventory",
-    "subtitle": "Instruments · Data Sources · Study Design",
-    "version": "4.0.0",
+    "subtitle": "Instruments · System Data · Projects",
+    "version": "6.0.0",
     "lastUpdated": "2026-10-15"
   },
 
@@ -18,37 +18,22 @@
       { "id": "ai", "label": "AI-Specific Perceptions", "icon": "🤖" },
       { "id": "wellbeing", "label": "Psychological Well-being", "icon": "🌿" },
       { "id": "cognitive", "label": "Cognitive Abilities & Reflection", "icon": "🧠" },
-      { "id": "objective-data", "label": "Objective Data", "icon": "📊", "description": "Institutional records, log streams, and computed metrics (not questionnaires)." }
+      { "id": "academic-records-interaction", "label": "Academic Records & Interaction Data", "icon": "📊", "description": "Institutional records and analytics derived from system logs (not questionnaires)." }
     ],
     "type": [
       { "id": "questionnaire", "label": "Questionnaire" },
       { "id": "record", "label": "Institutional Record" },
-      { "id": "metric", "label": "Computed Metric" },
-      { "id": "log", "label": "Log Stream" },
-      { "id": "task", "label": "Cognitive / Processing Task" }
+      { "id": "analytics", "label": "Learning Analytics" },
+      { "id": "task", "label": "Cognitive Task" }
     ],
-    "scope": [
-      { "id": "program", "label": "Program-level", "icon": "🏛" },
-      { "id": "course", "label": "Course-level", "icon": "📚" }
-    ],
-    "when": [
-      { "id": "program-intake", "label": "Program intake", "icon": "🎓" },
-      { "id": "program-during", "label": "Program — during (annual)", "icon": "📅" },
-      { "id": "program-exit", "label": "Program exit", "icon": "🏁" },
-      { "id": "course-registration", "label": "Course registration", "icon": "📖" },
-      { "id": "during-course", "label": "During course", "icon": "⏳" },
-      { "id": "course-completion", "label": "Course completion", "icon": "📝" },
-      { "id": "course-independent", "label": "Course-independent", "icon": "🌐" }
-    ],
-    "who": [
-      { "id": "student", "label": "Student", "icon": "👤" },
-      { "id": "course", "label": "Course", "icon": "📚" },
-      { "id": "instructor", "label": "Instructor", "icon": "🧑‍🏫" },
-      { "id": "ai-tutor", "label": "AI Tutor", "icon": "🤖" }
-    ],
-    "condition": [
-      { "id": "both", "label": "Both conditions", "icon": "⚪" },
-      { "id": "with-ai-only", "label": "With-AI only", "icon": "🎯" }
+    "timing": [
+      { "id": "program-intake", "label": "Program registration", "icon": "🎓", "scope": "program" },
+      { "id": "program-annual", "label": "Annual check-in", "icon": "📅", "scope": "program" },
+      { "id": "program-exit", "label": "Program exit", "icon": "🏁", "scope": "program" },
+      { "id": "course-registration", "label": "Course registration", "icon": "📖", "scope": "course" },
+      { "id": "course-during", "label": "During course", "icon": "⏳", "scope": "course" },
+      { "id": "course-completion", "label": "Course completion", "icon": "📝", "scope": "course" },
+      { "id": "course-independent", "label": "Course-independent", "icon": "🌐", "scope": "neutral" }
     ]
   },
 
@@ -57,13 +42,10 @@
       "id": "aloud-demographics",
       "type": "questionnaire",
       "domain": "student-characteristics",
-      "scope": "program",
       "name": "ALOUD Baseline Demographics & Background Questionnaire",
       "abbr": "ALOUD-Demographics",
       "description": "Custom baseline questionnaire derived from the ALOUD study at the Open University of the Netherlands. Captures demographic, employment, home status, and educational background variables used as covariates and predictors of study success in adult distance education.",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "Variable (custom instrument)", "scale": "Mixed" },
       "constructs": ["Demographics", "Employment", "Home Status", "Educational Background"],
       "items": [
@@ -81,13 +63,10 @@
       "id": "aloud-biological-lifestyle",
       "type": "questionnaire",
       "domain": "biological-lifestyle",
-      "scope": "program",
       "name": "ALOUD Biological Lifestyle & Health Questionnaire",
       "abbr": "ALOUD-Lifestyle",
       "description": "Baseline lifestyle and health measures collected within the ALOUD study. Captures biological, behavioural, and health-status variables identified as predictors of study success in adult distance education.",
-      "when": ["program-intake", "program-during"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "program-annual"],
       "meta": { "items": "Variable", "scale": "Mixed (numeric, categorical, Likert)" },
       "constructs": ["Height & Weight", "Sleep Quality", "Physical Activity", "Health Status", "Substance Use"],
       "items": [
@@ -105,13 +84,10 @@
       "id": "aloud-interrole-conflict",
       "type": "questionnaire",
       "domain": "student-characteristics",
-      "scope": "program",
       "name": "Inter-role Conflict Scale",
       "abbr": "IRC",
       "description": "Measured within the ALOUD study. Captures the tension between study, work, and home life. Particularly relevant for adult distance learners.",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "Variable", "scale": "Likert" },
       "constructs": ["Inter-role Conflict"],
       "items": [
@@ -125,13 +101,10 @@
       "id": "aloud-grit-s",
       "type": "questionnaire",
       "domain": "student-characteristics",
-      "scope": "program",
       "name": "Short Grit Scale",
       "abbr": "Grit-S",
       "description": "Validated within the ALOUD study to measure perseverance and passion for long-term goals. Two factors: Consistency of Interests and Perseverance of Effort.",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "8", "scale": "5-point Likert" },
       "constructs": ["Consistency of Interests", "Perseverance of Effort"],
       "items": [
@@ -146,30 +119,22 @@
       "id": "imi",
       "type": "questionnaire",
       "domain": "motivation",
-      "scope": "course",
       "name": "Intrinsic Motivation Inventory",
       "abbr": "IMI",
-      "description": "Multidimensional measurement device assessing participants' subjective experience related to a target activity. Freely available with scoring instructions.",
-      "when": ["course-registration", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "description": "Multidimensional measurement device assessing participants' subjective experience related to a target activity.",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "dimensions": "4–7", "scale": "7-point Likert" },
       "constructs": ["Interest/Enjoyment", "Perceived Competence", "Effort/Importance", "Pressure/Tension"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://selfdeterminationtheory.org/intrinsic-motivation-inventory/" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://selfdeterminationtheory.org/intrinsic-motivation-inventory/" }]
     },
     {
       "id": "mmami",
       "type": "questionnaire",
       "domain": "motivation",
-      "scope": "course",
       "name": "MUSIC Model of Academic Motivation Inventory",
       "abbr": "MMAMI",
-      "description": "Based on the MUSIC Model of Motivation. Multiple versions available (26-, 20-, 19-item College Student forms; Middle/High School; Elementary; translations in 20+ languages).",
-      "when": ["course-registration", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "description": "Based on the MUSIC Model of Motivation. Multiple versions available (26-, 20-, 19-item College Student forms).",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "19 (recommended)", "dimensions": "5", "scale": "6-point Likert" },
       "constructs": ["eMpowerment", "Usefulness", "Success", "Interest", "Caring"],
       "items": [
@@ -179,21 +144,16 @@
         { "group": "Interest (3 items)", "list": ["The instructional methods used in this course hold my attention.", "I enjoy the instructional methods used in this course.", "The instructional methods engage me in the course."] },
         { "group": "Caring (4 items)", "list": ["The instructor is friendly.", "The instructor is respectful of me.", "The instructor is willing to assist me if I need help in the course.", "The instructor cares about how well I do in this course."] }
       ],
-      "links": [
-        { "label": "🔗 Instrument & User Guide", "url": "https://www.theMUSICmodel.com" }
-      ]
+      "links": [{ "label": "🔗 Instrument & User Guide", "url": "https://www.theMUSICmodel.com" }]
     },
     {
       "id": "bpnsfs",
       "type": "questionnaire",
       "domain": "motivation",
-      "scope": "course",
       "name": "Basic Psychological Need Satisfaction & Frustration Scale",
       "abbr": "BPNSFS (adapted)",
       "description": "Adapted from Chen et al. (2015) and Haerens et al. (2015) to distinguish peer vs. teacher relatedness satisfaction and frustration.",
-      "when": ["course-registration", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "16", "factors": "4", "scale": "5-point Likert" },
       "constructs": ["Peer Relatedness Satisfaction", "Peer Relatedness Frustration", "Teacher Relatedness Satisfaction", "Teacher Relatedness Frustration"],
       "items": [
@@ -202,21 +162,16 @@
         { "group": "Teacher Relatedness Satisfaction (4 items)", "list": ["Adapted by replacing 'classmates' with 'PE teacher'.", "(Adapted)", "(Adapted)", "(Adapted)"] },
         { "group": "Teacher Relatedness Frustration (4 items)", "list": ["Adapted by replacing 'classmates' with 'PE teacher'.", "(Adapted)", "(Adapted)", "(Adapted)"] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1007/s11218-025-10071-3" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1007/s11218-025-10071-3" }]
     },
     {
       "id": "srq-a",
       "type": "questionnaire",
       "domain": "motivation",
-      "scope": "program",
       "name": "Academic Self-Regulation Questionnaire",
       "abbr": "SRQ-A",
-      "description": "Measures different styles of regulation or motivation for academic behavior. Based on Self-Determination Theory (Ryan & Connell, 1989). Adapted for Dutch-speaking populations by Vansteenkiste et al. (2009).",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "description": "Measures different styles of regulation or motivation for academic behavior. Based on Self-Determination Theory (Ryan & Connell, 1989).",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "16 (4 per subscale)", "subscales": "4", "scale": "5-point Likert" },
       "constructs": ["External Regulation", "Introjected Regulation", "Identified Regulation", "Intrinsic Motivation"],
       "items": [
@@ -231,13 +186,10 @@
       "id": "sol-q-r",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "course",
       "name": "Self-Regulated Online Learning Questionnaire – Revised",
       "abbr": "SOL-Q-R",
       "description": "Validated SRL questionnaire for online education. Revised from SOL-Q. Full item set available at SOONER.NU/SOL-Q-R.",
-      "when": ["course-registration", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "42", "dimensions": "7", "scale": "7-point Likert" },
       "constructs": ["Metacognitive Before Learning", "Metacognitive During Learning", "Metacognitive After Learning", "Time Management", "Environmental Structuring", "Persistence", "Help Seeking"],
       "items": [
@@ -249,61 +201,44 @@
         { "group": "Persistence (7 items)", "list": ["When I am feeling bored studying for this online course, I force myself to pay attention.", "When my mind begins to wander during a learning session, I make a special effort to keep concentrating.", "When I begin to lose interest for this online course, I push myself even further.", "I work hard to do well in this online course even if I don't like what I have to do.", "Even when materials are dull and uninteresting, I manage to keep working until I finish.", "(Two additional items at SOONER.NU/SOL-Q-R)"] },
         { "group": "Help Seeking (6 items)", "list": ["When I do not fully understand something, I ask other course members for ideas.", "I share my problems with any classmates in this course online.", "I am persistent in getting help from the instructor of this online course.", "When I am not sure about some material in this online course, I check with other people.", "I communicate with my classmates to find out how I am doing in this online course.", "(One additional item at SOONER.NU/SOL-Q-R)"] }
       ],
-      "links": [
-        { "label": "🔗 Full Preprint", "url": "https://research.ou.nl/ws/portalfiles/portal/7658165/ECTEL_SOLQrevised_preprint.pdf" }
-      ]
+      "links": [{ "label": "🔗 Full Preprint", "url": "https://research.ou.nl/ws/portalfiles/portal/7658165/ECTEL_SOLQrevised_preprint.pdf" }]
     },
     {
       "id": "srl-p",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "course",
       "name": "SRL-Practices Scale",
       "abbr": "SRL-P",
-      "description": "Measures students' perception of engagement in self-regulated learning strategies in online and distance learning contexts. Part of the SRL Profile and Self-Diagnostic Instrument (SRL-PSD; Hadwin et al., 2022).",
-      "when": ["course-registration", "during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "description": "Measures students' perception of engagement in self-regulated learning strategies in online and distance learning contexts. Part of the SRL-PSD (Hadwin et al., 2022).",
+      "timing": ["course-registration", "course-during", "course-completion"],
       "meta": { "items": "31", "dimensions": "8", "scale": "5-point Likert" },
       "constructs": ["Task Understanding", "Task Value", "Goal Management", "Motivation Appraisal", "Time Management", "Metacognitive Monitoring", "Metacognitive Adaptation", "Social Engagement"],
       "items": [
         { "group": "Stem: \"Over the last two weeks, when I did academic work, I...\"", "list": ["Task Understanding (5 items) — e.g., 'thought about relevant information and resources'", "Task Value (3 items) — e.g., 'reflected on why this work is important'", "Goal Management (5 items) — e.g., 'made goals to learn, understand or remember'", "Motivation Appraisal (3 items) — e.g., 'assessed if I think I can do it'", "Time Management (3 items) — e.g., 'created a timeline or a schedule'", "Metacognitive Monitoring (3 items) — e.g., 'asked myself if I understand the material'", "Metacognitive Adaptation (6 items) — e.g., 'switched to a different strategy or approach'", "Social Engagement (3 items) — e.g., 'helped fellow students'"] }
       ],
-      "links": [
-        { "label": "🔗 Vos et al. (2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }
-      ]
+      "links": [{ "label": "🔗 Vos et al. (2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }]
     },
     {
       "id": "srl-se",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "course",
       "name": "SRL Self-Efficacy Scale",
       "abbr": "SRL-SE",
-      "description": "Measures students' confidence in their ability to engage in self-regulated learning activities. Part of the SRL Profile and Self-Diagnostic Instrument (SRL-PSD; Hadwin et al., 2021).",
-      "when": ["course-registration", "during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "description": "Measures students' confidence in their ability to engage in self-regulated learning activities. Part of the SRL-PSD (Hadwin et al., 2021).",
+      "timing": ["course-registration", "course-during", "course-completion"],
       "meta": { "items": "12", "scale": "5-point Likert" },
       "constructs": ["SRL Self-Efficacy"],
-      "items": [
-        { "group": "Stem: \"In the next two weeks, I can...\"", "list": ["e.g., 'manage my goals'", "(Additional items cover planning, monitoring, adapting, time management, help-seeking — 12 items total)"] }
-      ],
-      "links": [
-        { "label": "🔗 Vos et al. (2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }
-      ]
+      "items": [{ "group": "Stem: \"In the next two weeks, I can...\"", "list": ["e.g., 'manage my goals'", "(Additional items cover planning, monitoring, adapting, time management, help-seeking — 12 items total)"] }],
+      "links": [{ "label": "🔗 Vos et al. (2025)", "url": "https://doi.org/10.1016/j.lindif.2025.102678" }]
     },
     {
       "id": "mslq",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "course",
       "name": "Motivated Strategies for Learning Questionnaire",
       "abbr": "MSLQ",
       "description": "Evaluates students' motivational orientations and learning strategies in college courses. Adapted and tested for Dutch pre-vocational students.",
-      "when": ["course-registration", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "81", "subscales": "15", "scale": "7-point Likert" },
       "constructs": ["Intrinsic Goal Orientation", "Extrinsic Goal Orientation", "Task Value", "Control of Learning Beliefs", "Self-Efficacy", "Test Anxiety", "Rehearsal", "Elaboration", "Organization", "Critical Thinking", "Metacognitive Self-Regulation", "Time & Study Environment", "Effort Regulation", "Peer Learning", "Help Seeking"],
       "items": [
@@ -323,21 +258,16 @@
         { "group": "Peer Learning (3 items)", "list": ["When studying for this course, I often try to explain the material to a classmate or friend.", "I try to work with other students from this class to complete the course assignments.", "When studying, I often set aside time to discuss the course material with a group."] },
         { "group": "Help Seeking (4 items)", "list": ["Even if I have trouble learning the material, I try to do the work on my own. (REVERSED)", "I ask the instructor to clarify concepts I don't understand well.", "When I can't understand the material, I ask another student in this class for help.", "I try to identify students in this class whom I can ask for help if necessary."] }
       ],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1177/0013164493053003024" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1177/0013164493053003024" }]
     },
     {
       "id": "assist",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "program",
       "name": "Approaches and Study Skills Inventory for Students",
       "abbr": "ASSIST (short version)",
       "description": "Identifies a student's characteristic orientation or 'style' of studying. The short version (18 items) has been validated in Vietnamese nursing students.",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "18 (short version)", "dimensions": "3", "scale": "5-point Likert" },
       "constructs": ["Deep Approach", "Strategic Approach", "Surface Approach"],
       "items": [
@@ -345,21 +275,16 @@
         { "group": "Strategic Approach (6 items)", "list": ["I organize my study time carefully to make the best use of it.", "I work steadily through the term or semester, rather than leave it all until the last minute.", "I'm pretty good at getting down to work whenever I need to.", "I put a lot of effort into studying because I'm determined to do well.", "I don't find it at all difficult to motivate myself.", "I think I'm quite systematic and organized when it comes to revising for exams."] },
         { "group": "Surface Approach (6 items)", "list": ["I often have trouble in making sense of the things I have to remember.", "There's not much of the work here that I find interesting or relevant.", "Much of what I'm studying makes little sense: it's like unrelated bits and pieces.", "Often I feel I'm drowning in the sheer amount of material we're having to cope with.", "I'm not really sure what's important in lectures, so I try to get down all I can.", "I often worry about whether I'll ever be able to cope with the work properly."] }
       ],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1155/2024/4260431" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1155/2024/4260431" }]
     },
     {
       "id": "oslq",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "course",
       "name": "Online Self-Regulated Learning Questionnaire",
       "abbr": "OSLQ",
       "description": "Measures student self-regulation specifically within online and blended learning contexts.",
-      "when": ["course-registration", "during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-registration", "course-during", "course-completion"],
       "meta": { "items": "24", "dimensions": "6", "scale": "5-point Likert" },
       "constructs": ["Goal Setting", "Environment Structuring", "Task Strategies", "Time Management", "Help Seeking", "Self-Evaluation"],
       "items": [
@@ -370,59 +295,44 @@
         { "group": "Help Seeking (4 items)", "list": ["I find someone who is knowledgeable in course content to consult when I need help.", "I share my problems with my classmates online.", "If needed, I try to meet my classmates face-to-face.", "I am persistent in getting help from the instructor through e-mail."] },
         { "group": "Self-Evaluation (4 items)", "list": ["I summarize my learning in online courses to examine my understanding.", "I ask myself a lot of questions about the course material when studying.", "I communicate with my classmates to find out how I am doing in my online classes.", "I communicate with my classmates to find out what I am learning differently from them."] }
       ],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/j.iheduc.2008.10.005" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/j.iheduc.2008.10.005" }]
     },
     {
       "id": "mai",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "program",
       "name": "Metacognitive Awareness Inventory",
       "abbr": "MAI",
       "description": "Measures adults' metacognitive awareness. Coefficient alpha for the entire instrument reaches .95.",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "52", "categories": "2", "scale": "100-point" },
       "constructs": ["Knowledge of Cognition", "Regulation of Cognition"],
       "items": [
         { "group": "Knowledge of Cognition (sample)", "list": ["I understand my intellectual strengths and weaknesses.", "I know what kind of information is most important to learn.", "I am good at organizing information.", "I have control over how well I learn.", "I am a good judge of how well I understand something."] },
         { "group": "Regulation of Cognition (sample)", "list": ["I ask myself periodically if I am meeting my goals.", "I consider several alternatives to a problem before I answer.", "I pace myself while learning in order to have enough time.", "I think about what I really need to learn before I begin a task.", "I set specific goals before I begin a task."] }
       ],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/S0361-476X(84)71033-2" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/S0361-476X(84)71033-2" }]
     },
     {
       "id": "lassi",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "program",
       "name": "Learning and Study Strategies Inventory",
       "abbr": "LASSI",
       "description": "Instrument that measures self-regulated learning. Revised 47-item version (LASSI-DPT) demonstrated improved construct validity and excellent reliability.",
-      "when": ["program-intake", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-independent"],
       "meta": { "items": "60 (revised: 47)", "scale": "Likert" },
       "constructs": ["Skill", "Will", "Self-Regulation"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1093/ptj/pzaf108" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1093/ptj/pzaf108" }]
     },
     {
       "id": "rtq",
       "type": "questionnaire",
       "domain": "srl",
-      "scope": "course",
       "name": "Kember et al. Reflective Thinking Scale",
       "abbr": "RTQ",
       "description": "One of the most widely known scales of reflective thinking. Measures four types of reflective thinking.",
-      "when": ["course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-completion"],
       "meta": { "items": "16", "dimensions": "4", "scale": "5-point Likert" },
       "constructs": ["Habitual Action", "Understanding", "Reflection", "Critical Reflection"],
       "items": [
@@ -431,21 +341,16 @@
         { "group": "Reflection", "list": ["I sometimes question the way others do something and try to think of a better way.", "I like to think over what I have been doing and consider alternative ways of doing it.", "I often reflect on my actions to see whether I could have improved on what I did.", "I often re-appraise my experience so I can learn from it."] },
         { "group": "Critical Reflection", "list": ["As a result of this course I have changed the way I look at myself.", "This course has challenged some of my firmly held ideas.", "As a result of this course I have changed my normal way of doing things.", "During this course I discovered faults in what I had previously believed to be right."] }
       ],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1080/713611442" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1080/713611442" }]
     },
     {
       "id": "usei",
       "type": "questionnaire",
       "domain": "engagement",
-      "scope": "course",
       "name": "University Student Engagement Inventory",
       "abbr": "USEI",
       "description": "Validated tri-factorial scale measuring multidimensional student engagement in higher education.",
-      "when": ["during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-during", "course-completion"],
       "meta": { "items": "15", "dimensions": "3", "scale": "5-point Likert" },
       "constructs": ["Behavioral Engagement", "Emotional Engagement", "Cognitive Engagement"],
       "items": [
@@ -453,92 +358,67 @@
         { "group": "Emotional Engagement (5 items)", "list": ["I don't feel very accomplished at this school. (reversed)", "I feel excited about the school work.", "I like being at school.", "I am interested in the school work.", "My classroom is an interesting place to be."] },
         { "group": "Cognitive Engagement (5 items)", "list": ["When I read a book, I question myself to make sure I understand.", "I talk to people outside the school on matters that I learned in class.", "If I do not understand a word, I try to solve the problem.", "I try to integrate the acquired knowledge in solving new problems.", "I try to integrate subjects from different disciplines into my general knowledge."] }
       ],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1186/s41155-016-0042-8" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1186/s41155-016-0042-8" }]
     },
     {
       "id": "ose",
       "type": "questionnaire",
       "domain": "engagement",
-      "scope": "course",
       "name": "Online Student Engagement Scale",
       "abbr": "OSE",
       "description": "Measures active student involvement and participation behaviors specifically in online courses.",
-      "when": ["during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-during", "course-completion"],
       "meta": { "dimensions": "4", "scale": "Likert" },
       "constructs": ["Skills", "Emotional Engagement", "Participation", "Performance"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://olj.onlinelearningconsortium.org/index.php/olj/article/view/561" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://olj.onlinelearningconsortium.org/index.php/olj/article/view/561" }]
     },
     {
       "id": "disengagement",
       "type": "questionnaire",
       "domain": "engagement",
-      "scope": "course",
       "name": "Scale of Disengagement in Online Courses",
       "abbr": "Disengagement",
       "description": "Validated tool designed to directly measure student disengagement specifically within online learning environments.",
-      "when": ["during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-during", "course-completion"],
       "meta": { "items": "9", "factor": "Unidimensional", "scale": "5-point Likert" },
       "constructs": ["Online Disengagement"],
       "items": [
         { "group": "9 Items", "list": ["I get distracted by other things when I take the online course.", "I have difficulty concentrating on the online course.", "I get bored after a while and deal with other things because the instructor gives only presentations.", "I do other things while the online course is in progress.", "I lose my motivation during the online course.", "I feel lonely because I can't interact with anyone in the class.", "I find the online course boring.", "I have difficulty following the online course.", "When I'm taking the online course on my phone, I get distracted by instant incoming calls or messages."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://eric.ed.gov/?id=EJ1457225" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://eric.ed.gov/?id=EJ1457225" }]
     },
     {
       "id": "uwes-ss",
       "type": "questionnaire",
       "domain": "engagement",
-      "scope": "program",
       "name": "Utrecht Work Engagement Scale – Student Survey",
       "abbr": "UWES-SS",
       "description": "Adaptation of an instrument originally developed for professional workplace settings. Measures student engagement within the university context.",
-      "when": ["program-intake", "course-completion"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-completion"],
       "meta": { "items": "15 (short: 9)", "dimensions": "3", "scale": "7-point Likert" },
       "constructs": ["Vigour", "Dedication", "Absorption"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://www.wilmarschaufeli.nl/publications/Schaufeli/Test%20Manuals/Test_manual_UWES_English.pdf" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://www.wilmarschaufeli.nl/publications/Schaufeli/Test%20Manuals/Test_manual_UWES_English.pdf" }]
     },
     {
       "id": "aeq-s",
       "type": "questionnaire",
       "domain": "emotion",
-      "scope": "course",
       "name": "Achievement Emotions Questionnaire – Short Form",
       "abbr": "AEQ-S",
       "description": "Measures domain- and class-specific achievement emotions experienced in academic settings. Based on Pekrun's control-value theory.",
-      "when": ["course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-completion"],
       "meta": { "emotions": "8", "scale": "5-point Likert" },
       "constructs": ["Enjoyment", "Hope", "Pride", "Anxiety", "Anger", "Shame", "Hopelessness", "Boredom"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/j.cedpsych.2010.10.002" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1016/j.cedpsych.2010.10.002" }]
     },
     {
       "id": "forces",
       "type": "questionnaire",
       "domain": "social",
-      "scope": "course",
       "name": "FORCES Framework Instrument",
       "abbr": "FORCES",
       "description": "Measures student-perceived instructor social presence and facilitation strategies that cultivate social connection in distance education.",
-      "when": ["during-course", "course-completion"],
-      "who": "instructor",
-      "condition": "both",
+      "timing": ["course-during", "course-completion"],
       "meta": { "items": "30 + 5 outcomes", "dimensions": "6", "scale": "5-point Likert" },
       "constructs": ["Feedback", "Organization", "Response Time", "Communication", "Empathy", "Sociability"],
       "items": [
@@ -550,55 +430,40 @@
         { "group": "Sociability (4 items)", "list": ["Appropriate and used conversational language when communicating with me.", "Incorporated a positive tone in the learning environment.", "Used expressions of emotions, warmth, etc.", "Made my online interactions with the instructor feel sincere."] },
         { "group": "Outcome Items (5 items)", "list": ["The instructor motivated me to learn the content.", "Overall, I am satisfied with the instructor.", "Overall, I was satisfied with the design of the learning environment.", "Overall, I feel I have achieved the learning objectives.", "Overall, I feel connected to the instructor."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1108/QRDE-12-2025-0002" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1108/QRDE-12-2025-0002" }]
     },
     {
       "id": "coi",
       "type": "questionnaire",
       "domain": "social",
-      "scope": "course",
       "name": "Community of Inquiry Survey",
       "abbr": "CoI",
       "description": "Measures the structural presences necessary for establishing an effective computer-mediated educational community.",
-      "when": ["course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-completion"],
       "meta": { "items": "34", "presences": "3", "scale": "5-point Likert" },
       "constructs": ["Social Presence", "Teaching Presence", "Cognitive Presence"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://www.thecommunityofinquiry.org/coisurvey" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://www.thecommunityofinquiry.org/coisurvey" }]
     },
     {
       "id": "oscs",
       "type": "questionnaire",
       "domain": "social",
-      "scope": "course",
       "name": "Online Student Connectedness Survey",
       "abbr": "OSCS",
       "description": "Assesses online learners' psychological feelings of community and peer/instructor connectedness.",
-      "when": ["during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-during", "course-completion"],
       "meta": { "items": "25", "dimensions": "4", "scale": "5-point Likert" },
       "constructs": ["Community", "Comfort", "Facilitation", "Interaction & Collaboration"],
-      "links": [
-        { "label": "🔗 Access Instrument", "url": "https://doi.org/10.19173/irrodl.v13i3.1171" }
-      ]
+      "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.19173/irrodl.v13i3.1171" }]
     },
     {
       "id": "oips",
       "type": "questionnaire",
       "domain": "social",
-      "scope": "course",
       "name": "Online Instructor Presence Scale",
       "abbr": "OIPS",
       "description": "Validated instrument to assess instructor presence in online learning. Four factors: Teaching, Cognitive, Social, and Emotional Presence.",
-      "when": ["during-course", "course-completion"],
-      "who": "instructor",
-      "condition": "both",
+      "timing": ["course-during", "course-completion"],
       "meta": { "items": "37", "factors": "4", "scale": "4-point Likert" },
       "constructs": ["Teaching Presence", "Cognitive Presence", "Social Presence", "Emotional Presence"],
       "items": [
@@ -607,62 +472,47 @@
         { "group": "Social Presence (9 items)", "list": ["My instructor provided opportunities to contact him/her via phone and/or online means.", "My instructor created opportunities for students to discuss their ideas with others.", "My instructor connected to students individually.", "My instructor provided opportunities for class members to work together.", "My instructor provided a space for students to introduce themselves.", "My instructor posted news about current events relevant to the course.", "My instructor provided opportunities for seminar discussions.", "My instructor participated in online class discussions.", "My instructor organised live class sessions via video conferencing."] },
         { "group": "Emotional Presence (10 items)", "list": ["My instructor provided the same amount of help to all students.", "My instructor praised my work as much as others'.", "My instructor treated me the same as other students.", "My instructor was humorous.", "My instructor provided a forum for students to voice frustrations.", "My instructor demonstrated interest in my learning.", "My instructor organised live sessions to discuss emotional needs.", "My instructor encouraged students to support peer-to-peer connections.", "My instructor provided constructive feedback on assignments and quizzes.", "My instructor demonstrated interest in my career aspiration."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1111/bjet.70003" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1111/bjet.70003" }]
     },
     {
       "id": "ccs",
       "type": "questionnaire",
       "domain": "social",
-      "scope": "course",
       "name": "Classroom Community Scale",
       "abbr": "CCS",
       "description": "Evaluates learners' overall sense of classroom community, spirit, and mutual trust. Two latent factors: Connectedness and Learning.",
-      "when": ["course-completion"],
-      "who": "course",
-      "condition": "both",
+      "timing": ["course-completion"],
       "meta": { "items": "20", "factors": "2", "scale": "5-point Likert" },
       "constructs": ["Connectedness (10 items)", "Learning (10 items)"],
       "items": [
         { "group": "Connectedness (odd-numbered items: 1, 3, 5, 7, 9, 11, 13, 15, 17, 19)", "list": ["I feel that students in this course care about each other.", "I feel connected to others in this course.", "I do not feel a spirit of community. (reversed)", "I feel that this course is like a family.", "I feel isolated in this course. (reversed)", "I trust others in this course.", "I feel that I can rely on others in this course.", "I feel that members of this course depend on me.", "I feel uncertain about others in this course. (reversed)", "I feel confident that others will support me."] },
         { "group": "Learning (even-numbered items: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20)", "list": ["I feel that I am encouraged to ask questions.", "I feel that it is hard to get help when I have a question. (reversed)", "I feel that I receive timely feedback.", "I feel uneasy exposing gaps in my understanding. (reversed)", "I feel reluctant to speak openly. (reversed)", "I feel that this course results in only modest learning. (reversed)", "I feel that other students do not help me learn. (reversed)", "I feel that I am given ample opportunities to learn.", "I feel that my educational needs are not being met. (reversed)", "I feel that this course does not promote a desire to learn. (reversed)"] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1016/S1096-7516(02)00102-1" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1016/S1096-7516(02)00102-1" }]
     },
     {
       "id": "sirs",
       "type": "questionnaire",
       "domain": "social",
-      "scope": "course",
       "name": "Student-Instructor Relationship Scale",
       "abbr": "SIRS",
       "description": "Assesses student-instructor relationship connectedness and anxiety.",
-      "when": ["course-registration", "course-completion"],
-      "who": "instructor",
-      "condition": "both",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "36", "factors": "2", "scale": "7-point Likert" },
       "constructs": ["Instructor Connectedness (11 items)", "Instructor Anxiety (8 items)"],
       "items": [
         { "group": "Full 36-item scale", "list": ["I wish this instructor were more concerned with the welfare of students.", "I find it difficult to allow myself to depend on this instructor.", "The instructor is concerned with the needs of his or her students.", "I'm afraid that I will lose this instructor's respect.", "I worry a lot about my interactions with this instructor.", "It's not difficult for me to feel connected to this instructor.", "This instructor makes me doubt myself.", "I am nervous around this instructor.", "I find that the instructor does not connect well with students.", "The instructor seems to only appreciate certain students.", "I feel comfortable sharing my thoughts with this instructor.", "I find it relatively easy to get close to this instructor.", "Sometimes this instructor's mood is unpredictable.", "This instructor shows favoritism to some students.", "This instructor seems uncomfortable interacting with students.", "I prefer not to show this instructor how I truly think or feel.", "It's easy for me to connect with this instructor.", "I get uncomfortable when instructors try to get too friendly with students.", "I rarely worry about losing this instructor's respect.", "It makes me mad that this instructor does not seem to pay attention to the needs of his or her students.", "I am very comfortable feeling connected to a class or instructor.", "I'm scared to show my thoughts around this instructor; I think he or she will think less of me.", "I usually discuss my problems and concerns with this instructor.", "I don't feel comfortable opening up to this instructor.", "I'm afraid that if I shared my thoughts with this instructor that he or she would not think highly of me.", "I do not often worry about losing the respect of this instructor.", "I find it easy to depend on this instructor for help.", "If I were to get into trouble in this class, I do not think this instructor would be very motivated to help me.", "I could tell this instructor just about anything.", "I feel comfortable depending on this instructor.", "I worry that I won't measure up to this instructor's standards.", "I worry that this instructor does not really care for his or her students.", "I prefer not to get too close to instructors.", "I often worry that my instructor doesn't really like me.", "If I had a problem in this class, I know I could talk to the instructor.", "I know this instructor could make me feel better if I had a problem."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.20429/ijsotl.2009.030214" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.20429/ijsotl.2009.030214" }]
     },
     {
       "id": "sus",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "System Usability Scale",
       "abbr": "SUS",
       "description": "The most widely used questionnaire for assessing perceived usability of a system. Developed by Brooke (1996).",
-      "when": ["course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-completion"],
       "meta": { "items": "10", "scale": "5-point Likert" },
       "constructs": ["Perceived Usability"],
       "items": [
@@ -677,13 +527,10 @@
       "id": "utaut",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Unified Theory of Acceptance and Use of Technology",
       "abbr": "UTAUT",
       "description": "Unified model integrating eight technology acceptance theories. Four core determinants: Performance Expectancy, Effort Expectancy, Social Influence, Facilitating Conditions.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "16 core items", "constructs": "4 core + BI", "scale": "7-point Likert" },
       "constructs": ["Performance Expectancy", "Effort Expectancy", "Attitude Toward Using Technology", "Social Influence", "Facilitating Conditions", "Behavioral Intention"],
       "items": [
@@ -703,13 +550,10 @@
       "id": "aitaqs",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "AI Tutoring Acceptance Quality Scale",
       "abbr": "AITAQS",
       "description": "Multidimensional scale evaluating students' perceived acceptance quality of AI tutoring systems.",
-      "when": ["course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-completion"],
       "meta": { "items": "12", "dimensions": "4", "scale": "5-point Likert" },
       "constructs": ["Feedback Quality", "Instructional Effectiveness", "Interaction Experience", "User Trust"],
       "items": [
@@ -718,42 +562,32 @@
         { "group": "Interaction Experience (Q7–Q9)", "list": ["It is easy to interact with the AI tutor while practicing singing.", "The AI tutor can maintain the continuity of the conversation.", "The interactive style of the AI tutor has enhanced my learning experience."] },
         { "group": "User Trust (Q10–Q12)", "list": ["An AI tutor can provide the information I need.", "The guidance provided by the AI tutor is reasonable and reliable.", "I believe the AI tutor usually gives reasonable suggestions for vocal practice."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1038/s41539-026-00431-9" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1038/s41539-026-00431-9" }]
     },
     {
       "id": "srail",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Self-Regulated AI Learning Student Attitudes Scale",
       "abbr": "SRAIL",
       "description": "Validated instrument measuring students' attitudes toward the integration of AI within self-regulated learning contexts.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "17", "dimensions": "2", "scale": "5-point Likert" },
       "constructs": ["Academic Success (9 items)", "Study Style (8 items)"],
       "items": [
         { "group": "Academic Success (9 items)", "list": ["I think that using AI programmes increases my success in the lessons.", "I consider that I benefit from the individualised learning experience offered by AI programmes.", "I think AI programmes make my work more efficient.", "I feel less stress while studying thanks to AI tools.", "I encourage me to take responsibility for my learning process through the use of AI.", "I think AI applications motivate me to focus on my learning goals.", "I analyse topics that interest me in depth with AI tools.", "I think that AI-based feedback improves my learning experience.", "I use AI tools to set and monitor my academic goals."] },
         { "group": "Study Style (8 items)", "list": ["I learn at my own pace with AI programmes.", "AI offers specialised resources for my learning needs.", "I integrate AI tools into my work as part of my regular work routine.", "I think that AI applications increase cooperation during group work.", "I think AI applications will improve the quality of my assignments and projects.", "AI applications help me to organise my work schedule.", "I think the use of AI programmes makes my learning processes interesting.", "I evaluate my progress towards achieving my goals using AI."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1016/j.actpsy.2025.105227" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1016/j.actpsy.2025.105227" }]
     },
     {
       "id": "cail",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Collaborative AI Literacy Scale",
       "abbr": "CAIL",
       "description": "Assesses human–AI collaborative competencies: knowledge and skills required to direct, coordinate with, and utilize generative AI tools.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "finalItems": "13", "dimensions": "3", "scale": "Likert" },
       "constructs": ["Evaluating AI Tools", "Use AI Tools", "Ethical Implications of AI"],
       "items": [
@@ -761,21 +595,16 @@
         { "group": "Use AI Tools", "list": ["Use AI to improve your productivity.", "Direct the AI so that you obtain the output that you seek.", "Build upon and complement the AI's output.", "Determine what information the AI needs to perform the task appropriately.", "Identify new applications for using the AI's capability.", "Use AI to improve the quality of your decisions or work."] },
         { "group": "Ethical Implications of AI", "list": ["Understand the ethical considerations involved in developing and using AI technology.", "Evaluate the transparency of an AI system and its decision-making processes.", "Identify biases in AI systems and their potential impact."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1080/10447318.2025.2543997" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1080/10447318.2025.2543997" }]
     },
     {
       "id": "cam",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Collaborative AI Metacognition Scale",
       "abbr": "CAM",
       "description": "Evaluates students' active metacognitive awareness and self-regulation over their thought processes while collaborating with generative AI.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "13", "dimensions": "3", "scale": "Likert" },
       "constructs": ["Metacognitive Planning", "Monitoring", "Reflection"],
       "items": [
@@ -783,58 +612,43 @@
         { "group": "Monitoring", "list": ["I check whether the AI's responses make sense while working.", "I monitor whether I am relying too much on the AI.", "I notice when the AI misunderstands my request.", "I adjust my prompts when the AI's output is not useful.", "I keep track of how the AI is contributing to my learning."] },
         { "group": "Reflection", "list": ["I reflect on whether using AI helped me learn the material.", "I consider what I could have done differently when working with AI.", "I evaluate whether the AI's suggestions improved my work.", "I think about how I can use AI more effectively in the future."] }
       ],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1080/10447318.2025.2543997" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1080/10447318.2025.2543997" }]
     },
     {
       "id": "tam-adapted",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Technology Acceptance Model (adapted)",
       "abbr": "TAM (adapted)",
-      "description": "Assesses foundational technology adoption beliefs, usability, communication clarity, and overall satisfaction with AI tools. Adapted from Teo (2009) for a programming learning context.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "description": "Assesses foundational technology adoption beliefs, usability, communication clarity, and overall satisfaction with AI tools.",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "15", "constructs": "6", "scale": "Likert" },
       "constructs": ["Perceived Usefulness", "Perceived Ease of Use", "Attitude / Interest", "Technological Complexity", "Self-Efficacy", "Behavioural Intention"],
       "items": [
         { "group": "Original → Adapted", "list": ["PU1 — Using [PL] will improve my efficiency", "PU2 — I learnt while using [PL]", "PEOU1 — My interaction with [PL] is clear and understandable", "PEOU2 — I find it easy to do what I want with [PL]", "PEOU3 — I find [PL] easy to use", "ATT1 — I found the courses in which we used [PL] interesting", "ATT2 — Using [PL] is fun", "ATT3 — I enjoyed the courses in which we used [PL]", "TC1 — Learning to use [PL] is taking me too long", "TC2 — Working with [PL] is difficult", "TC3 — It takes too long to learn how to use [PL]", "SE1 — I could complete a task using [PL] if I can call someone for help", "SE2 — I could do a task using [PL] if someone showed me first", "BI1 — I would like to use [PL] in the future", "BI2 — I want to continue learning with [PL]"] }
       ],
-      "links": [
-        { "label": "🔗 Source", "url": "https://link.springer.com/article/10.1007/s11423-025-10503-z" }
-      ]
+      "links": [{ "label": "🔗 Source", "url": "https://link.springer.com/article/10.1007/s11423-025-10503-z" }]
     },
     {
       "id": "tam-extended",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Extended TAM for AI-Powered ChatGPT",
       "abbr": "TAM (extended)",
-      "description": "Extended TAM for AI-powered ChatGPT supporting metacognitive self-regulated learning (MSRL). 9 constructs including Perceived AI Trust, AI Intelligence, and MSRL.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "description": "Extended TAM for AI-powered ChatGPT supporting metacognitive self-regulated learning (MSRL). 9 constructs.",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "items": "41", "constructs": "9", "scale": "Likert" },
       "constructs": ["Personal Competence", "Social Influence", "Perceived AI Trust", "Perceived AI Usefulness", "Perceived AI Enjoyment", "Perceived AI Intelligence", "Attitude Toward ChatGPT", "MSRL", "Intention to Use"],
-      "links": [
-        { "label": "🔗 Full Article", "url": "https://doi.org/10.1016/j.heliyon.2024.e29317" }
-      ]
+      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1016/j.heliyon.2024.e29317" }]
     },
     {
       "id": "tam-original",
       "type": "questionnaire",
       "domain": "ai",
-      "scope": "course",
       "name": "Technology Acceptance Model (original)",
       "abbr": "TAM (original)",
       "description": "Original TAM (Davis, 1986, 1989). Perceived Usefulness (PU) and Perceived Ease of Use (PEOU) as the two primary determinants of technology acceptance.",
-      "when": ["course-registration", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "timing": ["course-registration", "course-completion"],
       "meta": { "constructs": "4", "scale": "7-point Likert" },
       "constructs": ["Perceived Usefulness", "Perceived Ease of Use", "Attitude Toward Using", "Behavioral Intention"],
       "links": [
@@ -846,13 +660,10 @@
       "id": "who-5",
       "type": "questionnaire",
       "domain": "wellbeing",
-      "scope": "program",
       "name": "WHO-5 Wellbeing Index",
       "abbr": "WHO-5",
       "description": "World Health Organization Well-being Index. A short, validated instrument measuring subjective psychological well-being over the past two weeks.",
-      "when": ["program-intake", "course-completion", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-completion", "course-independent"],
       "meta": { "items": "5", "scale": "6-point Likert", "languages": "30+" },
       "constructs": ["Psychological Well-being"],
       "items": [
@@ -868,53 +679,36 @@
       "id": "wemwbs",
       "type": "questionnaire",
       "domain": "wellbeing",
-      "scope": "program",
       "name": "Warwick-Edinburgh Mental Well-Being Scale",
       "abbr": "WEMWBS",
       "description": "Short scale capturing a general picture of mental well-being, focusing on positive human functioning.",
-      "when": ["program-intake", "course-completion", "course-independent"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "course-completion", "course-independent"],
       "meta": { "items": "14", "scale": "5-point Likert" },
       "constructs": ["Mental Well-being"],
-      "items": [
-        { "group": "14 Items", "list": ["I feel positive about the future.", "I am interested in others.", "I can think clearly.", "(11 additional items covering positive affect, interpersonal relationships, and positive functioning)"] }
-      ],
-      "links": [
-        { "label": "🔗 Instrument (Tennant et al., 2007)", "url": "https://doi.org/10.1186/1477-7525-5-63" }
-      ]
+      "items": [{ "group": "14 Items", "list": ["I feel positive about the future.", "I am interested in others.", "I can think clearly.", "(11 additional items covering positive affect, interpersonal relationships, and positive functioning)"] }],
+      "links": [{ "label": "🔗 Instrument (Tennant et al., 2007)", "url": "https://doi.org/10.1186/1477-7525-5-63" }]
     },
     {
       "id": "ef-battery",
       "type": "task",
       "domain": "cognitive",
-      "scope": "program",
       "name": "Executive Functioning & Processing Tasks",
       "abbr": "EF-Battery",
-      "description": "Digitized cognitive and neuropsychological tasks measuring executive functioning, working memory, and processing speed. Administered at program intake to capture baseline cognitive ability as a predictor of study success.",
-      "when": ["program-intake"],
-      "who": "student",
-      "condition": "both",
+      "description": "Digitized cognitive and neuropsychological tasks measuring executive functioning, working memory, and processing speed.",
+      "timing": ["program-intake"],
       "meta": { "tasks": "Variable", "scale": "Reaction time / Accuracy" },
       "constructs": ["Inhibitory Control", "Working Memory", "Cognitive Flexibility", "Processing Speed", "Sustained Attention"],
-      "items": [
-        { "group": "Typical Tasks", "list": ["Flanker Task (inhibitory control)", "N-back Task (working memory)", "Task-switching paradigm (cognitive flexibility)", "Digit-symbol substitution (processing speed)", "Continuous Performance Task (sustained attention)"] }
-      ],
-      "links": [
-        { "label": "🔗 ALOUD Cognitive Study Reference", "url": "https://research.ou.nl/ws/portalfiles/portal/42301941/Meeting_KU_Leuven_Presentation_ALOUD.pdf" }
-      ]
+      "items": [{ "group": "Typical Tasks", "list": ["Flanker Task (inhibitory control)", "N-back Task (working memory)", "Task-switching paradigm (cognitive flexibility)", "Digit-symbol substitution (processing speed)", "Continuous Performance Task (sustained attention)"] }],
+      "links": [{ "label": "🔗 ALOUD Cognitive Study Reference", "url": "https://research.ou.nl/ws/portalfiles/portal/42301941/Meeting_KU_Leuven_Presentation_ALOUD.pdf" }]
     },
     {
       "id": "academic-records",
       "type": "record",
-      "domain": "objective-data",
-      "scope": "program",
+      "domain": "academic-records-interaction",
       "name": "Academic Records",
       "abbr": "Academic Records",
       "description": "Institutional data on student academic history and performance.",
-      "when": ["program-intake", "program-exit", "course-completion"],
-      "who": "student",
-      "condition": "both",
+      "timing": ["program-intake", "program-exit", "course-completion"],
       "metrics": [
         { "name": "Incoming GPA", "description": "Prior academic achievement for baseline equivalence" },
         { "name": "Number of Credits", "description": "Academic load indicator" },
@@ -926,15 +720,12 @@
     },
     {
       "id": "lms-analytics",
-      "type": "log",
-      "domain": "objective-data",
-      "scope": "course",
+      "type": "analytics",
+      "domain": "academic-records-interaction",
       "name": "LMS / Learning Analytics",
-      "abbr": "LMS",
-      "description": "Behavioral data from the learning management system.",
-      "when": ["during-course", "course-completion"],
-      "who": "course",
-      "condition": "both",
+      "abbr": "LMS Analytics",
+      "description": "Behavioral data from the learning management system, including both raw event logs and computed metrics.",
+      "timing": ["course-during", "course-completion"],
       "metrics": [
         { "name": "Log Data", "description": "Keystrokes, activity time, navigation patterns" },
         { "name": "Total Chat Events", "description": "Message count in discussion forums / chats" },
@@ -943,15 +734,12 @@
     },
     {
       "id": "ai-tutor-metrics",
-      "type": "metric",
-      "domain": "objective-data",
-      "scope": "course",
+      "type": "analytics",
+      "domain": "academic-records-interaction",
       "name": "AI Tutor Interaction Metrics",
-      "abbr": "AI Metrics",
-      "description": "Objective metrics extracted from AI Tutor conversations to quantify learning orientation, scaffolding quality, and engagement patterns.",
-      "when": ["during-course", "course-completion"],
-      "who": "ai-tutor",
-      "condition": "with-ai-only",
+      "abbr": "AI Analytics",
+      "description": "Computed metrics from AI Tutor conversation logs, quantifying learning orientation, scaffolding quality, and engagement patterns.",
+      "timing": ["course-during", "course-completion"],
       "metrics": [
         { "name": "Conversational Engagement Score", "abbr": "CES", "description": "Measuring turn counts and callbacks to distinguish dialogue from transactional queries" },
         { "name": "Learning Orientation Index", "abbr": "LOI", "description": "Detects exploratory learning (why/how questions) vs. answer-seeking" },
@@ -965,10 +753,27 @@
 
   "batteries": [
     {
-      "id": "program-intake",
-      "label": "Program Intake Battery",
-      "icon": "🎓",
-      "description": "Administered once at program registration. Independent of any specific course.",
+      "id": "course-baseline",
+      "label": "Course Baseline Battery",
+      "icon": "📖",
+      "description": "Administered at the start of a specific course. Captures course-level pre-measures of self-regulated learning, motivation, and social expectations.",
+      "measurementIds": [
+        "sol-q-r",
+        "srl-p",
+        "srl-se",
+        "mslq",
+        "oslq",
+        "mmami",
+        "bpnsfs",
+        "sirs",
+        "lms-analytics"
+      ]
+    },
+    {
+      "id": "studiesuccess-baseline",
+      "label": "Studiesucces Baseline",
+      "icon": "📈",
+      "description": "Administered once at program registration to capture student characteristics and dispositions used to predict study success across multiple courses.",
       "measurementIds": [
         "aloud-demographics",
         "aloud-biological-lifestyle",
@@ -986,45 +791,10 @@
       ]
     },
     {
-      "id": "program-longitudinal",
-      "label": "Program Longitudinal Battery",
-      "icon": "📅",
-      "description": "Administered annually during the program to track progress.",
-      "measurementIds": [
-        "aloud-biological-lifestyle"
-      ]
-    },
-    {
-      "id": "program-exit",
-      "label": "Program Exit Battery",
-      "icon": "🏁",
-      "description": "Administered at graduation or program exit.",
-      "measurementIds": [
-        "academic-records"
-      ]
-    },
-    {
-      "id": "course-baseline",
-      "label": "Course Baseline Battery",
-      "icon": "📖",
-      "description": "Administered at the registration of a specific course.",
-      "measurementIds": [
-        "sol-q-r",
-        "srl-p",
-        "srl-se",
-        "mslq",
-        "oslq",
-        "mmami",
-        "bpnsfs",
-        "sirs",
-        "lms-analytics"
-      ]
-    },
-    {
-      "id": "ai-tutor-course",
-      "label": "AI Tutor Course Battery",
+      "id": "ai-tutor-baseline",
+      "label": "AI Tutor Baseline",
       "icon": "🤖",
-      "description": "For a specific course where the AI Tutor is used.",
+      "description": "Administered at the start of a specific course where the AI Tutor is used. Captures course-level pre-measures and AI-specific expectations.",
       "measurementIds": [
         "srl-p",
         "srl-se",
@@ -1038,83 +808,39 @@
         "lms-analytics",
         "ai-tutor-metrics"
       ]
-    },
-    {
-      "id": "post-course",
-      "label": "Post-Course Battery",
-      "icon": "📝",
-      "description": "Administered at the end of a specific course.",
-      "measurementIds": [
-        "sol-q-r",
-        "srl-p",
-        "srl-se",
-        "oslq",
-        "usei",
-        "ose",
-        "disengagement",
-        "uwes-ss",
-        "aeq-s",
-        "rtq",
-        "coi",
-        "ccs",
-        "forces",
-        "oips",
-        "oscs",
-        "who-5",
-        "wemwbs",
-        "academic-records",
-        "lms-analytics"
-      ]
-    },
-    {
-      "id": "ai-tutor-completion",
-      "label": "AI Tutor Post-Course Battery",
-      "icon": "📊",
-      "description": "At the end of a specific course where the AI Tutor was used.",
-      "measurementIds": [
-        "aitaqs",
-        "srail",
-        "cail",
-        "cam",
-        "sus",
-        "utaut",
-        "tam-adapted",
-        "tam-extended",
-        "ai-tutor-metrics"
-      ]
-    },
-    {
-      "id": "study-success",
-      "label": "Study Success Prediction Battery",
-      "icon": "📈",
-      "description": "Designed to predict study success across multiple courses. Combines baseline student characteristics with course-level engagement and outcome data.",
-      "measurementIds": [
-        "aloud-demographics",
-        "aloud-grit-s",
-        "srq-a",
-        "sol-q-r",
-        "mslq",
-        "assist",
-        "usei",
-        "uwes-ss",
-        "who-5",
-        "ef-battery",
-        "academic-records",
-        "lms-analytics"
-      ]
     }
   ],
 
-  "studyDesign": {
-    "protocols": [
-      { "id": "between-cohorts", "label": "Between-Cohorts", "description": "Same course — different cohorts", "bestFor": "Comparing with-AI vs. without-AI across semesters" },
-      { "id": "within-cohort", "label": "Within-Cohort", "description": "Same cohort — different modules/courses/semesters", "bestFor": "Comparing conditions within same students" },
-      { "id": "within-course-crossover", "label": "Within-Course Crossover (AB-BA)", "description": "Same course/cohort — switching groups within", "bestFor": "Balancing order effects within a single course" },
-      { "id": "pre-during-post", "label": "Pre-During-Post (A/B/A)", "description": "Same course/cohort — switch conditions for all", "bestFor": "Examining transition effects within one cohort" }
-    ],
-    "researchQuestions": [
-      { "id": "rq1", "label": "RQ1: Comparative Evaluation", "question": "How does the interaction with the AI Tutor affect students' learning processes and outcomes, behavioral engagement, and psychological experience compared to a baseline (non-AI) condition?", "subQuestions": ["1.1 Learning outcomes and behaviors", "1.2 Motivation and engagement", "1.3 Sense of belonging & social connectedness"] },
-      { "id": "rq2", "label": "RQ2: Functional Evaluation", "question": "How to assess the effectiveness of the AI Tutor functionalities with respect to its pedagogical design principles?", "subQuestions": ["2.1 Trust and attitude towards using AI Tutor", "2.2 Learning behaviors with AI Tutor – guided scaffolding, personalization"] }
-    ]
-  }
+  "projects": [
+    {
+      "id": "artour-pilot",
+      "label": "ARTOUR pilot",
+      "icon": "🎨",
+      "description": "Pilot study evaluating the AI Tutor in a course context. Focuses on the comparative effect of AI-supported tutoring vs. baseline instruction, and on the functional effectiveness of the AI Tutor's pedagogical design.",
+      "researchQuestions": [
+        { "id": "artour-rq1", "label": "RQ1: Comparative Evaluation", "question": "How does the interaction with the AI Tutor affect students' learning processes and outcomes, behavioral engagement, and psychological experience compared to a baseline (non-AI) condition?", "subQuestions": ["1.1 Learning outcomes and behaviors", "1.2 Motivation and engagement", "1.3 Sense of belonging & social connectedness"] },
+        { "id": "artour-rq2", "label": "RQ2: Functional Evaluation", "question": "How to assess the effectiveness of the AI Tutor functionalities with respect to its pedagogical design principles?", "subQuestions": ["2.1 Trust and attitude towards using AI Tutor", "2.2 Learning behaviors with AI Tutor – guided scaffolding, personalization"] }
+      ],
+      "protocols": [
+        { "id": "between-cohorts", "label": "Between-Cohorts", "description": "Same course — different cohorts", "bestFor": "Comparing with-AI vs. without-AI across semesters" },
+        { "id": "within-cohort", "label": "Within-Cohort", "description": "Same cohort — different modules/courses/semesters", "bestFor": "Comparing conditions within same students" },
+        { "id": "within-course-crossover", "label": "Within-Course Crossover (AB-BA)", "description": "Same course/cohort — switching groups within", "bestFor": "Balancing order effects within a single course" },
+        { "id": "pre-during-post", "label": "Pre-During-Post (A/B/A)", "description": "Same course/cohort — switch conditions for all", "bestFor": "Examining transition effects within one cohort" }
+      ]
+    },
+    {
+      "id": "studiesuccess",
+      "label": "Studiesucces",
+      "icon": "📈",
+      "description": "Longitudinal study tracking student characteristics and dispositions at program intake, and their relationship to study success (achievement, persistence, well-being) across multiple courses.",
+      "researchQuestions": [
+        { "id": "ss-rq1", "label": "RQ1: Predictors of Study Success", "question": "Which baseline student characteristics (demographics, dispositions, motivation, cognitive ability) predict study success in online distance education?", "subQuestions": ["1.1 Academic achievement", "1.2 Persistence and retention", "1.3 Psychological well-being"] },
+        { "id": "ss-rq2", "label": "RQ2: Mechanisms", "question": "Through which mediating processes (self-regulated learning, engagement) do baseline characteristics influence study success?", "subQuestions": ["2.1 Self-regulated learning as mediator", "2.2 Engagement as mediator"] }
+      ],
+      "protocols": [
+        { "id": "longitudinal-cohort", "label": "Longitudinal Cohort", "description": "Same cohort followed across multiple semesters", "bestFor": "Tracking predictors of study success over time" },
+        { "id": "program-level-observational", "label": "Program-Level Observational", "description": "Cross-sectional at program intake with follow-up at program exit", "bestFor": "Comparing entry profiles with exit outcomes" }
+      ]
+    }
+  ]
 }
