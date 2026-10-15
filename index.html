@@ -307,11 +307,23 @@ function renderFilterBar() {
 }
 
 function measurementMatchesFilters(m) {
-  if (activeFilters.type.size > 0 && !activeFilters.type.has(m.type)) return false;
-  if (activeFilters.timing.size > 0) {
-    const ok = (m.timing || []).some(t => activeFilters.timing.has(t));
-    if (!ok) return false;
+  // Type: every selected type must match (AND).
+  // Since a measurement has exactly one type, selecting more than one
+  // type in the same group will produce empty results — that's intended.
+  if (activeFilters.type.size > 0) {
+    const measurementType = m.type;
+    const allMatch = [...activeFilters.type].every(t => t === measurementType);
+    if (!allMatch) return false;
   }
+
+  // Timing: every selected timing must be present in the measurement's timing array (AND).
+  // A measurement passes only if it contains all selected timings.
+  if (activeFilters.timing.size > 0) {
+    const measurementTimings = m.timing || [];
+    const allMatch = [...activeFilters.timing].every(t => measurementTimings.includes(t));
+    if (!allMatch) return false;
+  }
+
   return true;
 }
 
