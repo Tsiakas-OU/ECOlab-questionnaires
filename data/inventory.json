@@ -32,8 +32,7 @@
       { "id": "program-exit", "label": "Program exit", "icon": "🏁", "scope": "program" },
       { "id": "course-registration", "label": "Course registration", "icon": "📖", "scope": "course" },
       { "id": "course-during", "label": "During course", "icon": "⏳", "scope": "course" },
-      { "id": "course-completion", "label": "Course completion", "icon": "📝", "scope": "course" },
-      { "id": "course-independent", "label": "Course-independent", "icon": "🌐", "scope": "neutral" }
+      { "id": "course-completion", "label": "Course completion", "icon": "📝", "scope": "course" }
     ]
   },
 
@@ -45,7 +44,7 @@
       "name": "ALOUD Baseline Demographics & Background Questionnaire",
       "abbr": "ALOUD-Demographics",
       "description": "Custom baseline questionnaire derived from the ALOUD study at the Open University of the Netherlands. Captures demographic, employment, home status, and educational background variables used as covariates and predictors of study success in adult distance education.",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "Variable (custom instrument)", "scale": "Mixed" },
       "constructs": ["Demographics", "Employment", "Home Status", "Educational Background"],
       "items": [
@@ -87,7 +86,7 @@
       "name": "Inter-role Conflict Scale",
       "abbr": "IRC",
       "description": "Measured within the ALOUD study. Captures the tension between study, work, and home life. Particularly relevant for adult distance learners.",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "Variable", "scale": "Likert" },
       "constructs": ["Inter-role Conflict"],
       "items": [
@@ -104,7 +103,7 @@
       "name": "Short Grit Scale",
       "abbr": "Grit-S",
       "description": "Validated within the ALOUD study to measure perseverance and passion for long-term goals. Two factors: Consistency of Interests and Perseverance of Effort.",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "8", "scale": "5-point Likert" },
       "constructs": ["Consistency of Interests", "Perseverance of Effort"],
       "items": [
@@ -171,7 +170,7 @@
       "name": "Academic Self-Regulation Questionnaire",
       "abbr": "SRQ-A",
       "description": "Measures different styles of regulation or motivation for academic behavior. Based on Self-Determination Theory (Ryan & Connell, 1989).",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "16 (4 per subscale)", "subscales": "4", "scale": "5-point Likert" },
       "constructs": ["External Regulation", "Introjected Regulation", "Identified Regulation", "Intrinsic Motivation"],
       "items": [
@@ -267,7 +266,7 @@
       "name": "Approaches and Study Skills Inventory for Students",
       "abbr": "ASSIST (short version)",
       "description": "Identifies a student's characteristic orientation or 'style' of studying. The short version (18 items) has been validated in Vietnamese nursing students.",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "18 (short version)", "dimensions": "3", "scale": "5-point Likert" },
       "constructs": ["Deep Approach", "Strategic Approach", "Surface Approach"],
       "items": [
@@ -304,7 +303,7 @@
       "name": "Metacognitive Awareness Inventory",
       "abbr": "MAI",
       "description": "Measures adults' metacognitive awareness. Coefficient alpha for the entire instrument reaches .95.",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "52", "categories": "2", "scale": "100-point" },
       "constructs": ["Knowledge of Cognition", "Regulation of Cognition"],
       "items": [
@@ -320,7 +319,7 @@
       "name": "Learning and Study Strategies Inventory",
       "abbr": "LASSI",
       "description": "Instrument that measures self-regulated learning. Revised 47-item version (LASSI-DPT) demonstrated improved construct validity and excellent reliability.",
-      "timing": ["program-intake", "course-independent"],
+      "timing": ["program-intake"],
       "meta": { "items": "60 (revised: 47)", "scale": "Likert" },
       "constructs": ["Skill", "Will", "Self-Regulation"],
       "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1093/ptj/pzaf108" }]
@@ -663,7 +662,7 @@
       "name": "WHO-5 Wellbeing Index",
       "abbr": "WHO-5",
       "description": "World Health Organization Well-being Index. A short, validated instrument measuring subjective psychological well-being over the past two weeks.",
-      "timing": ["program-intake", "course-completion", "course-independent"],
+      "timing": ["program-intake", "course-completion"],
       "meta": { "items": "5", "scale": "6-point Likert", "languages": "30+" },
       "constructs": ["Psychological Well-being"],
       "items": [
@@ -682,7 +681,7 @@
       "name": "Warwick-Edinburgh Mental Well-Being Scale",
       "abbr": "WEMWBS",
       "description": "Short scale capturing a general picture of mental well-being, focusing on positive human functioning.",
-      "timing": ["program-intake", "course-completion", "course-independent"],
+      "timing": ["program-intake", "course-completion"],
       "meta": { "items": "14", "scale": "5-point Likert" },
       "constructs": ["Mental Well-being"],
       "items": [{ "group": "14 Items", "list": ["I feel positive about the future.", "I am interested in others.", "I can think clearly.", "(11 additional items covering positive affect, interpersonal relationships, and positive functioning)"] }],
