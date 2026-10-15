@@ -222,20 +222,9 @@ function buildVocabIndex(data) {
   ['domains', 'when', 'who', 'condition', 'type'].forEach(key => {
     const arr = data.vocabularies[key] || [];
     arr.forEach(v => {
-      const bucketKey = key === 'domains' ? 'domains' : key;
-      VOCAB[bucketKey][v.id] = v;
+      VOCAB[key][v.id] = v;
     });
   });
-}
-
-function labelFor(category, id) {
-  const v = VOCAB[category]?.[id];
-  return v ? v.label : id;
-}
-
-function iconFor(category, id) {
-  const v = VOCAB[category]?.[id];
-  return v ? (v.icon || '') : '';
 }
 
 // ---------------- META ----------------
@@ -274,9 +263,9 @@ function renderNav(data) {
       </a>`;
     }).join('');
 
-  // Objective data
+  // Objective data — links jump to the objective-data domain, with hash to scroll
   document.getElementById('nav-objective').innerHTML = objectiveMeasures
-    .map(m => `<a href="#" data-section="measurement-${m.id}">
+    .map(m => `<a href="#" data-section="domain-objective-data" data-scroll-to="measurement-${m.id}">
       📊 ${escapeHtml(m.name)}
     </a>`).join('');
 
@@ -298,8 +287,7 @@ function renderNav(data) {
 function renderFilterBar() {
   ['when', 'who', 'condition', 'type'].forEach(key => {
     const container = document.getElementById('filter-' + key);
-    const vocabKey = key === 'when' ? 'when' : key;
-    const items = Object.values(VOCAB[vocabKey] || {});
+    const items = Object.values(VOCAB[key] || {});
     container.innerHTML = items.map(v =>
       `<span class="filter-chip" data-filter-type="${key}" data-filter-val="${v.id}">${v.icon || ''} ${escapeHtml(v.label)}</span>`
     ).join('');
@@ -363,16 +351,21 @@ function applyFilters() {
     if (inDomain.length === 0) return '';
 
     const v = VOCAB.domains[dId] || { label: dId, icon: '' };
+    const descHtml = v.description
+      ? `<p style="font-size:0.85rem;color:#64748b;margin-bottom:1rem;">${escapeHtml(v.description)}</p>`
+      : '';
 
     if (filtered.length === 0) {
       return `<div id="domain-${dId}" class="section">
-        <h2 style="margin-bottom:1rem;">${v.icon} ${escapeHtml(v.label)}</h2>
+        <h2 style="margin-bottom:0.5rem;">${v.icon} ${escapeHtml(v.label)}</h2>
+        ${descHtml}
         <div class="no-results">No measurements match the current filters.</div>
       </div>`;
     }
 
     return `<div id="domain-${dId}" class="section">
-      <h2 style="margin-bottom:1rem;">${v.icon} ${escapeHtml(v.label)}</h2>
+      <h2 style="margin-bottom:0.5rem;">${v.icon} ${escapeHtml(v.label)}</h2>
+      ${descHtml}
       ${filtered.map(renderMeasurementCard).join('')}
     </div>`;
   }).join('');
@@ -448,7 +441,7 @@ function renderMeasurementCard(m) {
   ).join('');
 
   return `
-    <div class="card">
+    <div class="card" id="measurement-${escapeHtml(m.id)}">
       <div class="instrument-header">
         <h3>${escapeHtml(m.name)} <span class="abbr">(${escapeHtml(m.abbr)})</span></h3>
       </div>
@@ -545,11 +538,21 @@ function attachNavHandlers() {
     if (!link) return;
     e.preventDefault();
     const target = link.dataset.section;
+    const scrollTo = link.dataset.scrollTo;
+
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
     link.classList.add('active');
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     const section = document.getElementById(target);
-    if (section) section.classList.add('active');
+    if (!section) return;
+    section.classList.add('active');
+    if (scrollTo) {
+      const el = document.getElementById(scrollTo);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        return;
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
