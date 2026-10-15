@@ -168,7 +168,7 @@
 <main id="main">
 
   <details class="filter-bar" id="filter-bar" open>
-    <summary>🔍 Filter Measurements</summary>
+    <summary>🔍 Filter Measurements <span style="font-weight:400;text-transform:none;font-size:0.72rem;color:#94a3b8;margin-left:0.5rem;">(selections within a group are combined with AND)</span></summary>
     <div class="filter-bar-body">
       <div class="filter-bar-header">
         <span></span>
@@ -176,8 +176,12 @@
       </div>
       <div class="filter-groups">
         <div class="filter-group">
-          <span class="filter-group-label">Timing</span>
-          <div class="filter-chips" id="filter-timing"></div>
+          <span class="filter-group-label">Scope</span>
+          <div class="filter-chips" id="filter-scope"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Phase</span>
+          <div class="filter-chips" id="filter-phase"></div>
         </div>
         <div class="filter-group">
           <span class="filter-group-label">Type</span>
@@ -199,7 +203,7 @@
 
 <script>
 // ============================================================
-// RENDER ENGINE — v6.0.0 (projects replace study design)
+// RENDER ENGINE — v7.0 (filter bar: Scope + Phase + Type)
 // ============================================================
 
 async function loadInventory() {
@@ -215,7 +219,7 @@ function escapeHtml(str) {
 
 let GLOBAL_DATA = null;
 let VOCAB = { domains: {}, type: {}, timing: {} };
-let activeFilters = { timing: new Set(), type: new Set() };
+let activeFilters = { scope: new Set(), phase: new Set(), type: new Set() };
 
 // ---------------- VOCABULARY ----------------
 
@@ -224,6 +228,33 @@ function buildVocabIndex(data) {
     const arr = data.vocabularies[key] || [];
     arr.forEach(v => { VOCAB[key][v.id] = v; });
   });
+}
+
+// ---------------- SCOPE / PHASE DERIVATION ----------------
+
+// Derive scope from timing ID prefix
+function scopeFromTiming(timingId) {
+  if (timingId.startsWith('program-')) return 'program';
+  if (timingId.startsWith('course-')) return 'course';
+  return 'neutral';
+}
+
+// Derive phase from timing ID suffix
+function phaseFromTiming(timingId) {
+  if (timingId.endsWith('-intake') || timingId.endsWith('-registration')) return 'beginning';
+  if (timingId.endsWith('-annual') || timingId.endsWith('-during')) return 'during';
+  if (timingId.endsWith('-exit') || timingId.endsWith('-completion')) return 'end';
+  return 'neutral';
+}
+
+// Given a measurement's timing array, return the set of scopes it covers
+function scopesForMeasurement(m) {
+  return new Set((m.timing || []).map(scopeFromTiming));
+}
+
+// Given a measurement's timing array, return the set of phases it covers
+function phasesForMeasurement(m) {
+  return new Set((m.timing || []).map(phaseFromTiming));
 }
 
 // ---------------- META ----------------
@@ -279,15 +310,38 @@ function renderNav(data) {
 
 // ---------------- FILTER BAR ----------------
 
-function renderFilterBar() {
-  ['timing', 'type'].forEach(key => {
-    const container = document.getElementById('filter-' + key);
-    const items = Object.values(VOCAB[key] || {});
-    container.innerHTML = items.map(v =>
-      `<span class="filter-chip" data-filter-type="${key}" data-filter-val="${v.id}">${v.icon || ''} ${escapeHtml(v.label)}</span>`
-    ).join('');
-  });
+const SCOPE_LABELS = {
+  program: { label: 'Program', icon: '🏛' },
+  course: { label: 'Course', icon: '📚' }
+};
 
+const PHASE_LABELS = {
+  beginning: { label: 'Beginning', icon: '🚀' },
+  during: { label: 'During', icon: '⏳' },
+  end: { label: 'End', icon: '🏁' }
+};
+
+function renderFilterBar() {
+  // Scope chips
+  const scopeContainer = document.getElementById('filter-scope');
+  scopeContainer.innerHTML = Object.entries(SCOPE_LABELS).map(([id, v]) =>
+    `<span class="filter-chip" data-filter-type="scope" data-filter-val="${id}">${v.icon} ${v.label}</span>`
+  ).join('');
+
+  // Phase chips
+  const phaseContainer = document.getElementById('filter-phase');
+  phaseContainer.innerHTML = Object.entries(PHASE_LABELS).map(([id, v]) =>
+    `<span class="filter-chip" data-filter-type="phase" data-filter-val="${id}">${v.icon} ${v.label}</span>`
+  ).join('');
+
+  // Type chips (from vocabularies)
+  const typeContainer = document.getElementById('filter-type');
+  const typeItems = Object.values(VOCAB.type || {});
+  typeContainer.innerHTML = typeItems.map(v =>
+    `<span class="filter-chip" data-filter-type="type" data-filter-val="${v.id}">${v.icon || ''} ${escapeHtml(v.label)}</span>`
+  ).join('');
+
+  // Click handlers
   document.querySelectorAll('.filter-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       const type = chip.dataset.filterType;
@@ -307,20 +361,25 @@ function renderFilterBar() {
 }
 
 function measurementMatchesFilters(m) {
-  // Type: every selected type must match (AND).
-  // Since a measurement has exactly one type, selecting more than one
-  // type in the same group will produce empty results — that's intended.
+  // Type: AND across selected types (a measurement has exactly one type)
   if (activeFilters.type.size > 0) {
     const measurementType = m.type;
     const allMatch = [...activeFilters.type].every(t => t === measurementType);
     if (!allMatch) return false;
   }
 
-  // Timing: every selected timing must be present in the measurement's timing array (AND).
-  // A measurement passes only if it contains all selected timings.
-  if (activeFilters.timing.size > 0) {
-    const measurementTimings = m.timing || [];
-    const allMatch = [...activeFilters.timing].every(t => measurementTimings.includes(t));
+  // Scope: AND across selected scopes
+  // A measurement passes only if every selected scope is present in its derived scopes.
+  if (activeFilters.scope.size > 0) {
+    const mScopes = scopesForMeasurement(m);
+    const allMatch = [...activeFilters.scope].every(s => mScopes.has(s));
+    if (!allMatch) return false;
+  }
+
+  // Phase: AND across selected phases
+  if (activeFilters.phase.size > 0) {
+    const mPhases = phasesForMeasurement(m);
+    const allMatch = [...activeFilters.phase].every(p => mPhases.has(p));
     if (!allMatch) return false;
   }
 
