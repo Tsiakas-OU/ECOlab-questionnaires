@@ -57,8 +57,8 @@
 
   .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
   .tag-pill { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; }
-  .tag-administration { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
-  .tag-target { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+  .tag-when { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+  .tag-who { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
   .tag-condition { background: #fef3c7; color: #92400e; border-color: #fde68a; }
   .tag-condition.condition-both { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
   .tag-condition.condition-with-ai-only { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; }
@@ -84,50 +84,32 @@
   .metric-name { font-weight: 500; color: #1a1a2e; }
   .metric-desc { color: #64748b; font-size: 0.78rem; }
 
-  .collection-card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; }
-  .collection-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
-  .collection-icon { font-size: 1.75rem; }
-  .collection-header h3 { font-size: 1.15rem; color: #1a1a2e; }
-  .collection-header .timing { font-size: 0.75rem; color: #6b7280; margin-top: 0.15rem; }
-  .collection-description { font-size: 0.88rem; color: #475569; margin-bottom: 1rem; }
-  .collection-section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; font-weight: 700; margin: 1rem 0 0.5rem; }
-  .collection-instrument-list { display: flex; flex-direction: column; gap: 0.4rem; }
-  .collection-instrument-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; background: #f8fafc; border-radius: 6px; font-size: 0.83rem; }
-  .collection-instrument-item .name { font-weight: 500; color: #1a1a2e; }
-  .collection-instrument-item .timing-badge { font-size: 0.7rem; color: #6b7280; }
-  .collection-datasource-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; background: #f0f4ff; border-radius: 6px; font-size: 0.83rem; color: #1e40af; }
+  .battery-card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; }
+  .battery-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+  .battery-icon { font-size: 1.75rem; }
+  .battery-header h3 { font-size: 1.15rem; color: #1a1a2e; }
+  .battery-description { font-size: 0.88rem; color: #475569; margin-bottom: 1rem; }
+  .battery-section-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; font-weight: 700; margin: 1rem 0 0.5rem; }
+  .battery-measurement-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .battery-measurement-item { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; background: #f8fafc; border-radius: 6px; font-size: 0.83rem; }
+  .battery-measurement-item .name { font-weight: 500; color: #1a1a2e; }
+  .battery-measurement-item .type-badge { font-size: 0.7rem; color: #6b7280; font-style: italic; }
 
-  /* FILTER BAR */
   .filter-bar { background: white; border-radius: 12px; padding: 0; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border: 1px solid #e5e7eb; overflow: hidden; }
-  .filter-bar summary {
-    cursor: pointer;
-    padding: 1rem 1.25rem;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #64748b;
-    font-weight: 700;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-    border-bottom: 1px solid #f1f5f9;
-  }
+  .filter-bar summary { cursor: pointer; padding: 1rem 1.25rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none; border-bottom: 1px solid #f1f5f9; }
   .filter-bar summary::-webkit-details-marker { display: none; }
   .filter-bar summary::after { content: '▼'; font-size: 0.6rem; color: #94a3b8; transition: transform 0.2s; }
   .filter-bar[open] summary::after { transform: rotate(180deg); }
   .filter-bar-body { padding: 1rem 1.25rem; }
   .filter-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
-  .filter-clear { font-size: 0.75rem; color: #2563eb; background: none; border: none; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; transition: background 0.15s; }
+  .filter-clear { font-size: 0.75rem; color: #2563eb; background: none; border: none; cursor: pointer; padding: 0.25rem 0.5rem; border-radius: 4px; }
   .filter-clear:hover { background: #eff6ff; }
   .filter-clear:disabled { color: #cbd5e1; cursor: default; }
-  .filter-clear:disabled:hover { background: none; }
   .filter-groups { display: flex; flex-wrap: wrap; gap: 1.5rem; }
   .filter-group { display: flex; flex-direction: column; gap: 0.4rem; }
   .filter-group-label { font-size: 0.7rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
   .filter-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .filter-chip { font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid #e2e8f0; background: #f8fafc; color: #475569; cursor: pointer; transition: all 0.15s; user-select: none; }
+  .filter-chip { font-size: 0.75rem; padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid #e2e8f0; background: #f8fafc; color: #475569; cursor: pointer; user-select: none; }
   .filter-chip:hover { border-color: #93c5fd; background: #eff6ff; }
   .filter-chip.active { background: #2563eb; color: white; border-color: #2563eb; font-weight: 500; }
   .filter-results { font-size: 0.75rem; color: #64748b; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #f1f5f9; }
@@ -147,7 +129,6 @@
     main { padding: 1rem; }
     .meta-grid { grid-template-columns: 1fr 1fr; }
     .filter-groups { flex-direction: column; gap: 1rem; }
-    #active-filter-badge { top: 0.75rem; right: 0.75rem; font-size: 0.7rem; }
   }
 </style>
 </head>
@@ -163,26 +144,22 @@
 
 <nav id="nav">
   <h2>Instruments &amp; Questionnaires</h2>
-  <div id="nav-constructs"></div>
+  <div id="nav-domains"></div>
 
-  <h2>Student Characteristics</h2>
-  <div id="nav-student"></div>
+  <h2>Objective Data</h2>
+  <div id="nav-objective"></div>
 
-  <h2>Interaction &amp; Log Data</h2>
-  <div id="nav-data"></div>
+  <h2>Batteries</h2>
+  <div id="nav-batteries"></div>
 
-  <h2>Collections</h2>
-  <div id="nav-collections"></div>
-
-  <h2>Study Design &amp; Protocols</h2>
+  <h2>Study Design</h2>
   <div id="nav-study"></div>
 </nav>
 
 <main id="main">
 
-  <!-- FILTER BAR (collapsible) -->
   <details class="filter-bar" id="filter-bar" open>
-    <summary>🔍 Filter Instruments</summary>
+    <summary>🔍 Filter Measurements</summary>
     <div class="filter-bar-body">
       <div class="filter-bar-header">
         <span></span>
@@ -190,35 +167,38 @@
       </div>
       <div class="filter-groups">
         <div class="filter-group">
-          <span class="filter-group-label">Administration</span>
-          <div class="filter-chips" id="filter-administration"></div>
+          <span class="filter-group-label">When</span>
+          <div class="filter-chips" id="filter-when"></div>
         </div>
         <div class="filter-group">
-          <span class="filter-group-label">Target</span>
-          <div class="filter-chips" id="filter-target"></div>
+          <span class="filter-group-label">Who</span>
+          <div class="filter-chips" id="filter-who"></div>
         </div>
         <div class="filter-group">
           <span class="filter-group-label">Condition</span>
           <div class="filter-chips" id="filter-condition"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-group-label">Type</span>
+          <div class="filter-chips" id="filter-type"></div>
         </div>
       </div>
       <div class="filter-results" id="filter-results"></div>
     </div>
   </details>
 
-  <div id="categories-container">
+  <div id="measurements-container">
     <div class="loading">Loading inventory…</div>
   </div>
 
-  <div id="data-sources-container"></div>
-  <div id="collections-container"></div>
+  <div id="batteries-container"></div>
   <div id="study-design-container"></div>
 </main>
 </div>
 
 <script>
 // ============================================================
-// RENDER ENGINE — loads data/inventory.json and builds the page
+// RENDER ENGINE — simplified flat measurement model
 // ============================================================
 
 async function loadInventory() {
@@ -229,36 +209,34 @@ async function loadInventory() {
 
 function escapeHtml(str) {
   return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// Human-readable labels
-const ADMIN_LABELS = {
-  'university-intake': '🎓 University intake',
-  'course-registration': '📖 Course registration',
-  'during-course': '⏳ During course',
-  'course-completion': '📝 Course completion',
-  'course-independent': '🌐 Course-independent'
-};
-
-const TARGET_LABELS = {
-  'student-level': '👤 Student-level',
-  'course-level': '📚 Course-level',
-  'instructor-level': '🧑‍🏫 Instructor-level',
-  'ai-tutor-level': '🤖 AI Tutor-level'
-};
-
-const CONDITION_LABELS = {
-  'both': '⚪ Both conditions',
-  'with-ai-only': '🎯 With-AI only'
-};
-
-// Global state
 let GLOBAL_DATA = null;
-let activeFilters = { administration: new Set(), target: new Set(), condition: new Set() };
+let VOCAB = { domains: {}, when: {}, who: {}, condition: {}, type: {} };
+let activeFilters = { when: new Set(), who: new Set(), condition: new Set(), type: new Set() };
+
+// ---------------- VOCABULARY HELPERS ----------------
+
+function buildVocabIndex(data) {
+  ['domains', 'when', 'who', 'condition', 'type'].forEach(key => {
+    const arr = data.vocabularies[key] || [];
+    arr.forEach(v => {
+      const bucketKey = key === 'domains' ? 'domains' : key;
+      VOCAB[bucketKey][v.id] = v;
+    });
+  });
+}
+
+function labelFor(category, id) {
+  const v = VOCAB[category]?.[id];
+  return v ? v.label : id;
+}
+
+function iconFor(category, id) {
+  const v = VOCAB[category]?.[id];
+  return v ? (v.icon || '') : '';
+}
 
 // ---------------- META ----------------
 
@@ -270,38 +248,45 @@ function renderMeta(meta) {
 
 // ---------------- NAVIGATION ----------------
 
-function renderNav(categories, dataSources, collections) {
-  const studentCat = categories.find(c => c.id === 'student-characteristics');
-  const constructCats = categories.filter(c => c.id !== 'student-characteristics');
+function renderNav(data) {
+  const measurements = data.measurements || [];
+  const domainGroups = {};
+  const objectiveMeasures = [];
 
-  document.getElementById('nav-constructs').innerHTML = constructCats.map((cat, idx) => `
-    <a href="#" data-section="${cat.id}" class="${idx === 0 ? 'active' : ''}">
-      ${cat.icon || ''} ${escapeHtml(cat.label)}
-      <span class="badge">${cat.instruments.length}</span>
-    </a>
-  `).join('');
+  measurements.forEach(m => {
+    if (m.domain === 'objective-data') {
+      objectiveMeasures.push(m);
+    } else {
+      domainGroups[m.domain] = domainGroups[m.domain] || [];
+      domainGroups[m.domain].push(m);
+    }
+  });
 
-  if (studentCat) {
-    document.getElementById('nav-student').innerHTML = `
-      <a href="#" data-section="student-characteristics">
-        ${studentCat.icon || '👤'} ${escapeHtml(studentCat.label)}
-        <span class="badge">${studentCat.instruments.length}</span>
-      </a>
-    `;
-  }
+  // Domains (questionnaires grouped by domain)
+  const domainOrder = ['student-characteristics', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing'];
+  document.getElementById('nav-domains').innerHTML = domainOrder
+    .filter(dId => domainGroups[dId] && domainGroups[dId].length)
+    .map((dId, idx) => {
+      const v = VOCAB.domains[dId] || { label: dId, icon: '' };
+      const count = domainGroups[dId].length;
+      return `<a href="#" data-section="domain-${dId}" class="${idx === 0 ? 'active' : ''}">
+        ${v.icon} ${escapeHtml(v.label)} <span class="badge">${count}</span>
+      </a>`;
+    }).join('');
 
-  document.getElementById('nav-data').innerHTML = (dataSources || []).map(ds => `
-    <a href="#" data-section="data-${ds.id}">
-      ${ds.icon || '📊'} ${escapeHtml(ds.label)}
-    </a>
-  `).join('');
+  // Objective data
+  document.getElementById('nav-objective').innerHTML = objectiveMeasures
+    .map(m => `<a href="#" data-section="measurement-${m.id}">
+      📊 ${escapeHtml(m.name)}
+    </a>`).join('');
 
-  document.getElementById('nav-collections').innerHTML = (collections || []).map(c => `
-    <a href="#" data-section="collection-${c.id}">
-      ${c.icon || '🗃️'} ${escapeHtml(c.label)}
-    </a>
-  `).join('');
+  // Batteries
+  document.getElementById('nav-batteries').innerHTML = (data.batteries || [])
+    .map(b => `<a href="#" data-section="battery-${b.id}">
+      ${b.icon || '🗃️'} ${escapeHtml(b.label)}
+    </a>`).join('');
 
+  // Study design
   document.getElementById('nav-study').innerHTML = `
     <a href="#" data-section="study-protocols">🧪 Design Protocols</a>
     <a href="#" data-section="study-rq">🎯 Research Questions</a>
@@ -311,272 +296,200 @@ function renderNav(categories, dataSources, collections) {
 // ---------------- FILTER BAR ----------------
 
 function renderFilterBar() {
-  const adminContainer = document.getElementById('filter-administration');
-  const targetContainer = document.getElementById('filter-target');
-  const conditionContainer = document.getElementById('filter-condition');
+  ['when', 'who', 'condition', 'type'].forEach(key => {
+    const container = document.getElementById('filter-' + key);
+    const vocabKey = key === 'when' ? 'when' : key;
+    const items = Object.values(VOCAB[vocabKey] || {});
+    container.innerHTML = items.map(v =>
+      `<span class="filter-chip" data-filter-type="${key}" data-filter-val="${v.id}">${v.icon || ''} ${escapeHtml(v.label)}</span>`
+    ).join('');
+  });
 
-  adminContainer.innerHTML = Object.entries(ADMIN_LABELS).map(([val, label]) =>
-    `<span class="filter-chip" data-filter-type="administration" data-filter-val="${val}">${label}</span>`
-  ).join('');
-
-  targetContainer.innerHTML = Object.entries(TARGET_LABELS).map(([val, label]) =>
-    `<span class="filter-chip" data-filter-type="target" data-filter-val="${val}">${label}</span>`
-  ).join('');
-
-  conditionContainer.innerHTML = Object.entries(CONDITION_LABELS).map(([val, label]) =>
-    `<span class="filter-chip" data-filter-type="condition" data-filter-val="${val}">${label}</span>`
-  ).join('');
-
-  // Attach handlers
   document.querySelectorAll('.filter-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       const type = chip.dataset.filterType;
       const val = chip.dataset.filterVal;
       const set = activeFilters[type];
-      if (set.has(val)) {
-        set.delete(val);
-        chip.classList.remove('active');
-      } else {
-        set.add(val);
-        chip.classList.add('active');
-      }
+      if (set.has(val)) { set.delete(val); chip.classList.remove('active'); }
+      else { set.add(val); chip.classList.add('active'); }
       applyFilters();
     });
   });
 
   document.getElementById('filter-clear').addEventListener('click', () => {
-    activeFilters = { administration: new Set(), target: new Set(), condition: new Set() };
+    Object.keys(activeFilters).forEach(k => activeFilters[k] = new Set());
     document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
     applyFilters();
   });
 }
 
-function instrumentMatchesFilters(inst) {
-  const tags = inst.tags || {};
-  const admin = tags.administration || [];
-  const target = tags.target;
-  const condition = tags.condition;
-
-  if (activeFilters.administration.size > 0) {
-    const hasMatch = admin.some(a => activeFilters.administration.has(a));
-    if (!hasMatch) return false;
+function measurementMatchesFilters(m) {
+  if (activeFilters.when.size > 0) {
+    const ok = (m.when || []).some(w => activeFilters.when.has(w));
+    if (!ok) return false;
   }
-  if (activeFilters.target.size > 0) {
-    if (!activeFilters.target.has(target)) return false;
+  if (activeFilters.who.size > 0) {
+    if (!activeFilters.who.has(m.who)) return false;
   }
   if (activeFilters.condition.size > 0) {
-    if (!activeFilters.condition.has(condition)) return false;
+    if (!activeFilters.condition.has(m.condition)) return false;
+  }
+  if (activeFilters.type.size > 0) {
+    if (!activeFilters.type.has(m.type)) return false;
   }
   return true;
 }
 
 function applyFilters() {
-  const hasAnyFilter = activeFilters.administration.size > 0
-                    || activeFilters.target.size > 0
-                    || activeFilters.condition.size > 0;
+  const hasAny = Object.values(activeFilters).some(s => s.size > 0);
+  document.getElementById('filter-clear').disabled = !hasAny;
 
-  document.getElementById('filter-clear').disabled = !hasAnyFilter;
-
-  // Preserve currently active section
-  const currentActive = document.querySelector('#categories-container .section.active');
+  const currentActive = document.querySelector('#measurements-container .section.active');
   const currentActiveId = currentActive ? currentActive.id : null;
 
-  let totalMatches = 0;
-  let totalInstruments = 0;
+  const container = document.getElementById('measurements-container');
+  const measurements = GLOBAL_DATA.measurements || [];
 
-  const container = document.getElementById('categories-container');
-  container.innerHTML = GLOBAL_DATA.categories.map(cat => {
-    const filtered = cat.instruments.filter(instrumentMatchesFilters);
-    totalInstruments += cat.instruments.length;
-    totalMatches += filtered.length;
+  const domainOrder = ['student-characteristics', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing', 'objective-data'];
+
+  let total = 0, shown = 0;
+
+  container.innerHTML = domainOrder.map(dId => {
+    const inDomain = measurements.filter(m => m.domain === dId);
+    const filtered = inDomain.filter(measurementMatchesFilters);
+    total += inDomain.length;
+    shown += filtered.length;
+
+    if (inDomain.length === 0) return '';
+
+    const v = VOCAB.domains[dId] || { label: dId, icon: '' };
 
     if (filtered.length === 0) {
-      return `
-        <div id="${cat.id}" class="section">
-          <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
-          <div class="no-results">No instruments match the current filters.</div>
-        </div>
-      `;
+      return `<div id="domain-${dId}" class="section">
+        <h2 style="margin-bottom:1rem;">${v.icon} ${escapeHtml(v.label)}</h2>
+        <div class="no-results">No measurements match the current filters.</div>
+      </div>`;
     }
 
-    return `
-      <div id="${cat.id}" class="section">
-        <h2 style="margin-bottom:1rem;">${escapeHtml(cat.label)}</h2>
-        ${renderInstruments(filtered)}
-      </div>
-    `;
+    return `<div id="domain-${dId}" class="section">
+      <h2 style="margin-bottom:1rem;">${v.icon} ${escapeHtml(v.label)}</h2>
+      ${filtered.map(renderMeasurementCard).join('')}
+    </div>`;
   }).join('');
 
-  // Restore active section
-  const restoreId = currentActiveId || GLOBAL_DATA.categories[0]?.id;
-  const toActivate = document.getElementById(restoreId);
-  if (toActivate) {
-    toActivate.classList.add('active');
-  } else {
-    const first = document.querySelector('#categories-container .section');
-    if (first) first.classList.add('active');
-  }
+  const restoreId = currentActiveId || `domain-${domainOrder[0]}`;
+  const toActivate = document.getElementById(restoreId) || document.querySelector('#measurements-container .section');
+  if (toActivate) toActivate.classList.add('active');
 
-  // Update results counter
   const resultsEl = document.getElementById('filter-results');
-  if (hasAnyFilter) {
-    resultsEl.innerHTML = `Showing <strong>${totalMatches}</strong> of <strong>${totalInstruments}</strong> instruments`;
-  } else {
-    resultsEl.innerHTML = `Showing all <strong>${totalInstruments}</strong> instruments`;
-  }
+  resultsEl.innerHTML = hasAny
+    ? `Showing <strong>${shown}</strong> of <strong>${total}</strong> measurements`
+    : `Showing all <strong>${total}</strong> measurements`;
 
-  // Update header badge
   const badge = document.getElementById('active-filter-badge');
-  if (hasAnyFilter) {
-    const total = activeFilters.administration.size + activeFilters.target.size + activeFilters.condition.size;
-    badge.textContent = `${total} filter${total > 1 ? 's' : ''} active`;
+  if (hasAny) {
+    const count = Object.values(activeFilters).reduce((n, s) => n + s.size, 0);
+    badge.textContent = `${count} filter${count > 1 ? 's' : ''} active`;
     badge.style.display = 'inline-block';
   } else {
     badge.style.display = 'none';
   }
 }
 
-// ---------------- INSTRUMENT CARD ----------------
+// ---------------- MEASUREMENT CARD ----------------
 
-function renderTagPills(tags) {
-  if (!tags) return '';
+function renderTagPills(m) {
   const pills = [];
-  (tags.administration || []).forEach(a => {
-    pills.push(`<span class="tag-pill tag-administration">${escapeHtml(ADMIN_LABELS[a] || a)}</span>`);
+  (m.when || []).forEach(w => {
+    const v = VOCAB.when[w];
+    if (v) pills.push(`<span class="tag-pill tag-when">${v.icon} ${escapeHtml(v.label)}</span>`);
   });
-  if (tags.target) {
-    pills.push(`<span class="tag-pill tag-target">${escapeHtml(TARGET_LABELS[tags.target] || tags.target)}</span>`);
+  if (m.who && VOCAB.who[m.who]) {
+    const v = VOCAB.who[m.who];
+    pills.push(`<span class="tag-pill tag-who">${v.icon} ${escapeHtml(v.label)}</span>`);
   }
-  if (tags.condition) {
-    const cls = tags.condition === 'both' ? 'tag-condition condition-both' : 'tag-condition condition-with-ai-only';
-    pills.push(`<span class="tag-pill ${cls}">${escapeHtml(CONDITION_LABELS[tags.condition] || tags.condition)}</span>`);
+  if (m.condition && VOCAB.condition[m.condition]) {
+    const v = VOCAB.condition[m.condition];
+    const cls = m.condition === 'both' ? 'tag-condition condition-both' : 'tag-condition condition-with-ai-only';
+    pills.push(`<span class="tag-pill ${cls}">${v.icon} ${escapeHtml(v.label)}</span>`);
   }
   return pills.length ? `<div class="tag-list">${pills.join('')}</div>` : '';
 }
 
-function renderInstruments(instruments) {
-  return instruments.map(inst => {
-    const metaHtml = Object.entries(inst.meta || {}).map(([k, v]) => `
-      <div class="meta-item">
-        <div class="label">${escapeHtml(k)}</div>
-        <div class="value">${escapeHtml(v)}</div>
+function renderMeasurementCard(m) {
+  const metaHtml = Object.entries(m.meta || {}).map(([k, v]) =>
+    `<div class="meta-item"><div class="label">${escapeHtml(k)}</div><div class="value">${escapeHtml(v)}</div></div>`
+  ).join('');
+
+  const constructsHtml = (m.constructs || []).map(c =>
+    `<span class="construct-tag">${escapeHtml(c)}</span>`
+  ).join('');
+
+  const metricsHtml = (m.metrics && m.metrics.length) ? `
+    <table class="metrics-table">
+      <thead><tr><th>Metric</th><th>Description</th></tr></thead>
+      <tbody>
+        ${m.metrics.map(mt => `<tr><td class="metric-name">${escapeHtml(mt.name)}${mt.abbr ? ` (${escapeHtml(mt.abbr)})` : ''}</td><td class="metric-desc">${escapeHtml(mt.description || '')}</td></tr>`).join('')}
+      </tbody>
+    </table>
+  ` : '';
+
+  const itemsHtml = (m.items && m.items.length) ? `
+    <details>
+      <summary>📋 View Items</summary>
+      <div class="items-content">
+        ${m.items.map(g => `<div class="item-group"><h4>${escapeHtml(g.group)}</h4><ol>${g.list.map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ol></div>`).join('')}
       </div>
-    `).join('');
+    </details>
+  ` : '';
 
-    const constructsHtml = (inst.constructs || []).map(c =>
-      `<span class="construct-tag">${escapeHtml(c)}</span>`
-    ).join('');
+  const linksHtml = (m.links || []).map(l =>
+    `<a class="link-btn" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`
+  ).join('');
 
-    const itemsHtml = (inst.items && inst.items.length) ? `
-      <details>
-        <summary>📋 View Items</summary>
-        <div class="items-content">
-          ${inst.items.map(group => `
-            <div class="item-group">
-              <h4>${escapeHtml(group.group)}</h4>
-              <ol>${group.list.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ol>
-            </div>
-          `).join('')}
-        </div>
-      </details>
-    ` : '';
-
-    const linksHtml = (inst.links || []).map(l =>
-      `<a class="link-btn" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`
-    ).join('');
-
-    return `
-      <div class="card">
-        <div class="instrument-header">
-          <h3>${escapeHtml(inst.name)} <span class="abbr">(${escapeHtml(inst.abbr)})</span></h3>
-        </div>
-        ${renderTagPills(inst.tags)}
-        <div class="meta-grid">${metaHtml}</div>
-        <p class="description">${escapeHtml(inst.description)}</p>
-        <div class="construct-list">${constructsHtml}</div>
-        ${itemsHtml}
-        ${linksHtml}
+  return `
+    <div class="card">
+      <div class="instrument-header">
+        <h3>${escapeHtml(m.name)} <span class="abbr">(${escapeHtml(m.abbr)})</span></h3>
       </div>
-    `;
-  }).join('');
-}
-
-// ---------------- DATA SOURCES ----------------
-
-function renderDataSources(dataSources) {
-  const container = document.getElementById('data-sources-container');
-  container.innerHTML = (dataSources || []).map(ds => `
-    <div id="data-${ds.id}" class="section">
-      <h2 style="margin-bottom:1rem;">${ds.icon || ''} ${escapeHtml(ds.label)}</h2>
-      <div class="card">
-        <p class="description">${escapeHtml(ds.description)}</p>
-        <table class="metrics-table">
-          <thead><tr><th>Metric</th><th>Source / Type</th><th>Description</th></tr></thead>
-          <tbody>
-            ${ds.metrics.map(m => `
-              <tr>
-                <td class="metric-name">${escapeHtml(m.name)}${m.abbr ? ` (${escapeHtml(m.abbr)})` : ''}</td>
-                <td>${escapeHtml(m.source || m.type || '—')}</td>
-                <td class="metric-desc">${escapeHtml(m.description)}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      </div>
+      ${renderTagPills(m)}
+      <div class="meta-grid">${metaHtml}</div>
+      <p class="description">${escapeHtml(m.description || '')}</p>
+      <div class="construct-list">${constructsHtml}</div>
+      ${metricsHtml}
+      ${itemsHtml}
+      ${linksHtml}
     </div>
-  `).join('');
+  `;
 }
 
-// ---------------- COLLECTIONS ----------------
+// ---------------- BATTERIES ----------------
 
-function findInstrument(categories, instrumentId) {
-  for (const cat of categories) {
-    const found = cat.instruments.find(i => i.id === instrumentId);
-    if (found) return found;
-  }
-  return null;
-}
+function renderBatteries(batteries, measurements) {
+  const byId = {};
+  measurements.forEach(m => byId[m.id] = m);
 
-function renderCollections(collections, categories, dataSources) {
-  const container = document.getElementById('collections-container');
-  container.innerHTML = (collections || []).map(col => {
-    const instruments = (col.instrumentIds || []).map(id => findInstrument(categories, id)).filter(Boolean);
-    const datasources = (col.dataSourceIds || []).map(id => (dataSources || []).find(d => d.id === id)).filter(Boolean);
-
+  const container = document.getElementById('batteries-container');
+  container.innerHTML = (batteries || []).map(b => {
+    const items = (b.measurementIds || []).map(id => byId[id]).filter(Boolean);
     return `
-      <div id="collection-${col.id}" class="section">
-        <h2 style="margin-bottom:1rem;">${col.icon || ''} ${escapeHtml(col.label)}</h2>
-        <div class="collection-card">
-          <div class="collection-header">
-            <div class="collection-icon">${col.icon || '🗃️'}</div>
-            <div>
-              <h3>${escapeHtml(col.label)}</h3>
-              <div class="timing">⏱ ${escapeHtml(col.timing)} · 🎯 ${escapeHtml(col.target)}</div>
-            </div>
+      <div id="battery-${b.id}" class="section">
+        <h2 style="margin-bottom:1rem;">${b.icon || '🗃️'} ${escapeHtml(b.label)}</h2>
+        <div class="battery-card">
+          <div class="battery-header">
+            <div class="battery-icon">${b.icon || '🗃️'}</div>
+            <div><h3>${escapeHtml(b.label)}</h3></div>
           </div>
-          <p class="collection-description">${escapeHtml(col.description)}</p>
-
-          <div class="collection-section-title">Instruments (${instruments.length})</div>
-          <div class="collection-instrument-list">
-            ${instruments.map(i => `
-              <div class="collection-instrument-item">
-                <span class="name">${escapeHtml(i.name)} <span style="color:#6b7280;font-weight:400;">(${escapeHtml(i.abbr)})</span></span>
-                <span class="timing-badge">${(i.tags?.administration || []).map(a => ADMIN_LABELS[a] || a).join(' · ')}</span>
+          <p class="battery-description">${escapeHtml(b.description || '')}</p>
+          <div class="battery-section-title">Measurements (${items.length})</div>
+          <div class="battery-measurement-list">
+            ${items.map(m => `
+              <div class="battery-measurement-item">
+                <span class="name">${escapeHtml(m.name)} <span style="color:#6b7280;font-weight:400;">(${escapeHtml(m.abbr)})</span></span>
+                <span class="type-badge">${escapeHtml(VOCAB.type[m.type]?.label || m.type)}</span>
               </div>
             `).join('')}
           </div>
-
-          ${datasources.length ? `
-            <div class="collection-section-title">Data Sources (${datasources.length})</div>
-            <div class="collection-instrument-list">
-              ${datasources.map(d => `
-                <div class="collection-datasource-item">
-                  <span>${d.icon || '📊'}</span>
-                  <span>${escapeHtml(d.label)}</span>
-                </div>
-              `).join('')}
-            </div>
-          ` : ''}
         </div>
       </div>
     `;
@@ -616,7 +529,6 @@ function renderStudyDesign(studyDesign) {
         </table>
       </div>
     </div>
-
     <div id="study-rq" class="section">
       <h2 style="margin-bottom:1rem;">🎯 Research Questions</h2>
       <div class="card">${rqHtml}</div>
@@ -624,7 +536,7 @@ function renderStudyDesign(studyDesign) {
   `;
 }
 
-// ---------------- NAV HANDLERS (event delegation) ----------------
+// ---------------- NAV HANDLERS ----------------
 
 function attachNavHandlers() {
   const nav = document.getElementById('nav');
@@ -648,19 +560,18 @@ async function init() {
   try {
     const data = await loadInventory();
     GLOBAL_DATA = data;
+    buildVocabIndex(data);
     renderMeta(data.meta);
-    renderNav(data.categories, data.dataSources, data.collections);
-    renderDataSources(data.dataSources);
-    renderCollections(data.collections, data.categories, data.dataSources);
-    renderStudyDesign(data.studyDesign);
+    renderNav(data);
     renderFilterBar();
     applyFilters();
+    renderBatteries(data.batteries, data.measurements);
+    renderStudyDesign(data.studyDesign);
     attachNavHandlers();
   } catch (err) {
-    document.getElementById('categories-container').innerHTML =
+    document.getElementById('measurements-container').innerHTML =
       `<div class="card"><p class="description">⚠️ Could not load inventory.json: ${escapeHtml(err.message)}<br><br>
-      If you are opening this file directly (<code>file://</code>), please serve it via a local web server or GitHub Pages.
-      For example, run <code>python3 -m http.server</code> in the project folder.</p></div>`;
+      If you are opening this file directly (<code>file://</code>), please serve it via a local web server or GitHub Pages.</p></div>`;
   }
 }
 
