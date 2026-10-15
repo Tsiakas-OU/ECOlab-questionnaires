@@ -57,6 +57,7 @@
 
   .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.75rem 0; }
   .tag-pill { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 500; white-space: nowrap; border: 1px solid transparent; }
+  .tag-scope { background: #fef9c3; color: #854d0e; border-color: #fde68a; }
   .tag-when { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
   .tag-who { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
   .tag-condition { background: #fef3c7; color: #92400e; border-color: #fde68a; }
@@ -167,6 +168,10 @@
       </div>
       <div class="filter-groups">
         <div class="filter-group">
+          <span class="filter-group-label">Scope</span>
+          <div class="filter-chips" id="filter-scope"></div>
+        </div>
+        <div class="filter-group">
           <span class="filter-group-label">When</span>
           <div class="filter-chips" id="filter-when"></div>
         </div>
@@ -198,7 +203,7 @@
 
 <script>
 // ============================================================
-// RENDER ENGINE — simplified flat measurement model
+// RENDER ENGINE — three-axis model (scope · when · who) + domain
 // ============================================================
 
 async function loadInventory() {
@@ -213,17 +218,21 @@ function escapeHtml(str) {
 }
 
 let GLOBAL_DATA = null;
-let VOCAB = { domains: {}, when: {}, who: {}, condition: {}, type: {} };
-let activeFilters = { when: new Set(), who: new Set(), condition: new Set(), type: new Set() };
+let VOCAB = { domains: {}, when: {}, who: {}, condition: {}, type: {}, scope: {} };
+let activeFilters = {
+  scope: new Set(),
+  when: new Set(),
+  who: new Set(),
+  condition: new Set(),
+  type: new Set()
+};
 
-// ---------------- VOCABULARY HELPERS ----------------
+// ---------------- VOCABULARY ----------------
 
 function buildVocabIndex(data) {
-  ['domains', 'when', 'who', 'condition', 'type'].forEach(key => {
+  ['domains', 'when', 'who', 'condition', 'type', 'scope'].forEach(key => {
     const arr = data.vocabularies[key] || [];
-    arr.forEach(v => {
-      VOCAB[key][v.id] = v;
-    });
+    arr.forEach(v => { VOCAB[key][v.id] = v; });
   });
 }
 
@@ -235,7 +244,7 @@ function renderMeta(meta) {
   document.title = meta.title;
 }
 
-// ---------------- NAVIGATION ----------------
+// ---------------- NAV ----------------
 
 function renderNav(data) {
   const measurements = data.measurements || [];
@@ -243,16 +252,15 @@ function renderNav(data) {
   const objectiveMeasures = [];
 
   measurements.forEach(m => {
-    if (m.domain === 'objective-data') {
-      objectiveMeasures.push(m);
-    } else {
+    if (m.domain === 'objective-data') objectiveMeasures.push(m);
+    else {
       domainGroups[m.domain] = domainGroups[m.domain] || [];
       domainGroups[m.domain].push(m);
     }
   });
 
-  // Domains (questionnaires grouped by domain)
-  const domainOrder = ['student-characteristics', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing'];
+  const domainOrder = ['student-characteristics', 'biological-lifestyle', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing', 'cognitive'];
+
   document.getElementById('nav-domains').innerHTML = domainOrder
     .filter(dId => domainGroups[dId] && domainGroups[dId].length)
     .map((dId, idx) => {
@@ -263,19 +271,16 @@ function renderNav(data) {
       </a>`;
     }).join('');
 
-  // Objective data — links jump to the objective-data domain, with hash to scroll
   document.getElementById('nav-objective').innerHTML = objectiveMeasures
     .map(m => `<a href="#" data-section="domain-objective-data" data-scroll-to="measurement-${m.id}">
       📊 ${escapeHtml(m.name)}
     </a>`).join('');
 
-  // Batteries
   document.getElementById('nav-batteries').innerHTML = (data.batteries || [])
     .map(b => `<a href="#" data-section="battery-${b.id}">
       ${b.icon || '🗃️'} ${escapeHtml(b.label)}
     </a>`).join('');
 
-  // Study design
   document.getElementById('nav-study').innerHTML = `
     <a href="#" data-section="study-protocols">🧪 Design Protocols</a>
     <a href="#" data-section="study-rq">🎯 Research Questions</a>
@@ -285,7 +290,7 @@ function renderNav(data) {
 // ---------------- FILTER BAR ----------------
 
 function renderFilterBar() {
-  ['when', 'who', 'condition', 'type'].forEach(key => {
+  ['scope', 'when', 'who', 'condition', 'type'].forEach(key => {
     const container = document.getElementById('filter-' + key);
     const items = Object.values(VOCAB[key] || {});
     container.innerHTML = items.map(v =>
@@ -312,18 +317,13 @@ function renderFilterBar() {
 }
 
 function measurementMatchesFilters(m) {
+  if (activeFilters.scope.size > 0 && !activeFilters.scope.has(m.scope)) return false;
+  if (activeFilters.who.size > 0 && !activeFilters.who.has(m.who)) return false;
+  if (activeFilters.condition.size > 0 && !activeFilters.condition.has(m.condition)) return false;
+  if (activeFilters.type.size > 0 && !activeFilters.type.has(m.type)) return false;
   if (activeFilters.when.size > 0) {
     const ok = (m.when || []).some(w => activeFilters.when.has(w));
     if (!ok) return false;
-  }
-  if (activeFilters.who.size > 0) {
-    if (!activeFilters.who.has(m.who)) return false;
-  }
-  if (activeFilters.condition.size > 0) {
-    if (!activeFilters.condition.has(m.condition)) return false;
-  }
-  if (activeFilters.type.size > 0) {
-    if (!activeFilters.type.has(m.type)) return false;
   }
   return true;
 }
@@ -338,7 +338,7 @@ function applyFilters() {
   const container = document.getElementById('measurements-container');
   const measurements = GLOBAL_DATA.measurements || [];
 
-  const domainOrder = ['student-characteristics', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing', 'objective-data'];
+  const domainOrder = ['student-characteristics', 'biological-lifestyle', 'motivation', 'srl', 'engagement', 'emotion', 'social', 'ai', 'wellbeing', 'cognitive', 'objective-data'];
 
   let total = 0, shown = 0;
 
@@ -374,8 +374,7 @@ function applyFilters() {
   const toActivate = document.getElementById(restoreId) || document.querySelector('#measurements-container .section');
   if (toActivate) toActivate.classList.add('active');
 
-  const resultsEl = document.getElementById('filter-results');
-  resultsEl.innerHTML = hasAny
+  document.getElementById('filter-results').innerHTML = hasAny
     ? `Showing <strong>${shown}</strong> of <strong>${total}</strong> measurements`
     : `Showing all <strong>${total}</strong> measurements`;
 
@@ -393,14 +392,23 @@ function applyFilters() {
 
 function renderTagPills(m) {
   const pills = [];
+
+  // Scope
+  if (m.scope && VOCAB.scope[m.scope]) {
+    const v = VOCAB.scope[m.scope];
+    pills.push(`<span class="tag-pill tag-scope">${v.icon} ${escapeHtml(v.label)}</span>`);
+  }
+  // When
   (m.when || []).forEach(w => {
     const v = VOCAB.when[w];
     if (v) pills.push(`<span class="tag-pill tag-when">${v.icon} ${escapeHtml(v.label)}</span>`);
   });
+  // Who
   if (m.who && VOCAB.who[m.who]) {
     const v = VOCAB.who[m.who];
     pills.push(`<span class="tag-pill tag-who">${v.icon} ${escapeHtml(v.label)}</span>`);
   }
+  // Condition
   if (m.condition && VOCAB.condition[m.condition]) {
     const v = VOCAB.condition[m.condition];
     const cls = m.condition === 'both' ? 'tag-condition condition-both' : 'tag-condition condition-with-ai-only';
