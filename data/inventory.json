@@ -757,15 +757,10 @@
       "icon": "📖",
       "description": "Administered at the start of a specific course. Captures course-level pre-measures of self-regulated learning, motivation, and social expectations.",
       "measurementIds": [
-        "sol-q-r",
-        "srl-p",
-        "srl-se",
-        "mslq",
         "oslq",
         "mmami",
         "bpnsfs",
-        "sirs",
-        "lms-analytics"
+        "sirs" 
       ]
     },
     {
@@ -775,17 +770,9 @@
       "description": "Administered once at program registration to capture student characteristics and dispositions used to predict study success across multiple courses.",
       "measurementIds": [
         "aloud-demographics",
-        "aloud-biological-lifestyle",
-        "aloud-interrole-conflict",
-        "aloud-grit-s",
-        "srq-a",
         "assist",
         "mai",
         "lassi",
-        "uwes-ss",
-        "who-5",
-        "wemwbs",
-        "ef-battery",
         "academic-records"
       ]
     },
@@ -795,15 +782,8 @@
       "icon": "🤖",
       "description": "Administered at the start of a specific course where the AI Tutor is used. Captures course-level pre-measures and AI-specific expectations.",
       "measurementIds": [
-        "srl-p",
-        "srl-se",
         "utaut",
         "srail",
-        "cail",
-        "cam",
-        "tam-adapted",
-        "tam-extended",
-        "tam-original",
         "lms-analytics",
         "ai-tutor-metrics"
       ]
