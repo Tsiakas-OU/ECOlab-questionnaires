@@ -365,7 +365,7 @@ function renderNav(data) {
       </a>`;
     }).join('');
   document.getElementById('nav-domains').innerHTML =
-    navGroup('Instruments & Questionnaires', '📋', domainsHtml, true);
+    navGroup('Instruments/Questionnaires', '📋', domainsHtml, true);
 
   const systemHtml = systemMeasures.map(m =>
     `<a href="#" data-section="measurement-section-${escapeHtml(m.id)}">
@@ -373,13 +373,13 @@ function renderNav(data) {
      </a>`
   ).join('');
   document.getElementById('nav-system').innerHTML =
-    navGroup('Academic Records & Interaction Data', '📊', systemHtml, true);
+    navGroup('Academic/Interaction Data', '📊', systemHtml, true);
 
   const batteriesHtml = (data.batteries || []).map(b =>
     `<a href="#" data-section="battery-${escapeHtml(b.id)}">${b.icon || '🗃️'} ${escapeHtml(b.label)}</a>`
   ).join('');
   document.getElementById('nav-batteries').innerHTML =
-    navGroup('Batteries', '🗃️', batteriesHtml, false);
+    navGroup('Batteries/Collections', '🗃️', batteriesHtml, false);
 
   const projectsHtml = (data.projects || []).map(p =>
     `<a href="#" data-section="project-${escapeHtml(p.id)}">${p.icon || '📁'} ${escapeHtml(p.label)}</a>`
