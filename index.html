@@ -69,6 +69,42 @@
   .filter-legend { font-size: 0.68rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
   .filter-summary-hint { font-weight: 400; text-transform: none; font-size: 0.7rem; color: #94a3b8; margin-left: 0.4rem; }
 
+  /* Left-align everything inside the sidebar */
+  nav {
+    text-align: left;
+    padding: 0.75rem 0;
+  }
+
+  /* Group summary: title on the left, caret right after it (not far right) */
+  .nav-group > summary {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;   /* was: space-between */
+    gap: 0.35rem;
+    padding: 0.55rem 1.25rem;
+    text-align: left;
+  }
+
+  /* Push the caret to the right edge only if you still want that — otherwise remove this */
+  .nav-group > summary .nav-caret {
+    margin-left: auto;             /* remove this line if you want the caret right next to the text */
+  }
+
+  /* Item links: flush left, consistent indent */
+  .nav-group-body a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1.5rem;
+    text-align: left;
+    justify-content: flex-start;   /* explicitly left-align content */
+  }
+
+  /* Badge still floats to the right of the row */
+  .nav-group-body a .badge {
+    margin-left: auto;
+  }
+
   main { flex: 1; padding: 2rem; max-width: 960px; }
 
   .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; transition: box-shadow 0.2s; }
