@@ -2,8 +2,8 @@
   "meta": {
     "title": "ECO-lab Measurement Inventory",
     "subtitle": "Instruments · System Data · Projects",
-    "version": "6.0.0",
-    "lastUpdated": "2026-10-15"
+    "version": "6.1.0",
+    "lastUpdated": "2026-10-18"
   },
 
   "vocabularies": {
@@ -14,10 +14,10 @@
       { "id": "srl", "label": "Self-Regulated Learning & Metacognition", "icon": "📚" },
       { "id": "engagement", "label": "Academic & Social Engagement", "icon": "🔥" },
       { "id": "emotion", "label": "Achievement Emotions & Affect", "icon": "❤️" },
-      { "id": "social", "label": "Virtual Climate & Social Connectedness", "icon": "🤝" },
+      { "id": "social", "label": "Virtual Class & Social Connectedness", "icon": "🤝" },
       { "id": "ai", "label": "AI-Specific Perceptions", "icon": "🤖" },
       { "id": "wellbeing", "label": "Psychological Well-being", "icon": "🌿" },
-      { "id": "cognitive", "label": "Cognitive Abilities & Reflection", "icon": "🧠" },
+      { "id": "cognitive", "label": "Cognitive Abilities", "icon": "🧠" },
       { "id": "academic-records-interaction", "label": "Academic Records & Interaction Data", "icon": "📊", "description": "Institutional records and analytics derived from system logs (not questionnaires)." }
     ],
     "type": [
@@ -28,7 +28,7 @@
     ],
     "timing": [
       { "id": "program-intake", "label": "Program registration", "icon": "🎓", "scope": "program" },
-      { "id": "program-annual", "label": "Annual check-in", "icon": "📅", "scope": "program" },
+      { "id": "program-during", "label": "During program", "icon": "⏳", "scope": "program" },
       { "id": "program-exit", "label": "Program exit", "icon": "🏁", "scope": "program" },
       { "id": "course-registration", "label": "Course registration", "icon": "📖", "scope": "course" },
       { "id": "course-during", "label": "During course", "icon": "⏳", "scope": "course" },
@@ -54,8 +54,7 @@
         { "group": "Educational Background Variables", "list": ["Level of education (self)", "Level of education (partner)", "Previous GPA / grades", "Computer skills", "Study motive", "Study goal"] }
       ],
       "links": [
-        { "label": "🔗 ALOUD Study Overview", "url": "https://research.ou.nl/ws/portalfiles/portal/42301941/Meeting_KU_Leuven_Presentation_ALOUD.pdf" },
-        { "label": "🔗 ALOUD Dataset", "url": "https://datacatalogue.cessda.eu/detail/7cc21b5495fcf5e82c5c32b4d3d14ed1f23253a851475d96fddd422717109e13?lang=en" }
+        { "label": "🔗 ALOUD Data Paper (Neroni et al., 2015)", "url": "https://research.ou.nl/ws/portalfiles/portal/1012170/ALOUD%20data%20paper_accepted%20version.pdf" }
       ]
     },
     {
@@ -65,7 +64,7 @@
       "name": "ALOUD Biological Lifestyle & Health Questionnaire",
       "abbr": "ALOUD-Lifestyle",
       "description": "Baseline lifestyle and health measures collected within the ALOUD study. Captures biological, behavioural, and health-status variables identified as predictors of study success in adult distance education.",
-      "timing": ["program-intake", "program-annual"],
+      "timing": ["program-intake", "program-during"],
       "meta": { "items": "Variable", "scale": "Mixed (numeric, categorical, Likert)" },
       "constructs": ["Height & Weight", "Sleep Quality", "Physical Activity", "Health Status", "Substance Use"],
       "items": [
@@ -76,24 +75,25 @@
         { "group": "Substance Use", "list": ["Alcohol consumption", "Smoking status", "Caffeine intake"] }
       ],
       "links": [
-        { "label": "🔗 ALOUD Biological Dataset", "url": "https://datacatalogue.cessda.eu/detail/7cc21b5495fcf5e82c5c32b4d3d14ed1f23253a851475d96fddd422717109e13?lang=en" }
+        { "label": "🔗 ALOUD Data Paper (Neroni et al., 2015)", "url": "https://research.ou.nl/ws/portalfiles/portal/1012170/ALOUD%20data%20paper_accepted%20version.pdf" }
       ]
     },
     {
       "id": "aloud-interrole-conflict",
       "type": "questionnaire",
       "domain": "student-characteristics",
-      "name": "Inter-role Conflict Scale",
-      "abbr": "IRC",
-      "description": "Measured within the ALOUD study. Captures the tension between study, work, and home life. Particularly relevant for adult distance learners.",
+      "name": "Work-Family-School Conflict Survey",
+      "abbr": "WFSC",
+      "description": "Measured within the ALOUD study. Captures the tension between study, work, and home life. 14 items rated on a 5-point Likert scale across two subscales: Family-School Conflict (7 items) and Work-School Conflict (7 items). Particularly relevant for adult distance learners.",
       "timing": ["program-intake"],
-      "meta": { "items": "Variable", "scale": "Likert" },
-      "constructs": ["Inter-role Conflict"],
+      "meta": { "items": "14", "subscales": "2", "scale": "5-point Likert" },
+      "constructs": ["Family-School Conflict", "Work-School Conflict"],
       "items": [
-        { "group": "Inter-role Conflict Items", "list": ["Difficulty reconciling study with work responsibilities", "Difficulty reconciling study with family/home responsibilities", "Tension between study demands and personal life", "Feeling pulled in multiple directions by study, work, and home"] }
+        { "group": "Family-School Conflict (7 items)", "list": ["(Items to be sourced from Giancola, Grawitch, & Borchert, 2009)"] },
+        { "group": "Work-School Conflict (7 items)", "list": ["(Items to be sourced from Giancola, Grawitch, & Borchert, 2009)"] }
       ],
       "links": [
-        { "label": "🔗 ALOUD Psychological Study", "url": "https://research.ou.nl/ws/portalfiles/portal/23628794/L_C_plenair_12_04_2012_ALOUD_study_psychological_part.pdf" }
+        { "label": "🔗 Giancola, Grawitch, & Borchert (2009)", "url": "https://doi.org/10.1177/0741713609331479" }
       ]
     },
     {
@@ -102,7 +102,7 @@
       "domain": "student-characteristics",
       "name": "Short Grit Scale",
       "abbr": "Grit-S",
-      "description": "Validated within the ALOUD study to measure perseverance and passion for long-term goals. Two factors: Consistency of Interests and Perseverance of Effort.",
+      "description": "Measures perseverance and passion for long-term goals. Two factors: Consistency of Interests and Perseverance of Effort.",
       "timing": ["program-intake"],
       "meta": { "items": "8", "scale": "5-point Likert" },
       "constructs": ["Consistency of Interests", "Perseverance of Effort"],
@@ -111,7 +111,7 @@
         { "group": "Perseverance of Effort (4 items)", "list": ["I finish whatever I begin.", "Setbacks don't discourage me. I don't give up easily.", "I am a hard worker.", "I am diligent. I never give up."] }
       ],
       "links": [
-        { "label": "🔗 Grit-S (Duckworth & Quinn, 2009)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/10038311/bin/pone.0282949.s003.docx" }
+        { "label": "🔗 Grit-S (Duckworth & Quinn, 2009)", "url": "https://doi.org/10.1037/a0015083" }
       ]
     },
     {
@@ -120,10 +120,19 @@
       "domain": "motivation",
       "name": "Intrinsic Motivation Inventory",
       "abbr": "IMI",
-      "description": "Multidimensional measurement device assessing participants' subjective experience related to a target activity.",
+      "description": "Multidimensional measurement device assessing participants' subjective experience related to a target activity. Modular instrument — subscales can be selected per study.",
       "timing": ["course-registration", "course-completion"],
-      "meta": { "dimensions": "4–7", "scale": "7-point Likert" },
-      "constructs": ["Interest/Enjoyment", "Perceived Competence", "Effort/Importance", "Pressure/Tension"],
+      "meta": { "items": "45 (full)", "dimensions": "7", "scale": "7-point Likert" },
+      "constructs": ["Interest/Enjoyment", "Perceived Competence", "Perceived Choice", "Pressure/Tension", "Effort/Importance", "Value/Usefulness", "Relatedness"],
+      "items": [
+        { "group": "Interest/Enjoyment", "list": ["I found the task interesting.", "I enjoyed doing the task."] },
+        { "group": "Perceived Competence", "list": ["I felt capable of doing the task well."] },
+        { "group": "Perceived Choice", "list": ["I had a choice in whether to do the task."] },
+        { "group": "Pressure/Tension", "list": ["I felt pressured to do the task.", "I felt tense while doing the task."] },
+        { "group": "Effort/Importance", "list": ["I put in a lot of effort to do the task.", "I thought the task was important."] },
+        { "group": "Value/Usefulness", "list": ["I thought the task was useful for me."] },
+        { "group": "Relatedness", "list": ["I felt connected to the people I was working with."] }
+      ],
       "links": [{ "label": "🔗 Access Instrument", "url": "https://selfdeterminationtheory.org/intrinsic-motivation-inventory/" }]
     },
     {
@@ -149,19 +158,24 @@
       "id": "bpnsfs",
       "type": "questionnaire",
       "domain": "motivation",
-      "name": "Basic Psychological Need Satisfaction & Frustration Scale",
-      "abbr": "BPNSFS (adapted)",
-      "description": "Adapted from Chen et al. (2015) and Haerens et al. (2015) to distinguish peer vs. teacher relatedness satisfaction and frustration.",
+      "name": "Basic Psychological Need Satisfaction and Frustration Scale",
+      "abbr": "BPNSFS",
+      "description": "General scale measuring satisfaction and frustration of the three basic psychological needs (autonomy, relatedness, competence) from Self-Determination Theory. 24 items, six subscales of 4 items each. Validated across four cultures (Chen, Vansteenkiste et al., 2015).",
       "timing": ["course-registration", "course-completion"],
-      "meta": { "items": "16", "factors": "4", "scale": "5-point Likert" },
-      "constructs": ["Peer Relatedness Satisfaction", "Peer Relatedness Frustration", "Teacher Relatedness Satisfaction", "Teacher Relatedness Frustration"],
+      "meta": { "items": "24", "subscales": "6", "scale": "5-point Likert" },
+      "constructs": ["Autonomy Satisfaction", "Autonomy Frustration", "Relatedness Satisfaction", "Relatedness Frustration", "Competence Satisfaction", "Competence Frustration"],
       "items": [
-        { "group": "Peer Relatedness Satisfaction (4 items)", "list": ["... I feel connected with the classmates who I care about and who care about me.", "(Adapted)", "(Adapted)", "(Adapted)"] },
-        { "group": "Peer Relatedness Frustration (4 items)", "list": ["... I feel that classmates who are important to me are cold and distant towards me.", "(Adapted)", "(Adapted)", "(Adapted)"] },
-        { "group": "Teacher Relatedness Satisfaction (4 items)", "list": ["Adapted by replacing 'classmates' with 'PE teacher'.", "(Adapted)", "(Adapted)", "(Adapted)"] },
-        { "group": "Teacher Relatedness Frustration (4 items)", "list": ["Adapted by replacing 'classmates' with 'PE teacher'.", "(Adapted)", "(Adapted)", "(Adapted)"] }
+        { "group": "Autonomy Satisfaction (1, 7, 13, 19)", "list": ["I feel a sense of choice and freedom in the things I undertake.", "I feel that my decisions reflect what I really want.", "I feel my choices express who I really am.", "I feel I have been doing what really interests me."] },
+        { "group": "Autonomy Frustration (2, 8, 14, 20)", "list": ["Most of the things I do feel like \"I have to\".", "I feel forced to do many things I wouldn't choose to do.", "I feel pressured to do too many things.", "My daily activities feel like a chain of obligations."] },
+        { "group": "Relatedness Satisfaction (3, 9, 15, 21)", "list": ["I feel that the people I care about also care about me.", "I feel connected with people who care for me, and for whom I care.", "I feel close and connected with other people who are important to me.", "I experience a warm feeling with the people I spend time with."] },
+        { "group": "Relatedness Frustration (4, 10, 16, 22)", "list": ["I feel excluded from the group I want to belong to.", "I feel that people who are important to me are cold and distant towards me.", "I have the impression that people I spend time with dislike me.", "I feel the relationships I have are just superficial."] },
+        { "group": "Competence Satisfaction (5, 11, 17, 23)", "list": ["I feel confident that I can do things well.", "I feel capable at what I do.", "I feel competent to achieve my goals.", "I feel I can successfully complete difficult tasks."] },
+        { "group": "Competence Frustration (6, 12, 18, 24)", "list": ["I have serious doubts about whether I can do things well.", "I feel disappointed with many of my performances.", "I feel insecure about my abilities.", "I feel like a failure because of the mistakes I make."] }
       ],
-      "links": [{ "label": "🔗 Full Article", "url": "https://doi.org/10.1007/s11218-025-10071-3" }]
+      "links": [
+        { "label": "🔗 BPNSFS Manual (Van der Kaap-Deeder et al., 2020)", "url": "https://selfdeterminationtheory.org/wp-content/uploads/2022/02/BPNSFS_Complete_2020.pdf" },
+        { "label": "🔗 Chen et al. (2015) Validation", "url": "https://doi.org/10.1007/s11031-014-9450-1" }
+      ]
     },
     {
       "id": "srq-a",
@@ -174,7 +188,7 @@
       "meta": { "items": "16 (4 per subscale)", "subscales": "4", "scale": "5-point Likert" },
       "constructs": ["External Regulation", "Introjected Regulation", "Identified Regulation", "Intrinsic Motivation"],
       "items": [
-        { "group": "Stem: \"I am motivated to study because...\"", "list": ["1. Because I'm supposed to do so. (External)", "2. Because others force me to do so. (External)", "3. Because others oblige me to do so. (External)", "4. Because that's what others expect me to do. (External)", "5. Because I want others to think I'm smart. (Introjected)", "6. Because I would feel guilty if I didn't study. (Introjected)", "7. Because I would feel ashamed if I didn't study. (Introjected)", "8. Because I want others to think I'm a good student. (Introjected)", "9. Because I want to learn new things. (Intrinsic)", "10. Because it is personally important to me. (Identified)", "11. Because this represents a meaningful choice to me. (Identified)", "12. Because this is an important life goal to me. (Identified)", "13. Because I am highly interested in doing this. (Intrinsic)", "14. Because I enjoy doing it. (Intrinsic)", "15. Because it's fun. (Intrinsic)", "16. Because it's an exciting thing to do. (Intrinsic)"] }
+        { "group": "Stem: \"I am motivated to study because...\"", "list": ["Because I'm supposed to do so. (External)", "Because others force me to do so. (External)", "Because others oblige me to do so. (External)", "Because that's what others expect me to do. (External)", "Because I want others to think I'm smart. (Introjected)", "Because I would feel guilty if I didn't study. (Introjected)", "Because I would feel ashamed if I didn't study. (Introjected)", "Because I want others to think I'm a good student. (Introjected)", "Because I want to learn new things. (Intrinsic)", "Because it is personally important to me. (Identified)", "Because this represents a meaningful choice to me. (Identified)", "Because this is an important life goal to me. (Identified)", "Because I am highly interested in doing this. (Intrinsic)", "Because I enjoy doing it. (Intrinsic)", "Because it's fun. (Intrinsic)", "Because it's an exciting thing to do. (Intrinsic)"] }
       ],
       "links": [
         { "label": "🔗 SDT Site", "url": "https://selfdeterminationtheory.org/self-regulation-questionnaires/" },
@@ -354,7 +368,7 @@
       "constructs": ["Behavioral Engagement", "Emotional Engagement", "Cognitive Engagement"],
       "items": [
         { "group": "Behavioral Engagement (5 items)", "list": ["I pay attention in class.", "I follow the school's rules.", "I usually do my homework on time.", "When I have doubts I ask questions and participate in debates.", "I usually participate actively in group assignments."] },
-        { "group": "Emotional Engagement (5 items)", "list": ["I don't feel very accomplished at this school. (reversed)", "I feel excited about the school work.", "I like being at school.", "I am interested in the school work.", "My classroom is an interesting place to be."] },
+        { "group": "Emotional Engagement (5 items)", "list": ["I don't feel very accomplished at this school. (REVERSED)", "I feel excited about the school work.", "I like being at school.", "I am interested in the school work.", "My classroom is an interesting place to be."] },
         { "group": "Cognitive Engagement (5 items)", "list": ["When I read a book, I question myself to make sure I understand.", "I talk to people outside the school on matters that I learned in class.", "If I do not understand a word, I try to solve the problem.", "I try to integrate the acquired knowledge in solving new problems.", "I try to integrate subjects from different disciplines into my general knowledge."] }
       ],
       "links": [{ "label": "🔗 Access Instrument", "url": "https://doi.org/10.1186/s41155-016-0042-8" }]
@@ -518,8 +532,7 @@
         { "group": "10 Items (items 2, 4, 6, 8, 10 are reverse-scored)", "list": ["1. I think that I would like to use this system frequently.", "2. I found the system unnecessarily complex. (REVERSE)", "3. I thought the system was easy to use.", "4. I think that I would need the support of a technical person to be able to use this system. (REVERSE)", "5. I found the various functions in this system were well integrated.", "6. I thought there was too much inconsistency in this system. (REVERSE)", "7. I would imagine that most people would learn to use this system very quickly.", "8. I found the system very cumbersome to use. (REVERSE)", "9. I felt very confident using the system.", "10. I needed to learn a lot of things before I could get going with this system. (REVERSE)"] }
       ],
       "links": [
-        { "label": "🔗 Instrument (Brooke, 1996)", "url": "https://www.tbistafftraining.info/smartphones/documents/b5_during_the_trial_usability_scale_v1_09aug11.pdf" },
-        { "label": "🔗 Dutch D-SUS Validation", "url": "https://doi.org/10.1080/09638288.2022.2160837" }
+        { "label": "🔗 Instrument (Brooke, 1996)", "url": "https://www.tbistafftraining.info/smartphones/documents/b5_during_the_trial_usability_scale_v1_09aug11.pdf" }
       ]
     },
     {
@@ -698,7 +711,7 @@
       "meta": { "tasks": "Variable", "scale": "Reaction time / Accuracy" },
       "constructs": ["Inhibitory Control", "Working Memory", "Cognitive Flexibility", "Processing Speed", "Sustained Attention"],
       "items": [{ "group": "Typical Tasks", "list": ["Flanker Task (inhibitory control)", "N-back Task (working memory)", "Task-switching paradigm (cognitive flexibility)", "Digit-symbol substitution (processing speed)", "Continuous Performance Task (sustained attention)"] }],
-      "links": [{ "label": "🔗 ALOUD Cognitive Study Reference", "url": "https://research.ou.nl/ws/portalfiles/portal/42301941/Meeting_KU_Leuven_Presentation_ALOUD.pdf" }]
+      "links": [{ "label": "🔗 ALOUD Data Paper (Neroni et al., 2015)", "url": "https://research.ou.nl/ws/portalfiles/portal/1012170/ALOUD%20data%20paper_accepted%20version.pdf" }]
     },
     {
       "id": "academic-records",
@@ -757,10 +770,15 @@
       "icon": "📖",
       "description": "Administered at the start of a specific course. Captures course-level pre-measures of self-regulated learning, motivation, and social expectations.",
       "measurementIds": [
+        "sol-q-r",
+        "srl-p",
+        "srl-se",
+        "mslq",
         "oslq",
         "mmami",
         "bpnsfs",
-        "sirs" 
+        "sirs",
+        "lms-analytics"
       ]
     },
     {
@@ -770,9 +788,17 @@
       "description": "Administered once at program registration to capture student characteristics and dispositions used to predict study success across multiple courses.",
       "measurementIds": [
         "aloud-demographics",
+        "aloud-biological-lifestyle",
+        "aloud-interrole-conflict",
+        "aloud-grit-s",
+        "srq-a",
         "assist",
         "mai",
         "lassi",
+        "uwes-ss",
+        "who-5",
+        "wemwbs",
+        "ef-battery",
         "academic-records"
       ]
     },
@@ -782,8 +808,15 @@
       "icon": "🤖",
       "description": "Administered at the start of a specific course where the AI Tutor is used. Captures course-level pre-measures and AI-specific expectations.",
       "measurementIds": [
+        "srl-p",
+        "srl-se",
         "utaut",
         "srail",
+        "cail",
+        "cam",
+        "tam-adapted",
+        "tam-extended",
+        "tam-original",
         "lms-analytics",
         "ai-tutor-metrics"
       ]

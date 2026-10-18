@@ -8,18 +8,18 @@ This repository hosts a **static website** (deployed via GitHub Pages) that disp
 
 ## Table of Contents
 
-1. [The Three-Axis Model](#the-three-axis-model)
+1. [Schema - Categories](#schema)
 2. [How the Data is Organised](#how-the-data-is-organised)
 
 ---
 
-## The Three-Axis Model
+## Schema
 
-Every measurement in the inventory is described along **three independent axes**. Together, they tell you **what** is being measured, **how** it is collected, and **when** in the student's journey it happens.
+Every measurement in the inventory is described along **three independent axes**. Together, they tell you **what** is being measured, **how** it is collected, and **when** it happens. These characterize the data **source** (e.g., questionnaire, analytics) and **scope** (program, course).
 
 ### Axis 1 — Domain (what is measured)
 
-The psychological or educational construct. Each measurement belongs to exactly one domain.
+The construct. Each measurement belongs to exactly one domain.
 
 | Domain | What it covers |
 |---|---|
@@ -29,7 +29,7 @@ The psychological or educational construct. Each measurement belongs to exactly 
 | **Self-Regulated Learning & Metacognition** | How students plan, monitor, and reflect on their learning |
 | **Academic & Social Engagement** | How actively students participate — behaviourally, emotionally, cognitively |
 | **Achievement Emotions & Affect** | How students feel during learning — enjoyment, anxiety, boredom |
-| **Virtual Climate & Social Connectedness** | How connected students feel to instructors and peers in online courses |
+| **Virtual Classroom & Social Connectedness** | How connected students feel to instructors and peers in online courses |
 | **AI-Specific Perceptions** | How students perceive and accept the AI Tutor |
 | **Psychological Well-being** | General mental health and positive functioning |
 | **Cognitive Abilities & Reflection** | Executive functioning, working memory, reflective thinking |
@@ -98,3 +98,7 @@ The research protocols and research questions that the inventory supports. This 
 
 - **Design protocols** — the four study designs (between-cohorts, within-cohort, crossover, pre-during-post) and when each is best suited
 - **Research questions** — the two core questions for the ARTOUR project
+
+
+## Notes and Appendix
+
