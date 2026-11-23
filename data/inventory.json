@@ -178,6 +178,28 @@
       ]
     },
     {
+      "id": "wnbe-weekly",
+      "type": "questionnaire",
+      "domain": "motivation",
+      "name": "Weekly Need-Based Experiences Scale (school version, OU-adapted)",
+      "abbr": "WNBE-Weekly",
+      "description": "Weekly, state-level measure of satisfaction and frustration of the three basic psychological needs (autonomy, relatedness, competence) from Self-Determination Theory, specifically as experienced in school/study during the past week. Original 12-item school version from Vandenkerckhove et al. (2019); adapted at the Open University of the Netherlands to a study context. 12 items, six subscales of 2 items each, rated on a 5-point Likert scale (1 = 'helemaal niet akkoord' / completely disagree to 5 = 'helemaal akkoord' / completely agree). Stem: 'Deze week op school...' / 'This week at school...'.",
+      "timing": ["course-during", "course-completion"],
+      "meta": { "items": "12", "subscales": "6", "scale": "5-point Likert" },
+      "constructs": ["Autonomy Satisfaction", "Autonomy Frustration", "Relatedness Satisfaction", "Relatedness Frustration", "Competence Satisfaction", "Competence Frustration"],
+      "items": [
+        { "group": "Autonomy Satisfaction (items 1, 5)", "list": ["… had ik in de klas een gevoel van keuze en vrijheid in de dingen die ik ondernam. / … I felt a sense of choice and freedom in the things I undertook in class.", "… voelde ik dat mijn beslissingen weerspiegelen wat ik echt wil. / … I felt that my decisions reflect what I really want."] },
+        { "group": "Autonomy Frustration (items 2, 6)", "list": ["… voelden de meeste dingen die ik deed op school aan alsof 'het moest'. / … most of the things I did at school felt like 'I had to'.", "… voelde ik me in de klas gedwongen om dingen te doen waar ik zelf niet voor zou kiezen. / … I felt forced to do things in class I wouldn't choose to do."] },
+        { "group": "Relatedness Satisfaction (items 7, 10)", "list": ["… voelde ik me verbonden met mijn vrienden op school. / … I felt connected with my friends at school.", "… had ik een warm gevoel bij de leerlingen en leerkrachten waarmee ik tijd doorbracht. / … I experienced a warm feeling with the students and teachers I spent time with."] },
+        { "group": "Relatedness Frustration (items 3, 8)", "list": ["… voelde ik me uitgesloten uit de groep medeleerlingen waar ik bij wil horen. / … I felt excluded from the group of fellow students I want to belong to.", "… voelde ik dat mijn leerkrachten en medeleerlingen koud en afstandelijk waren tegen mij. / … I felt that my teachers and fellow students were cold and distant towards me."] },
+        { "group": "Competence Satisfaction (items 4, 12)", "list": ["… had ik er vertrouwen in dat ik dingen op school goed kan doen. / … I felt confident that I can do things well at school.", "… voelde ik me bekwaam in wat ik deed op school. / … I felt capable in what I did at school."] },
+        { "group": "Competence Frustration (items 9, 11)", "list": ["… voelde ik me teleurgesteld in mijn schoolse prestaties. / … I felt disappointed in my academic performance.", "… voelde ik me onzeker over mijn vaardigheden. / … I felt insecure about my abilities."] }
+      ],
+      "links": [
+        { "label": "🔗 Vandenkerckhove et al. (2019)", "url": "https://doi.org/10.1016/j.lindif.2018.11.008" }
+      ]
+    },
+    {
       "id": "srq-a",
       "type": "questionnaire",
       "domain": "motivation",
