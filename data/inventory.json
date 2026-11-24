@@ -847,9 +847,19 @@
 
   "projects": [
     {
+      "id": "canva-brainstorming",
+      "label": "Canva Link",
+      "icon": "🎨",
+      "category": "brainstorming",
+      "description": "Brainstorming board / visual workspace on Canva.",
+      "url": "https://canva.link/mpqgdbgfdge16k2",
+      "researchQuestions": [],
+      "protocols": []
+    },
+    {
       "id": "artour-pilot",
       "label": "ARTOUR pilot",
-      "icon": "🎨",
+      "icon": "🤖",
       "description": "Pilot study evaluating the AI Tutor in a course context. Focuses on the comparative effect of AI-supported tutoring vs. baseline instruction, and on the functional effectiveness of the AI Tutor's pedagogical design.",
       "researchQuestions": [
         { "id": "artour-rq1", "label": "RQ1: Comparative Evaluation", "question": "How does the interaction with the AI Tutor affect students' learning processes and outcomes, behavioral engagement, and psychological experience compared to a baseline (non-AI) condition?", "subQuestions": ["1.1 Learning outcomes and behaviors", "1.2 Motivation and engagement", "1.3 Sense of belonging & social connectedness"] },
