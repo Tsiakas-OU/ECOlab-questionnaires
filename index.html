@@ -382,7 +382,9 @@ function renderNav(data) {
     navGroup('Batteries/Collections', '🗃️', batteriesHtml, false);
 
   const projectsHtml = (data.projects || []).map(p =>
-    `<a href="#" data-section="project-${escapeHtml(p.id)}">${p.icon || '📁'} ${escapeHtml(p.label)}</a>`
+    p.url
+      ? `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${p.icon || '📁'} ${escapeHtml(p.label)}</a>`
+      : `<a href="#" data-section="project-${escapeHtml(p.id)}">${p.icon || '📁'} ${escapeHtml(p.label)}</a>`
   ).join('');
   document.getElementById('nav-projects').innerHTML =
     navGroup('Projects', '📁', projectsHtml, false);
@@ -661,7 +663,7 @@ function renderBatteries(batteries, measurements) {
 
 function renderProjects(projects) {
   const container = document.getElementById('projects-container');
-  container.innerHTML = (projects || []).map(p => {
+  container.innerHTML = (projects || []).filter(p => !p.url).map(p => {
     const rqHtml = (p.researchQuestions || []).map(rq => `
       <div class="rq-item">
         <h4>${escapeHtml(rq.label)}</h4>
