@@ -251,8 +251,7 @@
 <main id="main">
   <div class="note-callout">
     <strong>⚠️ Work in progress.</strong> This measurement inventory is an ongoing development.
-    It is <em>not</em> exhaustive, nor has it been systematically or exhaustively developed.
-    Contents, structure, and coverage are subject to change.
+    It is <em>not</em> exhaustive, nor has it been systematically developed.
   </div>
 
   <details class="filter-bar" id="filter-bar">
@@ -283,10 +282,6 @@
       <div class="filter-results" id="filter-results"></div>
     </div>
   </details>
-
-  <div class="note-inline" style="margin-bottom:1rem;">
-    <strong>Note:</strong> Questionnaire labels are provisional and subject to change.
-  </div>
 
   <div id="measurements-container">
     <div class="loading">Loading inventory…</div>
@@ -541,10 +536,15 @@ function applyFilters() {
       ? `<p style="font-size:0.85rem;color:#64748b;margin-bottom:1rem;">${escapeHtml(v.description)}</p>`
       : '';
 
+    const labelNoteHtml = `<div class="note-inline" style="margin-bottom:1rem;">
+      <strong>Note:</strong> Questionnaire labels are provisional and subject to change.
+    </div>`;
+
     if (filtered.length === 0) {
       return `<div id="domain-${dId}" class="section">
         <h2 style="margin-bottom:0.5rem;">${v.icon} ${escapeHtml(v.label)}</h2>
         ${descHtml}
+        ${labelNoteHtml}
         <div class="no-results">No measurements match the current filters.</div>
       </div>`;
     }
@@ -552,9 +552,9 @@ function applyFilters() {
     return `<div id="domain-${dId}" class="section">
       <h2 style="margin-bottom:0.5rem;">${v.icon} ${escapeHtml(v.label)}</h2>
       ${descHtml}
+      ${labelNoteHtml}
       ${filtered.map(renderMeasurementCard).join('')}
     </div>`;
-  }).join('');
 
   // --- Academic Records & Interaction Data: one section per measurement ---
   const systemMeasures = measurements.filter(m => m.domain === 'academic-records-interaction');
