@@ -35,7 +35,29 @@
   nav a:hover { background: #f0f4ff; color: #2563eb; }
   nav a.active { background: #eff6ff; color: #2563eb; border-left-color: #2563eb; font-weight: 500; }
   nav .badge { font-size: 0.65rem; background: #e5e7eb; color: #666; padding: 0.1rem 0.4rem; border-radius: 10px; margin-left: auto; }
-  
+
+  .note-callout {
+    background: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: #78350f;
+    line-height: 1.55;
+  }
+  .note-callout strong { color: #92400e; }
+  .note-callout.note-info {
+    background: #eff6ff; border-color: #bfdbfe; border-left-color: #2563eb; color: #1e3a8a;
+  }
+  .note-callout.note-info strong { color: #1e40af; }
+  .note-inline {
+    font-size: 0.78rem; color: #92400e; background: #fffbeb;
+    border: 1px dashed #fcd34d; border-radius: 6px;
+    padding: 0.5rem 0.75rem; margin-top: 0.75rem;
+  }
+ 
   /* ---- collapsible nav groups ---- */
   nav { padding: 0.75rem 0; }
   .nav-group { margin-bottom: 0.25rem; }
@@ -228,7 +250,11 @@
 </nav>
 
 <main id="main">
-
+  <div class="note-callout">
+    <strong>⚠️ Work in progress.</strong> This measurement inventory is an ongoing development.
+    It is <em>not</em> exhaustive, nor has it been systematically or exhaustively developed.
+    Contents, structure, and coverage are subject to change.
+  </div>
   <details class="filter-bar" id="filter-bar">
     <summary>🔍 Filter Measurements <span style="font-weight:400;text-transform:none;font-size:0.72rem;color:#94a3b8;margin-left:0.5rem;">(selections within a group are combined with AND)</span></summary>
     <div class="filter-bar-body">
@@ -250,15 +276,30 @@
           <div class="filter-chips" id="filter-type"></div>
         </div>
       </div>
+      <div class="note-inline">
+        <strong>Note:</strong> These filters are mostly for demonstration purposes.
+        The filter logic and categories still need to be properly defined.
+      </div>
       <div class="filter-results" id="filter-results"></div>
     </div>
-  </details>
-
+       </details>
+       <div class="note-inline" style="margin-bottom:1rem;">
+       <strong>Note:</strong> Questionnaire labels are provisional and subject to change.
+    </div>
   <div id="measurements-container">
+    <div class="note-callout note-info" id="collections-note">
+      <strong>ℹ️ Placeholder content.</strong> The content of the <em>Batteries</em>
+      sections below are mostly placeholders and will be properly defined in a later version.
+    </div>
     <div class="loading">Loading inventory…</div>
   </div>
 
-  <div id="batteries-container"></div>
+  <div id="batteries-container">
+    <div class="note-callout note-info" id="collections-note">
+      <strong>ℹ️ Placeholder content.</strong> The content of the <em>Projects</em>
+      sections below are mostly placeholders and will be properly defined in a later version.
+    </div>
+  </div>
   <div id="projects-container"></div>
 </main>
 </div>
