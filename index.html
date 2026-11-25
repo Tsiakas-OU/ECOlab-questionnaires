@@ -57,7 +57,7 @@
     border: 1px dashed #fcd34d; border-radius: 6px;
     padding: 0.5rem 0.75rem; margin-top: 0.75rem;
   }
- 
+
   /* ---- collapsible nav groups ---- */
   nav { padding: 0.75rem 0; }
   .nav-group { margin-bottom: 0.25rem; }
@@ -101,15 +101,14 @@
   .nav-group > summary {
     display: flex;
     align-items: center;
-    justify-content: flex-start;   /* was: space-between */
+    justify-content: flex-start;
     gap: 0.35rem;
     padding: 0.55rem 1.25rem;
     text-align: left;
   }
 
-  /* Push the caret to the right edge only if you still want that — otherwise remove this */
   .nav-group > summary .nav-caret {
-    margin-left: auto;             /* remove this line if you want the caret right next to the text */
+    margin-left: auto;
   }
 
   /* Item links: flush left, consistent indent */
@@ -119,7 +118,7 @@
     gap: 0.6rem;
     padding: 0.4rem 1.5rem;
     text-align: left;
-    justify-content: flex-start;   /* explicitly left-align content */
+    justify-content: flex-start;
   }
 
   /* Badge still floats to the right of the row */
@@ -255,6 +254,7 @@
     It is <em>not</em> exhaustive, nor has it been systematically or exhaustively developed.
     Contents, structure, and coverage are subject to change.
   </div>
+
   <details class="filter-bar" id="filter-bar">
     <summary>🔍 Filter Measurements <span style="font-weight:400;text-transform:none;font-size:0.72rem;color:#94a3b8;margin-left:0.5rem;">(selections within a group are combined with AND)</span></summary>
     <div class="filter-bar-body">
@@ -282,24 +282,17 @@
       </div>
       <div class="filter-results" id="filter-results"></div>
     </div>
-       </details>
-       <div class="note-inline" style="margin-bottom:1rem;">
-       <strong>Note:</strong> Questionnaire labels are provisional and subject to change.
-    </div>
+  </details>
+
+  <div class="note-inline" style="margin-bottom:1rem;">
+    <strong>Note:</strong> Questionnaire labels are provisional and subject to change.
+  </div>
+
   <div id="measurements-container">
-    <div class="note-callout note-info" id="collections-note">
-      <strong>ℹ️ Placeholder content.</strong> The content of the <em>Batteries</em>
-      sections below are mostly placeholders and will be properly defined in a later version.
-    </div>
     <div class="loading">Loading inventory…</div>
   </div>
 
-  <div id="batteries-container">
-    <div class="note-callout note-info" id="collections-note">
-      <strong>ℹ️ Placeholder content.</strong> The content of the <em>Projects</em>
-      sections below are mostly placeholders and will be properly defined in a later version.
-    </div>
-  </div>
+  <div id="batteries-container"></div>
   <div id="projects-container"></div>
 </main>
 </div>
@@ -673,8 +666,13 @@ function renderBatteries(batteries, measurements) {
   const byId = {};
   measurements.forEach(m => byId[m.id] = m);
 
+  const noteHtml = `<div class="note-callout note-info" style="margin-bottom:1.5rem;">
+    <strong>ℹ️ Placeholder content.</strong> The contents of the <em>Batteries</em> sections
+    are mostly placeholders and will be properly defined in a later version.
+  </div>`;
+
   const container = document.getElementById('batteries-container');
-  container.innerHTML = (batteries || []).map(b => {
+  container.innerHTML = noteHtml + (batteries || []).map(b => {
     const items = (b.measurementIds || []).map(id => byId[id]).filter(Boolean);
     return `
       <div id="battery-${escapeHtml(b.id)}" class="section">
@@ -703,8 +701,13 @@ function renderBatteries(batteries, measurements) {
 // ---------------- PROJECTS ----------------
 
 function renderProjects(projects) {
+  const noteHtml = `<div class="note-callout note-info" style="margin-bottom:1.5rem;">
+    <strong>ℹ️ Placeholder content.</strong> The contents of the <em>Projects</em> sections
+    are mostly placeholders and will be properly defined in a later version.
+  </div>`;
+
   const container = document.getElementById('projects-container');
-  container.innerHTML = (projects || []).filter(p => !p.url).map(p => {
+  container.innerHTML = noteHtml + (projects || []).filter(p => !p.url).map(p => {
     const rqHtml = (p.researchQuestions || []).map(rq => `
       <div class="rq-item">
         <h4>${escapeHtml(rq.label)}</h4>
