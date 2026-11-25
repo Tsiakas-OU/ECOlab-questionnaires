@@ -555,6 +555,7 @@ function applyFilters() {
       ${labelNoteHtml}
       ${filtered.map(renderMeasurementCard).join('')}
     </div>`;
+   }).join('');
 
   // --- Academic Records & Interaction Data: one section per measurement ---
   const systemMeasures = measurements.filter(m => m.domain === 'academic-records-interaction');
